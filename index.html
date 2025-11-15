@@ -2,666 +2,378 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consultant IA – Écoles, Collèges, Lycées | Mourad Afekhssi</title>
-  <meta name="description" content="Mourad Afekhssi, consultant IA pour établissements scolaires : écoles, collèges et lycées. Audit, automatisation et formation autour de l'intelligence artificielle.">
-
+  <title>NovIA – IA & automatisation pour petites entreprises</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root {
-      --bg: #020617;
-      --bg-soft: #020617;
-      --card-bg: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56,189,248,0.15);
-      --accent-strong: #0ea5e9;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --danger: #f97373;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
-      color: var(--text);
+      background: #020617;
+      color: #e5e7eb;
       line-height: 1.6;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* NAVBAR */
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to right, rgba(2,6,23,0.96), rgba(15,23,42,0.96));
-      border-bottom: 1px solid rgba(148,163,184,0.18);
-    }
-
-    .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 20px;
+      padding: 24px 16px 48px;
+    }
+
+    header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
+      margin-bottom: 32px;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-circle {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #38bdf8, #0f172a 55%, #020617 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .logo {
       font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+    }
+    .logo span {
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 20px;
       font-size: 0.95rem;
-      color: white;
-      border: 1px solid rgba(148,163,184,0.5);
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.7), 0 12px 30px rgba(15,23,42,0.9);
+      opacity: 0.8;
     }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-sub {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.85rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 500;
-      text-decoration: none;
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-      border-color: rgba(56,189,248,0.5);
-    }
-
-    .nav-cta {
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      border: 1px solid rgba(56,189,248,0.5);
-      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.25), rgba(15,23,42,0.95));
-      color: #f9fafb;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 10px 25px rgba(15,23,42,0.9);
-    }
-
-    .nav-cta span {
-      font-size: 1rem;
-    }
-
-    /* HERO */
+    nav a:hover { opacity: 1; }
 
     .hero {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px 26px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.3fr);
-      gap: 32px;
-      align-items: center;
+      margin-bottom: 40px;
     }
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      padding: 5px 10px;
+    .hero-tag {
+      display: inline-block;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .hero-kicker-tag {
-      font-size: 0.7rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.6);
-      color: var(--accent);
-    }
-
-    .hero-title {
-      font-size: 2.25rem;
-      line-height: 1.15;
-      margin: 0 0 14px;
-      color: #f9fafb;
-      letter-spacing: 0.01em;
-    }
-
-    .hero-title span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 34rem;
-      margin-bottom: 18px;
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .pill {
+      background: rgba(34, 197, 94, 0.1);
+      color: #6ee7b7;
       font-size: 0.8rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      background: rgba(15,23,42,0.9);
-      color: var(--muted);
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      padding: 9px 18px;
-      border: none;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: #0b1120;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      box-shadow: 0 18px 40px rgba(56,189,248,0.5);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(148,163,184,0.55);
-      background: rgba(15,23,42,0.7);
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-
-    .hero-note span {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    /* HERO SIDE CARD */
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.18), rgba(15,23,42,0.96));
-      border-radius: 16px;
-      padding: 18px 18px 18px;
-      border: 1px solid rgba(148,163,184,0.45);
-      box-shadow: 0 22px 50px rgba(15,23,42,0.95);
-    }
-
-    .hero-card-title {
-      font-size: 0.9rem;
-      font-weight: 600;
       margin-bottom: 12px;
     }
 
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+    h1 {
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
       margin-bottom: 10px;
     }
-
-    .badge-card {
-      background: rgba(15,23,42,0.95);
-      border-radius: 10px;
-      border: 1px solid rgba(148,163,184,0.3);
-      padding: 8px;
-      font-size: 0.78rem;
-      color: var(--muted);
+    h1 span {
+      color: #38bdf8;
     }
 
-    .badge-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: rgba(148,163,184,0.9);
+    .hero-sub {
+      font-size: 1rem;
+      color: #cbd5f5;
+      margin-bottom: 16px;
+      max-width: 650px;
     }
 
-    .badge-value {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-list {
+      list-style: none;
+      margin-bottom: 14px;
       font-size: 0.95rem;
-      color: #e5e7eb;
-      margin-top: 2px;
+    }
+    .hero-list li {
+      margin-bottom: 4px;
+    }
+    .hero-list li::before {
+      content: "• ";
+      color: #22c55e;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      color: #020617;
       font-weight: 600;
     }
+    .btn-primary:hover { filter: brightness(1.05); }
 
-    .hero-tagline {
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px dashed rgba(148,163,184,0.3);
-      margin-top: 12px;
-      padding-top: 10px;
+    .btn-secondary {
+      border-color: #38bdf8;
+      color: #e5e7eb;
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.9);
     }
 
-    /* MAIN SECTIONS */
+    .hero-aside {
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.9rem;
+    }
+    .hero-aside h2 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .hero-aside p {
+      color: #cbd5f5;
+      margin-bottom: 8px;
+    }
+    .hero-aside ul {
+      list-style: none;
+    }
+    .hero-aside li {
+      margin-bottom: 4px;
+    }
+    .hero-aside li::before {
+      content: "✓ ";
+      color: #22c55e;
+    }
 
-    .sections {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 14px 20px 40px;
+    section { margin-bottom: 40px; }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 2.2fr);
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .col {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
     }
 
     .card {
-      background: rgba(15,23,42,0.96);
-      border-radius: 14px;
-      padding: 16px 16px 14px;
-      border: 1px solid rgba(31,41,55,0.9);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.9);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .card-tag {
-      font-size: 0.7rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      color: var(--muted);
-    }
-
-    .card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: 4px;
-      margin-bottom: 10px;
-    }
-
-    .list {
-      font-size: 0.86rem;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .list li {
-      margin-bottom: 4px;
-    }
-
-    .list li span {
-      color: var(--text);
-    }
-
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .badge-soft {
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 0.76rem;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--muted);
-    }
-
-    .badge-soft.accent {
-      background: var(--accent-soft);
-      border-color: var(--accent-strong);
-      color: var(--accent-strong);
-    }
-
-    .highlight {
-      font-size: 0.82rem;
-      color: var(--muted);
-      border-left: 2px solid rgba(56,189,248,0.7);
-      padding-left: 10px;
-      margin-top: 6px;
-    }
-
-    /* CONTACT */
-
-    .contact-card {
-      background: rgba(15,23,42,0.98);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 16px;
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(148,163,184,0.55);
-      box-shadow: 0 20px 45px rgba(15,23,42,1);
-    }
-
-    .contact-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-    }
-
-    .contact-line {
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.9rem;
-      color: var(--muted);
+    }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .card p {
+      color: #cbd5f5;
+      margin-bottom: 6px;
+    }
+    .card ul {
+      list-style: none;
+    }
+    .card ul li {
       margin-bottom: 4px;
     }
-
-    .contact-line strong {
-      color: var(--text);
+    .card ul li::before {
+      content: "– ";
+      color: #64748b;
     }
 
-    .contact-small {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 8px;
+    .cta {
+      text-align: center;
+      padding: 24px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(56, 189, 248, 0.2));
+      border: 1px solid rgba(52, 211, 153, 0.5);
+      font-size: 0.95rem;
     }
-
-    /* FOOTER */
 
     footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #9ca3af;
       text-align: center;
-      padding: 18px 12px 24px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(15,23,42,0.9);
-      margin-top: auto;
-      background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020617 52%);
+      opacity: 0.7;
     }
 
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-card {
-        order: -1;
-      }
-      .sections {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-      }
-      .container {
-        padding: 20px;
-      }
-      .hero-title {
-        font-size: 1.8rem;
-      }
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      nav a { margin-left: 0; margin-right: 14px; }
+      .hero-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page">
+    <header>
+      <div class="logo">Nov<span>IA</span></div>
+      <nav>
+        <a href="#problemes">Problèmes</a>
+        <a href="#offre">Solutions</a>
+        <a href="#cas">Exemples</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <div class="logo-circle">MA</div>
-        <div class="brand-text">
-          <div class="brand-title">Mourad Afekhssi</div>
-          <div class="brand-sub">Consultant IA – Écoles • Collèges • Lycées</div>
+    <main>
+      <section class="hero">
+        <div class="hero-tag">IA & automatisation pour petites entreprises</div>
+        <div class="hero-grid">
+          <div>
+            <h1>Automatisez votre activité avec l’<span>IA</span>… sans jargon technique</h1>
+            <p class="hero-sub">
+              NovIA aide les TPE, PME, indépendants et cabinets à gagner du temps, réduire les tâches répétitives
+              et structurer leur activité grâce à l’intelligence artificielle et aux outils no-code.
+            </p>
+            <ul class="hero-list">
+              <li>Réponses automatiques aux demandes clientes</li>
+              <li>Saisie et suivi clients centralisés</li>
+              <li>Rappels de rendez-vous, devis, relances simplifiés</li>
+            </ul>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://calendly.com/schol-ia" target="_blank">
+                Réserver un audit IA offert (30 min)
+              </a>
+              <a class="btn-secondary" href="#cas">
+                Voir des cas concrets
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <h2>Pour qui ?</h2>
+            <p>NovIA accompagne notamment :</p>
+            <ul>
+              <li>Artisans, commerçants, restaurateurs</li>
+              <li>Professions libérales (santé, conseil, juridique…)</li>
+              <li>Cabinets (comptables, consultants, formateurs)</li>
+              <li>Entreprises de services (B2B et B2C)</li>
+            </ul>
+          </aside>
         </div>
-      </div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#etapes">Méthode</a>
-        <a href="#offre">Offre découverte</a>
-        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          <span>●</span> RDV 30 min
-        </button>
-      </div>
-    </div>
-  </nav>
+      </section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <div class="hero-kicker">
-        <span class="hero-kicker-tag">Éducation</span>
-        <span>IA au service de la direction et de la vie scolaire</span>
-      </div>
-      <h1 class="hero-title">
-        Gagnez du temps chaque semaine<br>
-        sans changer de logiciel, grâce à <span>l’IA</span>.
-      </h1>
-      <p class="hero-subtitle">
-        J’accompagne les <strong>chefs d’établissement</strong>, adjoints, CPE et secrétariats
-        pour intégrer l’intelligence artificielle dans leur quotidien :
-        moins de tâches répétitives, plus de temps pour l’essentiel.
-      </p>
-      <div class="hero-pills">
-        <div class="pill">✔ Spécialiste du système éducatif français</div>
-        <div class="pill">✔ 15+ ans d’expérience dans l’ÉdTech</div>
-        <div class="pill">✔ Accompagnement humain & concret</div>
-      </div>
-      <div class="hero-ctas">
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Réserver un échange de 30 minutes
-        </button>
-        <button class="btn-secondary" onclick="document.getElementById('offre').scrollIntoView({behavior:'smooth'})">
-          Voir l’offre découverte →
-        </button>
-      </div>
-      <div class="hero-note">
-        <span>Sans engagement</span> · Visio ou téléphone · Adapté à votre réalité de terrain
-      </div>
-    </div>
-
-    <aside class="hero-card">
-      <div class="hero-card-title">En une séance, nous pouvons déjà :</div>
-      <div class="hero-card-grid">
-        <div class="badge-card">
-          <div class="badge-label">Direction</div>
-          <div class="badge-value">Clarifier 2 à 3 usages IA</div>
-          <div class="hero-tagline" style="border:none;padding:0;margin-top:6px;font-size:0.75rem;">
-            Ex. notes d’information, comptes rendus, réponses aux familles.
+      <section id="problemes">
+        <h2 class="section-title">Les problèmes que vous rencontrez peut-être</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Trop de tâches manuelles</h3>
+            <p>
+              Vous perdez du temps à répondre aux mêmes questions, remplir des tableaux, relancer les clients.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Aucun système clair</h3>
+            <p>
+              Informations dispersées entre mails, carnets, Excel, téléphone… Vous gérez tout “à l’instinct”.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Manque de visibilité</h3>
+            <p>
+              Difficile de savoir où vous en êtes : devis envoyés, relances à faire, dossiers en cours…
+            </p>
           </div>
         </div>
-        <div class="badge-card">
-          <div class="badge-label">Vie scolaire</div>
-          <div class="badge-value">Générer des modèles prêts à adapter</div>
-          <div style="font-size:0.75rem;margin-top:6px;color:var(--muted);">
-            Communications, rappels, suivis, synthèses.
+      </section>
+
+      <section id="offre">
+        <h2 class="section-title">Ce que NovIA met en place pour vous</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Audit IA & automatisation</h3>
+            <p>
+              Entretien pour comprendre votre activité, vos outils actuels et identifier où l’IA peut vous
+              faire gagner du temps immédiatement.
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. Mise en place de vos automatisations</h3>
+            <p>Création de workflows sur mesure, par exemple :</p>
+            <ul>
+              <li>Formulaire ➜ fiche client ➜ mail de confirmation</li>
+              <li>Prise de rendez-vous ➜ rappel SMS automatique</li>
+              <li>Mail entrant ➜ tri et réponses semi-automatiques</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>3. IA au quotidien</h3>
+            <p>Paramétrage d’outils IA simples à utiliser :</p>
+            <ul>
+              <li>Génération de mails et réponses types</li>
+              <li>Rédaction de posts, annonces, fiches produits</li>
+              <li>Résumé automatique de documents</li>
+            </ul>
           </div>
         </div>
-        <div class="badge-card">
-          <div class="badge-label">Secrétariat</div>
-          <div class="badge-value">Automatiser des réponses types</div>
-          <div style="font-size:0.75rem;margin-top:6px;color:var(--muted);">
-            Mails récurrents, demandes fréquentes, modèles de courrier.
+      </section>
+
+      <section id="cas">
+        <h2 class="section-title">Exemples concrets d’accompagnement</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Salon de coiffure</h3>
+            <ul>
+              <li>Prise de rendez-vous centralisée</li>
+              <li>Rappels automatiques aux clientes</li>
+              <li>Messages de remerciement et demande d’avis</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Cabinet de conseil</h3>
+            <ul>
+              <li>Centralisation des demandes sur un tableau de bord</li>
+              <li>Modèles de réponses IA pour mail & LinkedIn</li>
+              <li>Suivi automatique des prospects</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Artisan</h3>
+            <ul>
+              <li>Formulaire de demande de devis</li>
+              <li>Réponses automatiques personnalisées</li>
+              <li>Liste des devis à relancer chaque semaine</li>
+            </ul>
           </div>
         </div>
-        <div class="badge-card">
-          <div class="badge-label">Organisation</div>
-          <div class="badge-value">Mettre en place 1 routine IA</div>
-          <div style="font-size:0.75rem;margin-top:6px;color:var(--muted);">
-            Une habitude simple qui vous fait gagner du temps chaque semaine.
-          </div>
+      </section>
+
+      <section id="contact">
+        <div class="cta">
+          <h2 class="section-title">Envie de voir ce que l’IA peut faire pour votre activité ?</h2>
+          <p>
+            Réservez un <strong>audit IA offert de 30 minutes</strong> pour faire le point sur
+            votre situation et identifier 2 ou 3 actions rapides à mettre en place.
+          </p>
+          <p style="margin: 12px 0;">
+            <a href="https://calendly.com/schol-ia" target="_blank" class="btn-primary">
+              Réserver mon audit IA offert
+            </a>
+          </p>
+          <p style="font-size:0.9rem;">
+            Ou contactez-nous : <strong>contact@novia-conseil.fr</strong> (à adapter)
+          </p>
         </div>
-      </div>
-      <div class="hero-tagline">
-        Objectif : repartir avec des exemples concrets, des modèles réutilisables
-        et des idées adaptées à votre établissement.
-      </div>
-    </aside>
-  </section>
+      </section>
+    </main>
 
-  <!-- MAIN SECTIONS -->
-  <section class="sections">
-    <div class="col">
-      <article class="card" id="services">
-        <div class="card-header">
-          <div class="card-title">Vos enjeux au quotidien</div>
-          <div class="card-tag">Écoles • Collèges • Lycées</div>
-        </div>
-        <p>Vous jonglez entre les urgences, les mails, les réunions, les imprévus… tout en gardant le cap sur le projet d’établissement.</p>
-        <ul class="list">
-          <li><span>Beaucoup de temps passé à rédiger :</span> mails, courriers, comptes rendus, synthèses.</li>
-          <li><span>Des tâches répétitives :</span> réponses aux familles, rappels, relances.</li>
-          <li><span>Une équipe sous pression :</span> direction, adjoints, CPE, vie scolaire, secrétariat.</li>
-        </ul>
-        <p class="highlight">
-          L’IA ne remplace personne : elle vous aide à produire plus vite, avec moins d’effort,
-          tout en gardant votre style et vos décisions.
-        </p>
-      </article>
-
-      <article class="card" id="etapes">
-        <div class="card-header">
-          <div class="card-title">Comment je vous accompagne</div>
-          <div class="card-tag">Approche très concrète</div>
-        </div>
-        <ol class="list" style="list-style: decimal;">
-          <li>Compréhension de votre contexte (type d’établissement, taille, équipe, outils utilisés).</li>
-          <li>Identification de 2 ou 3 “quick wins” IA, directement applicables.</li>
-          <li>Mise en place de modèles IA adaptés à vos documents et à votre ton.</li>
-          <li>Transmission d’une méthode simple pour réutiliser l’IA au quotidien.</li>
-        </ol>
-        <p class="highlight">
-          L’objectif n’est pas de vous “former à l’IA” au sens théorique,
-          mais de vous faire gagner du temps sur les tâches qui vous pèsent vraiment.
-        </p>
-      </article>
-    </div>
-
-    <div class="col">
-      <article class="card" id="offre">
-        <div class="card-header">
-          <div class="card-title">Offre découverte – 30 minutes</div>
-          <div class="card-tag">Sans engagement</div>
-        </div>
-        <p>Un échange court, ciblé sur vos besoins, pour :</p>
-        <ul class="list">
-          <li>Faire le point sur votre usage actuel (ou non) de l’IA.</li>
-          <li>Identifier 1 ou 2 situations où l’IA peut vous aider immédiatement.</li>
-          <li>Répondre à vos questions très concrètes sur les outils.</li>
-        </ul>
-        <div class="badges-row">
-          <div class="badge-soft accent">Visio ou téléphone</div>
-          <div class="badge-soft">Adapté à votre réalité de terrain</div>
-          <div class="badge-soft">Établissements publics & privés</div>
-        </div>
-        <p class="highlight">
-          À l’issue de cet échange, vous repartez avec des idées claires,
-          et la possibilité de poursuivre ou non l’accompagnement, en toute liberté.
-        </p>
-      </article>
-
-      <article class="contact-card" id="contact">
-        <h3>📞 Me contacter</h3>
-        <p class="contact-line"><strong>Mourad Afekhssi</strong></p>
-        <p class="contact-line">Email : <a href="mailto:mourad.afekhssi@gmail.com">mourad.afekhssi@gmail.com</a></p>
-        <p class="contact-line">Téléphone : <strong>06 25 78 54 99</strong></p>
-        <p class="contact-small">
-          Vous pouvez m’écrire ou m’appeler directement.
-          Nous convenons ensemble d’un créneau pour un premier échange.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 – Mourad Afekhssi – Consultant IA pour écoles, collèges et lycées ·
-    Site de présentation one-page hébergé sur GitHub Pages.
-  </footer>
-
-</div>
+    <footer>
+      NovIA – IA & automatisation pour petites entreprises
+    </footer>
+  </div>
 </body>
 </html>
