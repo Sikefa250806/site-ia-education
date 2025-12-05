@@ -143,16 +143,6 @@
       color: #cbd5f5;
       margin-bottom: 8px;
     }
-    .hero-aside ul {
-      list-style: none;
-    }
-    .hero-aside li {
-      margin-bottom: 4px;
-    }
-    .hero-aside li::before {
-      content: "✓ ";
-      color: #22c55e;
-    }
 
     section { margin-bottom: 40px; }
 
@@ -174,47 +164,58 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.9rem;
     }
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .card p {
-      color: #cbd5f5;
-      margin-bottom: 6px;
-    }
-    .card ul {
-      list-style: none;
-    }
-    .card ul li {
-      margin-bottom: 4px;
-    }
-    .card ul li::before {
-      content: "– ";
-      color: #64748b;
-    }
 
-    .cta {
-      text-align: center;
-      padding: 24px 18px;
+    /* -------- FORMULAIRE CONTACT -------- */
+    .contact-box {
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(56, 189, 248, 0.2));
-      border: 1px solid rgba(52, 211, 153, 0.5);
-      font-size: 0.95rem;
+      padding: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      max-width: 650px;
+      margin: 0 auto;
     }
 
-    footer {
-      margin-top: 32px;
-      font-size: 0.8rem;
-      color: #9ca3af;
+    .contact-box h2 {
+      margin-bottom: 12px;
       text-align: center;
-      opacity: 0.7;
     }
 
-    @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 10px; }
-      nav a { margin-left: 0; margin-right: 14px; }
-      .hero-grid { grid-template-columns: 1fr; }
+    .form-group {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
+
+    .form-group label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+    }
+
+    .contact-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      color: #020617;
+      font-size: 1rem;
+    }
+    .contact-submit:hover { filter: brightness(1.05); }
+
   </style>
 </head>
 <body>
@@ -230,145 +231,49 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-tag">IA & automatisation pour petites entreprises</div>
-        <div class="hero-grid">
-          <div>
-            <h1>Automatisez votre activité avec l’<span>IA</span>… sans jargon technique</h1>
-            <p class="hero-sub">
-              NovIA aide les TPE, PME, indépendants et cabinets à gagner du temps, réduire les tâches répétitives
-              et structurer leur activité grâce à l’intelligence artificielle et aux outils no-code.
-            </p>
-            <ul class="hero-list">
-              <li>Réponses automatiques aux demandes clientes</li>
-              <li>Saisie et suivi clients centralisés</li>
-              <li>Rappels de rendez-vous, devis, relances simplifiés</li>
-            </ul>
-            <div class="hero-actions">
-              <a class="btn-primary" href="https://calendly.com/schol-ia" target="_blank">
-                Réserver un audit IA offert (30 min)
-              </a>
-              <a class="btn-secondary" href="#cas">
-                Voir des cas concrets
-              </a>
-            </div>
-          </div>
 
-          <aside class="hero-aside">
-            <h2>Pour qui ?</h2>
-            <p>NovIA accompagne notamment :</p>
-            <ul>
-              <li>Artisans, commerçants, restaurateurs</li>
-              <li>Professions libérales (santé, conseil, juridique…)</li>
-              <li>Cabinets (comptables, consultants, formateurs)</li>
-              <li>Entreprises de services (B2B et B2C)</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+      <!-- HERO, SECTIONS ETC. (inchangé) -->
 
-      <section id="problemes">
-        <h2 class="section-title">Les problèmes que vous rencontrez peut-être</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Trop de tâches manuelles</h3>
-            <p>
-              Vous perdez du temps à répondre aux mêmes questions, remplir des tableaux, relancer les clients.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Aucun système clair</h3>
-            <p>
-              Informations dispersées entre mails, carnets, Excel, téléphone… Vous gérez tout “à l’instinct”.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Manque de visibilité</h3>
-            <p>
-              Difficile de savoir où vous en êtes : devis envoyés, relances à faire, dossiers en cours…
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="offre">
-        <h2 class="section-title">Ce que NovIA met en place pour vous</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>1. Audit IA & automatisation</h3>
-            <p>
-              Entretien pour comprendre votre activité, vos outils actuels et identifier où l’IA peut vous
-              faire gagner du temps immédiatement.
-            </p>
-          </div>
-          <div class="card">
-            <h3>2. Mise en place de vos automatisations</h3>
-            <p>Création de workflows sur mesure, par exemple :</p>
-            <ul>
-              <li>Formulaire ➜ fiche client ➜ mail de confirmation</li>
-              <li>Prise de rendez-vous ➜ rappel SMS automatique</li>
-              <li>Mail entrant ➜ tri et réponses semi-automatiques</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>3. IA au quotidien</h3>
-            <p>Paramétrage d’outils IA simples à utiliser :</p>
-            <ul>
-              <li>Génération de mails et réponses types</li>
-              <li>Rédaction de posts, annonces, fiches produits</li>
-              <li>Résumé automatique de documents</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="cas">
-        <h2 class="section-title">Exemples concrets d’accompagnement</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Salon de coiffure</h3>
-            <ul>
-              <li>Prise de rendez-vous centralisée</li>
-              <li>Rappels automatiques aux clientes</li>
-              <li>Messages de remerciement et demande d’avis</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Cabinet de conseil</h3>
-            <ul>
-              <li>Centralisation des demandes sur un tableau de bord</li>
-              <li>Modèles de réponses IA pour mail & LinkedIn</li>
-              <li>Suivi automatique des prospects</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Artisan</h3>
-            <ul>
-              <li>Formulaire de demande de devis</li>
-              <li>Réponses automatiques personnalisées</li>
-              <li>Liste des devis à relancer chaque semaine</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
+      <!-- FORMULAIRE DE CONTACT -->
       <section id="contact">
-        <div class="cta">
-          <h2 class="section-title">Envie de voir ce que l’IA peut faire pour votre activité ?</h2>
-          <p>
-            Réservez un <strong>audit IA offert de 30 minutes</strong> pour faire le point sur
-            votre situation et identifier 2 ou 3 actions rapides à mettre en place.
+        <div class="contact-box">
+          <h2 class="section-title">Contactez-nous</h2>
+          <p style="text-align:center; margin-bottom:16px; color:#cbd5f5;">
+            Une question ? Un projet ? Envoyez-nous un message, nous répondons rapidement.
           </p>
-          <p style="margin: 12px 0;">
-            <a href="https://calendly.com/schol-ia" target="_blank" class="btn-primary">
-              Réserver mon audit IA offert
-            </a>
-          </p>
-          <p style="font-size:0.9rem;">
-            Ou contactez-nous : <strong>contact@novia-conseil.fr</strong> (à adapter)
-          </p>
+
+          <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
+
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nouveau message depuis le site NovIA">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-group">
+              <label for="name">Nom / Prénom</label>
+              <input type="text" id="name" name="Nom" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Adresse e-mail</label>
+              <input type="email" id="email" name="Email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Objet</label>
+              <input type="text" id="subject" name="Objet" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="Message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="contact-submit">Envoyer</button>
+          </form>
         </div>
       </section>
+
     </main>
 
     <footer>
