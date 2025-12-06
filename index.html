@@ -54,6 +54,17 @@
       background: rgba(34, 197, 94, 0.1);
       color: #6ee7b7;
       font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-tag-secondary {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      font-size: 0.8rem;
+      margin-left: 6px;
       margin-bottom: 12px;
     }
 
@@ -279,6 +290,17 @@
       margin-top: 8px;
     }
 
+    .audit-tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px dashed rgba(52, 211, 153, 0.8);
+      font-size: 0.8rem;
+      color: #bbf7d0;
+      background: rgba(21, 128, 61, 0.18);
+    }
+
     @media (max-width: 768px) {
       header { flex-direction: column; align-items: flex-start; gap: 10px; }
       nav a { margin-left: 0; margin-right: 14px; }
@@ -301,26 +323,34 @@
     <main>
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-tag">Optimisation & automatisation de tâches via l’IA</div>
+        <div>
+          <span class="hero-tag">Optimisation & automatisation de tâches via l’IA</span>
+          <span class="hero-tag-secondary">Audit gratuit sans engagement</span>
+        </div>
         <div class="hero-grid">
           <div>
             <h1>
-              Gagnez du temps chaque semaine grâce à l’<span>IA</span>, sans changer de métier
+              Gagnez du temps chaque semaine grâce au numérique et à l’<span>IA</span>, sans changer de métier
             </h1>
             <p class="hero-sub">
-              NovIA Solutions aide les petites entreprises à se débarrasser des tâches répétitives
-              et désorganisées pour retrouver du temps, de la visibilité et de la sérénité dans le quotidien.
+              NovIA Solutions accompagne les petites entreprises dans leur transformation digitale :
+              création de site web, automatisation de tâches, chatbots et agents IA qui travaillent pour vous
+              en arrière-plan.
             </p>
             <div class="badge-row">
               <div class="badge">Moins d’administratif</div>
               <div class="badge">Moins d’erreurs</div>
               <div class="badge">Plus de clients servis</div>
+              <div class="badge">Présence en ligne plus professionnelle</div>
             </div>
             <ul class="hero-list">
               <li>Jusqu’à plusieurs heures gagnées par semaine sur la gestion quotidienne</li>
-              <li>Des relances clients qui partent automatiquement, sans y penser</li>
-              <li>Une vision claire des demandes, devis et dossiers en cours</li>
+              <li>Des relances clients et réponses simples qui partent automatiquement</li>
+              <li>Un site clair, des formulaires efficaces et des chatbots qui répondent 24h/24</li>
             </ul>
+            <div class="audit-tag">
+              Audit de vos outils et de vos processus offert – vous décidez ensuite si vous voulez aller plus loin.
+            </div>
           </div>
 
           <aside class="hero-aside">
@@ -384,44 +414,64 @@
         </div>
       </section>
 
-      <!-- OFFRE -->
+      <!-- OFFRE / SERVICES -->
       <section id="offre">
-        <h2 class="section-title">Ce que NovIA Solutions met en place pour vous</h2>
+        <h2 class="section-title">Nos solutions digitales pour votre activité</h2>
+        <p class="section-sub">
+          Nous combinons création de site web, automatisation et intelligence artificielle
+          pour construire un écosystème simple, efficace et adapté à la taille de votre entreprise.
+        </p>
+
         <div class="grid">
           <div class="card">
-            <h3>1. Diagnostic de vos tâches et de vos outils</h3>
+            <h3>1. Audit gratuit de votre situation</h3>
             <p>
-              Nous commençons par comprendre votre réalité : comment arrivent les demandes, comment vous répondez,
-              où vous perdez du temps et de l’énergie.
+              Nous commençons par un échange et un diagnostic de vos outils et de vos habitudes de travail :
+              aucune obligation, aucun engagement.
             </p>
             <ul>
-              <li>Analyse des flux (mails, téléphone, formulaires, messageries)</li>
-              <li>Identification des tâches répétitives à faible valeur ajoutée</li>
-              <li>Priorisation des gains rapides (quick wins)</li>
+              <li>Analyse de votre présence en ligne (site, Google, réseaux si besoin)</li>
+              <li>Cartographie de vos tâches répétitives et de vos points de friction</li>
+              <li>Proposition de pistes d’optimisation et d’automatisation priorisées</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3>2. Automatisations concrètes, adaptées à votre niveau</h3>
+            <h3>2. Site web & présence en ligne</h3>
             <p>
-              Nous mettons en place des scénarios simples et robustes basés sur l’IA et des outils no-code accessibles.
+              Nous créons ou modernisons votre site vitrine pour qu’il devienne un vrai point d’entrée
+              pour vos prospects et clients.
             </p>
             <ul>
-              <li>Centralisation des demandes clients sur un tableau de bord</li>
-              <li>Réponses types intelligentes pour vos e-mails et formulaires</li>
-              <li>Rappels automatiques pour devis, rendez-vous ou dossiers en retard</li>
+              <li>Création de site simple, clair et adapté au mobile</li>
+              <li>Nom de domaine, e-mails pros et formulaires de contact efficaces</li>
+              <li>Pages d’atterrissage (landing pages) pour vos offres spécifiques</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3>3. Accompagnement et appropriation</h3>
+            <h3>3. Automatisations & workflows</h3>
             <p>
-              Nous vous montrons comment utiliser les nouveaux outils au quotidien, sans vous noyer dans la technique.
+              Nous mettons en place des scénarios concrets pour que certaines tâches se fassent toutes seules
+              ou presque.
             </p>
             <ul>
-              <li>Prise en main guidée, pas à pas</li>
-              <li>Modèles de messages prêts à l’emploi</li>
-              <li>Possibilité d’ajuster après quelques semaines d’utilisation</li>
+              <li>Centralisation des demandes clients (e-mail, formulaires, site…)</li>
+              <li>Relances automatiques pour devis, rendez-vous ou factures</li>
+              <li>Tableaux de bord pour suivre l’état de vos dossiers</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>4. Chatbots & agents IA pour votre entreprise</h3>
+            <p>
+              Des assistants numériques qui répondent aux questions fréquentes, qualifient les demandes
+              ou vous aident en interne.
+            </p>
+            <ul>
+              <li>Chatbot sur votre site pour répondre aux questions courantes 24h/24</li>
+              <li>Agents IA internes pour résumer des mails, générer des réponses, préparer des documents</li>
+              <li> scénarios d’assistance sur mesure selon votre métier</li>
             </ul>
           </div>
         </div>
@@ -455,16 +505,17 @@
         </div>
       </section>
 
-      <!-- CTA TEXTE -->
+      <!-- MINI SECTION AUDIT -->
       <section>
         <div class="cta">
-          <h2 class="section-title">Envie de voir ce que l’IA peut changer dans votre semaine ?</h2>
+          <h2 class="section-title">Un premier audit, gratuitement et sans engagement</h2>
           <p>
-            Dites-nous comment vous travaillez aujourd’hui et ce qui vous pèse le plus.
-            Nous vous proposerons des pistes concrètes d’optimisation et d’automatisation adaptées à votre entreprise.
+            Vous nous expliquez comment vous travaillez aujourd’hui (site, e-mails, relances, outils…),
+            nous identifions les leviers rapides de digitalisation, d’automatisation et d’optimisation.
           </p>
           <p style="margin-top: 10px; font-size:0.9rem;">
-            Remplissez le formulaire ci-dessous, nous revenons vers vous rapidement.
+            À l’issue de cet audit, vous repartez avec une vision claire des priorités, libre à vous ensuite de
+            mettre en place les solutions avec nous… ou par vous-même.
           </p>
         </div>
       </section>
@@ -523,7 +574,7 @@
     </main>
 
     <footer>
-      NovIA Solutions – Optimisation & automatisation de tâches via l’IA pour petites entreprises
+      NovIA Solutions – Digitaliser • Automatiser • Optimiser pour les petites entreprises
     </footer>
   </div>
 </body>
