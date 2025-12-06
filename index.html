@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>NovIA Solutions – IA & automatisation pour petites entreprises</title>
+  <title>NovIA Solutions – Digitaliser • Automatiser • Optimiser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,9 +32,7 @@
       font-size: 1.4rem;
       letter-spacing: 0.06em;
     }
-    .logo span {
-      color: #38bdf8;
-    }
+    .logo span { color: #38bdf8; }
 
     nav a {
       margin-left: 20px;
@@ -43,9 +41,8 @@
     }
     nav a:hover { opacity: 1; }
 
-    .hero {
-      margin-bottom: 40px;
-    }
+    /* HERO */
+    .hero { margin-bottom: 40px; }
 
     .hero-tag {
       display: inline-block;
@@ -54,7 +51,6 @@
       background: rgba(34, 197, 94, 0.1);
       color: #6ee7b7;
       font-size: 0.8rem;
-      margin-bottom: 8px;
     }
 
     .hero-tag-secondary {
@@ -65,16 +61,14 @@
       color: #7dd3fc;
       font-size: 0.8rem;
       margin-left: 6px;
-      margin-bottom: 12px;
     }
 
     h1 {
       font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+      margin-top: 10px;
       margin-bottom: 10px;
     }
-    h1 span {
-      color: #38bdf8;
-    }
+    h1 span { color: #38bdf8; }
 
     .hero-sub {
       font-size: 1rem;
@@ -90,25 +84,11 @@
       align-items: stretch;
     }
 
-    .hero-list {
-      list-style: none;
-      margin-bottom: 14px;
-      font-size: 0.95rem;
-    }
-    .hero-list li {
-      margin-bottom: 4px;
-    }
-    .hero-list li::before {
-      content: "• ";
-      color: #22c55e;
-    }
-
     .badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
-      margin-bottom: 4px;
+      margin: 10px 0;
       font-size: 0.8rem;
     }
     .badge {
@@ -118,6 +98,29 @@
       opacity: 0.9;
     }
 
+    .hero-list {
+      list-style: none;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+    .hero-list li { margin-bottom: 4px; }
+    .hero-list li::before {
+      content: "• ";
+      color: #22c55e;
+    }
+
+    .audit-tag-hero {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-top: 6px;
+      border-radius: 999px;
+      border: 1px dashed rgba(52, 211, 153, 0.8);
+      color: #bbf7d0;
+      background: rgba(21, 128, 61, 0.18);
+      font-size: 0.8rem;
+    }
+
+    /* ASIDE */
     .hero-aside {
       background: radial-gradient(circle at top left, #0f172a, #020617);
       border-radius: 16px;
@@ -125,32 +128,11 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.9rem;
     }
-    .hero-aside h2 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-    .hero-aside p {
-      color: #cbd5f5;
-      margin-bottom: 8px;
-    }
-    .hero-aside ul {
-      list-style: none;
-    }
-    .hero-aside li {
-      margin-bottom: 4px;
-    }
-    .hero-aside li::before {
-      content: "✓ ";
-      color: #22c55e;
-    }
+    .hero-aside h2 { margin-bottom: 8px; }
 
+    /* GENERAL SECTION */
     section { margin-bottom: 40px; }
-
-    .section-title {
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-    }
-
+    .section-title { font-size: 1.25rem; margin-bottom: 14px; }
     .section-sub {
       font-size: 0.95rem;
       color: #cbd5f5;
@@ -158,6 +140,7 @@
       max-width: 650px;
     }
 
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -171,51 +154,19 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.9rem;
     }
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .card p {
-      color: #cbd5f5;
-      margin-bottom: 6px;
-    }
-    .card ul {
-      list-style: none;
-    }
-    .card ul li {
-      margin-bottom: 4px;
-    }
-    .card ul li::before {
-      content: "– ";
-      color: #64748b;
-    }
+    .card h3 { margin-bottom: 6px; }
+    .card p { color: #cbd5f5; margin-bottom: 6px; }
+    .card ul { list-style: none; }
+    .card li { margin-bottom: 4px; }
+    .card li::before { content: "– "; color: #64748b; }
 
-    .numbers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .numbers-item {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 14px;
-      padding: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      font-size: 0.9rem;
-    }
-    .numbers-item strong {
-      font-size: 1.3rem;
-      display: block;
-      margin-bottom: 4px;
-      color: #38bdf8;
-    }
-
+    /* CTA */
     .cta {
       text-align: center;
-      padding: 24px 18px;
+      padding: 24px;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(56, 189, 248, 0.2));
-      border: 1px solid rgba(52, 211, 153, 0.5);
+      background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(56,189,248,0.2));
+      border: 1px solid rgba(52,211,153,0.5);
       font-size: 0.95rem;
     }
 
@@ -227,21 +178,16 @@
       opacity: 0.7;
     }
 
-    /* -------- FORMULAIRE CONTACT -------- */
+    /* CONTACT */
     .contact-box {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15,23,42,0.95);
       border-radius: 18px;
       padding: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148,163,184,0.4);
       max-width: 680px;
       margin: 0 auto;
     }
-
-    .contact-box h2 {
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
+    .contact-box h2 { margin-bottom: 8px; text-align: center; }
     .contact-intro {
       text-align: center;
       margin-bottom: 16px;
@@ -255,26 +201,13 @@
       gap: 14px 16px;
     }
 
-    .form-group {
-      margin-bottom: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.9rem;
-    }
-
-    .form-group label {
-      opacity: 0.9;
-    }
-
-    .form-group input,
-    .form-group textarea {
+    .form-group { margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .form-group input, .form-group textarea {
       padding: 10px 12px;
       border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148,163,184,0.6);
       background: #020617;
       color: #e5e7eb;
-      font-size: 0.9rem;
     }
 
     .contact-submit {
@@ -286,19 +219,7 @@
       font-weight: 600;
       background: linear-gradient(135deg, #22c55e, #38bdf8);
       color: #020617;
-      font-size: 1rem;
       margin-top: 8px;
-    }
-
-    .audit-tag {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px dashed rgba(52, 211, 153, 0.8);
-      font-size: 0.8rem;
-      color: #bbf7d0;
-      background: rgba(21, 128, 61, 0.18);
     }
 
     @media (max-width: 768px) {
@@ -308,8 +229,11 @@
     }
   </style>
 </head>
+
 <body>
   <div class="page">
+
+    <!-- HEADER -->
     <header>
       <div class="logo">Nov<span>IA</span> Solutions</div>
       <nav>
@@ -320,262 +244,234 @@
       </nav>
     </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="hero-tag">Digitalisation & automatisation</span>
+        <span class="hero-tag-secondary">Audit gratuit sans engagement</span>
+      </div>
+
+      <div class="hero-grid">
         <div>
-          <span class="hero-tag">Optimisation & automatisation de tâches via l’IA</span>
-          <span class="hero-tag-secondary">Audit gratuit sans engagement</span>
-        </div>
-        <div class="hero-grid">
-          <div>
-            <h1>
-              Gagnez du temps chaque semaine grâce au numérique et à l’<span>IA</span>, sans changer de métier
-            </h1>
-            <p class="hero-sub">
-              NovIA Solutions accompagne les petites entreprises dans leur transformation digitale :
-              création de site web, automatisation de tâches, chatbots et agents IA qui travaillent pour vous
-              en arrière-plan.
-            </p>
-            <div class="badge-row">
-              <div class="badge">Moins d’administratif</div>
-              <div class="badge">Moins d’erreurs</div>
-              <div class="badge">Plus de clients servis</div>
-              <div class="badge">Présence en ligne plus professionnelle</div>
-            </div>
-            <ul class="hero-list">
-              <li>Jusqu’à plusieurs heures gagnées par semaine sur la gestion quotidienne</li>
-              <li>Des relances clients et réponses simples qui partent automatiquement</li>
-              <li>Un site clair, des formulaires efficaces et des chatbots qui répondent 24h/24</li>
-            </ul>
-            <div class="audit-tag">
-              Audit de vos outils et de vos processus offert – vous décidez ensuite si vous voulez aller plus loin.
-            </div>
+          <h1>
+            Gagnez du temps chaque semaine grâce à l’<span>IA</span> et au numérique
+          </h1>
+          <p class="hero-sub">
+            NovIA Solutions aide les petites entreprises à automatiser leurs tâches répétitives,
+            améliorer leur présence en ligne et installer des chatbots & agents IA qui travaillent pour vous.
+          </p>
+
+          <div class="badge-row">
+            <div class="badge">Moins d’administratif</div>
+            <div class="badge">Chatbots 24h/24</div>
+            <div class="badge">Agents IA internes</div>
+            <div class="badge">Présence web plus professionnelle</div>
           </div>
 
-          <aside class="hero-aside">
-            <h2>Pour qui ?</h2>
-            <p>NovIA Solutions accompagne les structures qui veulent aller à l’essentiel :</p>
-            <ul>
-              <li>Artisans, commerçants, restaurateurs</li>
-              <li>Professions libérales, cabinets, indépendants</li>
-              <li>Coaches, consultants, organismes de formation</li>
-              <li>Toute petite entreprise sans service informatique dédié</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+          <ul class="hero-list">
+            <li>Des relances et réponses automatiques</li>
+            <li>Des assistants IA qui trient, analysent et résument</li>
+            <li>Un site moderne qui convertit plus de clients</li>
+          </ul>
 
-      <!-- BENEFICES MIS EN AVANT -->
-      <section id="benefices">
-        <h2 class="section-title">Les bénéfices concrets pour votre entreprise</h2>
-        <p class="section-sub">
-          L’objectif n’est pas d’ajouter une couche de technologie, mais de simplifier votre quotidien.
-          Chaque projet est pensé pour produire des résultats visibles en peu de temps.
+          <div class="audit-tag-hero">
+            Audit offert : vous découvrez vos points d’amélioration, libre à vous de continuer ou non.
+          </div>
+        </div>
+
+        <aside class="hero-aside">
+          <h2>Pour qui ?</h2>
+          <p>Nous aidons les structures qui veulent aller à l’essentiel :</p>
+          <ul>
+            <li>Artisans & commerçants</li>
+            <li>Professions libérales</li>
+            <li>Indépendants, coaches, formateurs</li>
+            <li>TPE sans service informatique</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BENEFICES -->
+    <section id="benefices">
+      <h2 class="section-title">Les bénéfices pour votre entreprise</h2>
+      <p class="section-sub">
+        Des résultats rapides, visibles et concrets pour alléger votre quotidien.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Plus de temps pour vos clients</h3>
+          <p>Les tâches répétitives disparaissent, vous libérant plusieurs heures par semaine.</p>
+        </div>
+        <div class="card">
+          <h3>Organisation simplifiée</h3>
+          <p>Tout est centralisé, automatisé et facile à retrouver.</p>
+        </div>
+        <div class="card">
+          <h3>Stress réduit</h3>
+          <p>Les relances partent seules, les réponses sont structurées, rien n’est oublié.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="offre">
+      <h2 class="section-title">Nos solutions intelligentes pour votre entreprise</h2>
+      <p class="section-sub">
+        Nous combinons IA, automatisation et outils numériques simples pour
+        créer un véritable gain de temps dans votre activité.
+      </p>
+
+      <div class="grid">
+
+        <!-- Audit -->
+        <div class="card">
+          <h3>1. Audit gratuit de votre organisation</h3>
+          <p>Un diagnostic complet de vos outils, de vos tâches et de votre présence web.</p>
+          <ul>
+            <li>Audit administratif & numérique</li>
+            <li>Analyse des tâches répétitives</li>
+            <li>Plan d’amélioration sans engagement</li>
+          </ul>
+        </div>
+
+        <!-- Chatbots -->
+        <div class="card">
+          <h3>2. Chatbots intelligents pour votre site</h3>
+          <p>Un assistant disponible 24h/24 pour répondre, qualifier et capter des clients.</p>
+          <ul>
+            <li>Chatbot personnalisé métier</li>
+            <li>Réponses instantanées & formulaires guidés</li>
+            <li>Installation sur votre site ou Google Business</li>
+          </ul>
+        </div>
+
+        <!-- Agents IA -->
+        <div class="card">
+          <h3>3. Agents IA pour automatiser votre quotidien</h3>
+          <p>Des assistants IA internes qui travaillent en arrière-plan pour vous.</p>
+          <ul>
+            <li>Tri et réponse automatique aux e-mails</li>
+            <li>Rédaction de documents & messages</li>
+            <li>Préparation de devis, notes, résumés</li>
+          </ul>
+        </div>
+
+        <!-- Automatisations -->
+        <div class="card">
+          <h3>4. Automatisations & workflows</h3>
+          <p>Nous éliminons les tâches répétitives qui vous prennent du temps.</p>
+          <ul>
+            <li>Relances automatiques</li>
+            <li>Centralisation des demandes</li>
+            <li>Tableaux de bord simplifiés</li>
+          </ul>
+        </div>
+
+        <!-- Site Web -->
+        <div class="card">
+          <h3>5. Création de site & présence web</h3>
+          <p>Un site professionnel qui convertit vos visiteurs en clients.</p>
+          <ul>
+            <li>Site vitrine moderne & responsive</li>
+            <li>Nom de domaine + e-mail pro</li>
+            <li>Pages d’offre & formulaires intelligents</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VALEUR AJOUTÉE -->
+    <section id="valeur">
+      <h2 class="section-title">Pourquoi choisir NovIA Solutions ?</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Un accompagnement humain</h3>
+          <p>On part de vos besoins réels, pas de la technologie pour la technologie.</p>
+        </div>
+        <div class="card">
+          <h3>Solutions simples et efficaces</h3>
+          <p>Pas d’usine à gaz — uniquement des outils que vous pouvez réellement utiliser.</p>
+        </div>
+        <div class="card">
+          <h3>Un partenaire dans la durée</h3>
+          <p>Nous ajustons les automatisations au fil de votre croissance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Audit -->
+    <section>
+      <div class="cta">
+        <h2 class="section-title">Votre audit gratuit, sans engagement</h2>
+        <p>
+          En 20 à 30 minutes, nous identifions vos leviers de digitalisation, d'automatisation 
+          et d'amélioration de votre organisation.
         </p>
-
-        <div class="numbers">
-          <div class="numbers-item">
-            <strong>2–5 h</strong>
-            <span>de tâches répétitives économisées par semaine en moyenne, selon l’activité.</span>
-          </div>
-          <div class="numbers-item">
-            <strong>+30&nbsp;%</strong>
-            <span>de demandes traitées sans recruter, grâce à une meilleure organisation et à des réponses structurées.</span>
-          </div>
-          <div class="numbers-item">
-            <strong>0 oubli</strong>
-            <span>des relances importantes (devis, rendez-vous, dossiers), grâce à des rappels et workflows automatisés.</span>
-          </div>
-        </div>
-
-        <div class="grid" style="margin-top:20px;">
-          <div class="card">
-            <h3>Plus de temps pour vos clients</h3>
-            <p>
-              En supprimant une partie de la saisie manuelle, des copier-coller et des petites tâches invisibles,
-              vous libérez du temps là où vous apportez le plus de valeur : le contact humain.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Une organisation qui tient la route</h3>
-            <p>
-              Les informations sont centralisées, vos processus sont clarifiés, et chacun sait quoi faire et quand.
-              Vous gagnez en confort et en professionnalisme.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Moins de stress, plus de visibilité</h3>
-            <p>
-              Vous savez où vous en êtes : demandes entrantes, relances à faire, dossiers en attente.
-              Cela vous aide à décider plus calmement… et à dormir un peu mieux.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- OFFRE / SERVICES -->
-      <section id="offre">
-        <h2 class="section-title">Nos solutions digitales pour votre activité</h2>
-        <p class="section-sub">
-          Nous combinons création de site web, automatisation et intelligence artificielle
-          pour construire un écosystème simple, efficace et adapté à la taille de votre entreprise.
+        <p style="margin-top:10px; font-size:0.9rem;">
+          Vous repartez avec une vision claire et priorisée. Libre à vous ensuite de poursuivre… ou non.
         </p>
+      </div>
+    </section>
 
-        <div class="grid">
-          <div class="card">
-            <h3>1. Audit gratuit de votre situation</h3>
-            <p>
-              Nous commençons par un échange et un diagnostic de vos outils et de vos habitudes de travail :
-              aucune obligation, aucun engagement.
-            </p>
-            <ul>
-              <li>Analyse de votre présence en ligne (site, Google, réseaux si besoin)</li>
-              <li>Cartographie de vos tâches répétitives et de vos points de friction</li>
-              <li>Proposition de pistes d’optimisation et d’automatisation priorisées</li>
-            </ul>
-          </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-box">
+        <h2>Contact entreprise</h2>
+        <p class="contact-intro">Dites-nous ce dont vous avez besoin.</p>
 
-          <div class="card">
-            <h3>2. Site web & présence en ligne</h3>
-            <p>
-              Nous créons ou modernisons votre site vitrine pour qu’il devienne un vrai point d’entrée
-              pour vos prospects et clients.
-            </p>
-            <ul>
-              <li>Création de site simple, clair et adapté au mobile</li>
-              <li>Nom de domaine, e-mails pros et formulaires de contact efficaces</li>
-              <li>Pages d’atterrissage (landing pages) pour vos offres spécifiques</li>
-            </ul>
-          </div>
+        <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="Nouveau message – NovIA Solutions" />
+          <input type="hidden" name="_template" value="table" />
 
-          <div class="card">
-            <h3>3. Automatisations & workflows</h3>
-            <p>
-              Nous mettons en place des scénarios concrets pour que certaines tâches se fassent toutes seules
-              ou presque.
-            </p>
-            <ul>
-              <li>Centralisation des demandes clients (e-mail, formulaires, site…)</li>
-              <li>Relances automatiques pour devis, rendez-vous ou factures</li>
-              <li>Tableaux de bord pour suivre l’état de vos dossiers</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>4. Chatbots & agents IA pour votre entreprise</h3>
-            <p>
-              Des assistants numériques qui répondent aux questions fréquentes, qualifient les demandes
-              ou vous aident en interne.
-            </p>
-            <ul>
-              <li>Chatbot sur votre site pour répondre aux questions courantes 24h/24</li>
-              <li>Agents IA internes pour résumer des mails, générer des réponses, préparer des documents</li>
-              <li> scénarios d’assistance sur mesure selon votre métier</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- VALEUR AJOUTÉE -->
-      <section id="valeur">
-        <h2 class="section-title">Pourquoi travailler avec NovIA Solutions ?</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>On part de votre quotidien, pas de la technologie</h3>
-            <p>
-              Chaque mission commence par vos irritants concrets : ce qui vous prend du temps,
-              ce qui vous épuise, ce que vous repoussez tous les jours.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Des solutions à taille humaine</h3>
-            <p>
-              Pas d’usine à gaz. Nous concevons des systèmes que vous pouvez réellement utiliser,
-              vous et votre équipe, sans spécialiste technique.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Un partenaire, pas un simple prestataire</h3>
-            <p>
-              L’idée est de construire une relation dans la durée : comprendre votre activité,
-              ajuster les automatisations au fil de votre croissance, et vous aider à rester à jour.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- MINI SECTION AUDIT -->
-      <section>
-        <div class="cta">
-          <h2 class="section-title">Un premier audit, gratuitement et sans engagement</h2>
-          <p>
-            Vous nous expliquez comment vous travaillez aujourd’hui (site, e-mails, relances, outils…),
-            nous identifions les leviers rapides de digitalisation, d’automatisation et d’optimisation.
-          </p>
-          <p style="margin-top: 10px; font-size:0.9rem;">
-            À l’issue de cet audit, vous repartez avec une vision claire des priorités, libre à vous ensuite de
-            mettre en place les solutions avec nous… ou par vous-même.
-          </p>
-        </div>
-      </section>
-
-      <!-- FORMULAIRE DE CONTACT -->
-      <section id="contact">
-        <div class="contact-box">
-          <h2>Contact entreprise</h2>
-          <p class="contact-intro">
-            Laissez-nous quelques informations sur votre structure et vos besoins.
-          </p>
-
-          <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
-            <!-- Configuration FormSubmit -->
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="Nouveau message – NovIA Solutions" />
-            <input type="hidden" name="_template" value="table" />
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="lastname">Nom</label>
-                <input type="text" id="lastname" name="Nom" required />
-              </div>
-
-              <div class="form-group">
-                <label for="firstname">Prénom</label>
-                <input type="text" id="firstname" name="Prénom" required />
-              </div>
-
-              <div class="form-group">
-                <label for="company">Entreprise / Établissement</label>
-                <input type="text" id="company" name="Entreprise / Établissement" required />
-              </div>
-
-              <div class="form-group">
-                <label for="city">Ville</label>
-                <input type="text" id="city" name="Ville" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Adresse e-mail professionnelle</label>
-                <input type="email" id="email" name="Email" required />
-              </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" name="Nom" required />
             </div>
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="Message" rows="5" required
-                placeholder="Parlez-nous de vos tâches chronophages, de vos outils actuels ou de vos idées de projet…"></textarea>
+              <label>Prénom</label>
+              <input type="text" name="Prénom" required />
             </div>
 
-            <button type="submit" class="contact-submit">Envoyer ma demande</button>
-          </form>
-        </div>
-      </section>
-    </main>
+            <div class="form-group">
+              <label>Entreprise</label>
+              <input type="text" name="Entreprise" required />
+            </div>
 
+            <div class="form-group">
+              <label>Ville</label>
+              <input type="text" name="Ville" required />
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="Email" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="Message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit">
+            Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
       NovIA Solutions – Digitaliser • Automatiser • Optimiser pour les petites entreprises
     </footer>
+
   </div>
 </body>
 </html>
