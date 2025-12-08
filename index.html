@@ -262,54 +262,200 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
       margin-bottom: 16px;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       font-size: 0.9rem;
-      color: #0f172a;
     }
 
     .form-group label {
-      font-weight: 600;
+      color: #0f172a;
+      font-weight: 500;
     }
 
     .form-group input,
     .form-group textarea {
-      padding: 8px 10px;
       border-radius: 8px;
       border: 1px solid #cbd5e1;
-      font-family: inherit;
-      font-size: 0.9rem;
+      padding: 8px 10px;
+      font: inherit;
+      background: #f8fafc;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
-      outline: none;
-      border-color: #0ea5e9;
-      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.2);
+      outline: 2px solid #0ea5e9;
+      outline-offset: 1px;
+      background: #ffffff;
     }
 
     .contact-submit {
       margin-top: 8px;
-      padding: 10px 18px;
-      border-radius: 999px;
       border: none;
-      cursor: pointer;
+      border-radius: 999px;
+      padding: 10px 20px;
       font-weight: 600;
       font-size: 0.95rem;
       background: #0ea5e9;
       color: #f9fafb;
+      cursor: pointer;
     }
 
     .contact-submit:hover {
       background: #0284c7;
+    }
+
+    /* AUDIT CHATBOT */
+    .audit-section {
+      background: transparent;
+    }
+
+    .bot-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .bot-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+    }
+
+    .bot-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .small-muted {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .chat-window {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chat-messages {
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 10px;
+      height: 210px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+
+    .chat-bubble {
+      padding: 8px 10px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      max-width: 100%;
+    }
+
+    .chat-bubble.bot {
+      background: #e0f2fe;
+      color: #0c4a6e;
+      align-self: flex-start;
+    }
+
+    .chat-bubble.user {
+      background: #dcfce7;
+      color: #14532d;
+      align-self: flex-end;
+    }
+
+    .chat-question {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.88rem;
+    }
+
+    .chat-question label {
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    #chat-answer {
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      resize: vertical;
+      min-height: 70px;
+      font: inherit;
+      background: #ffffff;
+    }
+
+    #chat-answer:focus {
+      outline: 2px solid #0ea5e9;
+      outline-offset: 1px;
+    }
+
+    .chat-submit {
+      margin-top: 8px;
+      align-self: flex-start;
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #0ea5e9;
+      color: #f9fafb;
+      cursor: pointer;
+    }
+
+    .chat-submit:hover {
+      background: #0284c7;
+    }
+
+    .chat-progress {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .audit-report {
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #0f172a;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
+    .audit-report h4 {
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .audit-report p {
+      margin-bottom: 4px;
+    }
+
+    .audit-report ul {
+      margin-left: 16px;
+      margin-bottom: 6px;
+    }
+
+    .audit-report li {
+      margin-bottom: 2px;
     }
 
     footer {
@@ -317,6 +463,17 @@
       font-size: 0.8rem;
       color: #64748b;
       text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bot-layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -329,6 +486,7 @@
       <nav>
         <a href="#benefices">Bénéfices</a>
         <a href="#solutions">Solutions</a>
+        <a href="#audit">Audit IA</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -460,13 +618,65 @@
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- AUDIT CHATBOT -->
+      <section id="audit" class="audit-section">
+        <h2 class="section-title">🧠 Audit IA gratuit personnalisé</h2>
+        <p class="section-sub">
+          Répondez à quelques questions ouvertes : le chatbot construit une vue 360° de votre activité
+          (acquisition clients, outils, facturation, organisation, priorités) et génère un brouillon de rapport
+          d’audit comme dans un cabinet de conseil.
+        </p>
+
+        <div class="bot-layout">
+          <!-- Colonne chatbot -->
+          <div class="bot-card">
+            <h3>Chatbot consultant NovIA</h3>
+            <p class="small-muted">
+              Répondez librement, avec vos mots. Plus vos réponses sont détaillées, plus l’audit est riche.
+            </p>
+
+            <div class="chat-window">
+              <div id="chat-messages" class="chat-messages">
+                <div class="chat-bubble bot">
+                  Bonjour 👋 Je vais vous poser quelques questions pour comprendre votre entreprise et repérer les
+                  leviers de digitalisation et d’automatisation.
+                </div>
+              </div>
+
+              <div class="chat-question">
+                <label id="current-question-label">
+                  1. En une phrase, comment décririez-vous votre activité ?
+                </label>
+                <textarea id="chat-answer" placeholder="Par exemple : cabinet de conseil qui accompagne les TPE locales..."></textarea>
+              </div>
+
+              <button id="chat-next" class="chat-submit">
+                Valider ma réponse et passer à la suite
+              </button>
+              <p class="chat-progress" id="chat-progress">Question 1 sur 10</p>
+            </div>
+          </div>
+
+          <!-- Colonne rapport -->
+          <div class="bot-card">
+            <h3>Rapport d’audit – brouillon</h3>
+            <p class="small-muted">
+              Ce rapport se met à jour automatiquement à mesure que vous répondez aux questions.
+            </p>
+            <div id="audit-report" class="audit-report">
+              <p>Commencez à répondre à la première question. Un résumé structuré de votre situation apparaîtra ici.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA CLASSIQUE -->
       <section>
         <div class="cta">
           <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
           <p>
-            Dites-nous comment vous travaillez aujourd’hui : nous identifions vos
-            pistes concrètes de digitalisation et d’automatisation.
+            Partagez votre façon de travailler et vos priorités : nous transformons ce diagnostic en un plan d’action
+            concret (outils, automatisations, quick wins).
           </p>
           <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
         </div>
@@ -476,43 +686,42 @@
       <section id="contact">
         <div class="contact-box">
           <h2>Contact entreprise</h2>
-          <p class="contact-intro">Expliquez-nous vos besoins, nous vous recontactons rapidement.</p>
+          <p class="contact-intro">
+            Expliquez-nous vos besoins ou faites-nous suivre votre rapport d’audit : nous vous recontactons rapidement.
+          </p>
 
           <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
-            <!-- Options FormSubmit -->
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_subject" value="Nouvelle demande via le site NovIA Solutions" />
 
             <div class="form-grid">
               <div class="form-group">
-                <label for="nom">Nom</label>
-                <input id="nom" name="nom" type="text" required />
+                <label>Nom</label>
+                <input name="nom" required />
               </div>
               <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input id="prenom" name="prenom" type="text" required />
+                <label>Prénom</label>
+                <input name="prenom" required />
               </div>
               <div class="form-group">
-                <label for="entreprise">Entreprise</label>
-                <input id="entreprise" name="entreprise" type="text" required />
+                <label>Entreprise</label>
+                <input name="entreprise" required />
               </div>
               <div class="form-group">
-                <label for="ville">Ville</label>
-                <input id="ville" name="ville" type="text" required />
+                <label>Ville</label>
+                <input name="ville" required />
               </div>
               <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+                <label>Email</label>
+                <input name="email" type="email" required />
               </div>
             </div>
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <label>Message</label>
+              <textarea name="message" rows="5" required></textarea>
             </div>
 
-            <button class="contact-submit" type="submit">Envoyer ma demande</button>
+            <button class="contact-submit">Envoyer ma demande</button>
           </form>
         </div>
       </section>
@@ -523,6 +732,199 @@
     </footer>
 
   </div>
+
+  <!-- SCRIPT CHATBOT -->
+  <script>
+    (function () {
+      const questions = [
+        {
+          id: "activite",
+          label: "En une phrase, comment décririez-vous votre activité ?",
+          category: "Profil & activité"
+        },
+        {
+          id: "secteur",
+          label: "Quel est votre secteur et quels types de clients servez-vous principalement ?",
+          category: "Profil & activité"
+        },
+        {
+          id: "taille",
+          label: "Quelle est la taille de votre structure (nombre de personnes) et le volume moyen de clients par mois ?",
+          category: "Profil & activité"
+        },
+        {
+          id: "acquisition",
+          label: "Comment vos clients vous découvrent-ils aujourd’hui (bouche-à-oreille, site web, réseaux sociaux, plateformes…) ?",
+          category: "Visibilité & acquisition"
+        },
+        {
+          id: "outils",
+          label: "Quels outils utilisez-vous au quotidien (Excel, CRM, logiciels métiers, outils de prise de rendez-vous, etc.) ?",
+          category: "Outils & organisation"
+        },
+        {
+          id: "suivi",
+          label: "Comment suivez-vous aujourd’hui vos prospects et vos clients (relances, suivi des demandes, historique) ?",
+          category: "Suivi client"
+        },
+        {
+          id: "facturation",
+          label: "Comment gérez-vous vos devis, factures et relances (processus, outils, personnes impliquées) ?",
+          category: "Facturation & administratif"
+        },
+        {
+          id: "temps",
+          label: "Quelles sont les tâches qui vous prennent le plus de temps chaque semaine et que vous aimeriez déléguer ou automatiser ?",
+          category: "Gains de temps & irritants"
+        },
+        {
+          id: "priorites",
+          label: "Si vous aviez une baguette magique, que changeriez-vous en priorité dans votre organisation actuelle ?",
+          category: "Priorités stratégiques"
+        },
+        {
+          id: "contraintes",
+          label: "Y a-t-il des contraintes à connaître (budget, délais, niveau à l’aise avec le numérique, outils imposés) ?",
+          category: "Contraintes & contexte"
+        }
+      ];
+
+      let currentIndex = 0;
+      const answers = {};
+
+      const chatMessages = document.getElementById("chat-messages");
+      const questionLabel = document.getElementById("current-question-label");
+      const answerField = document.getElementById("chat-answer");
+      const nextButton = document.getElementById("chat-next");
+      const progressText = document.getElementById("chat-progress");
+      const auditReport = document.getElementById("audit-report");
+
+      function scrollChatToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function updateQuestion() {
+        const q = questions[currentIndex];
+        questionLabel.textContent = (currentIndex + 1) + ". " + q.label;
+        progressText.textContent = "Question " + (currentIndex + 1) + " sur " + questions.length;
+        answerField.value = "";
+        answerField.focus();
+      }
+
+      function appendMessage(text, sender) {
+        const div = document.createElement("div");
+        div.className = "chat-bubble " + sender;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        scrollChatToBottom();
+      }
+
+      function generateReport() {
+        // On construit un rapport simple mais structuré à partir des réponses
+        const a = answers;
+        const activite = a.activite || "";
+        const secteur = a.secteur || "";
+        const taille = a.taille || "";
+        const acquisition = a.acquisition || "";
+        const outils = a.outils || "";
+        const suivi = a.suivi || "";
+        const facturation = a.facturation || "";
+        const temps = a.temps || "";
+        const priorites = a.priorites || "";
+        const contraintes = a.contraintes || "";
+
+        let html = "";
+
+        html += "<h4>1. Synthèse de l’activité</h4>";
+        html += "<p><strong>Activité :</strong> " + (activite || "non renseigné") + "</p>";
+        html += "<p><strong>Secteur & clients :</strong> " + (secteur || "non renseigné") + "</p>";
+        html += "<p><strong>Taille & volume :</strong> " + (taille || "non renseigné") + "</p>";
+
+        html += "<h4>2. Visibilité & acquisition clients</h4>";
+        html += "<p><strong>Canaux actuels :</strong> " + (acquisition || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Identifier les canaux les plus efficaces et les renforcer (site web, fiches Google, réseaux sociaux).</li>";
+        html += "<li>Mettre en place des formulaires ou prises de rendez-vous en ligne pour capter les contacts entrants.</li>";
+        html += "</ul>";
+
+        html += "<h4>3. Outils & organisation interne</h4>";
+        html += "<p><strong>Outils utilisés :</strong> " + (outils || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Cartographier les outils existants (Excel, CRM, logiciels métiers) et repérer les doublons.</li>";
+        html += "<li>Standardiser quelques workflows clés (onboarding client, suivi de dossier, reporting).</li>";
+        html += "</ul>";
+
+        html += "<h4>4. Suivi client & relation</h4>";
+        html += "<p><strong>Suivi actuel :</strong> " + (suivi || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Centraliser l’historique des échanges (emails, appels, rendez-vous) dans un même outil.</li>";
+        html += "<li>Mettre en place des rappels automatiques pour les relances et anniversaires de contrats.</li>";
+        html += "</ul>";
+
+        html += "<h4>5. Facturation & administratif</h4>";
+        html += "<p><strong>Processus actuel :</strong> " + (facturation || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Automatiser au maximum la chaîne devis → facture → relance.</li>";
+        html += "<li>Limiter les ressaisies manuelles (export comptable, documents standard).</li>";
+        html += "</ul>";
+
+        html += "<h4>6. Gains de temps & irritants</h4>";
+        html += "<p><strong>Tâches consommatrices de temps :</strong> " + (temps || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Prioriser 2 ou 3 tâches répétitives à automatiser en premier (quick wins).</li>";
+        html += "<li>Évaluer les gains estimés (heures économisées / mois).</li>";
+        html += "</ul>";
+
+        html += "<h4>7. Priorités & contraintes</h4>";
+        html += "<p><strong>Changements souhaités :</strong> " + (priorites || "non renseigné") + "</p>";
+        html += "<p><strong>Contraintes :</strong> " + (contraintes || "non renseigné") + "</p>";
+        html += "<ul>";
+        html += "<li>Construire un plan d’action en 3 étapes : rapide (0–3 mois), structurant (3–12 mois), long terme.</li>";
+        html += "<li>Adapter les solutions au budget et au niveau de maturité numérique de l’équipe.</li>";
+        html += "</ul>";
+
+        html += "<p><em>Prochaine étape :</em> partager ce diagnostic avec NovIA Solutions pour transformer ces constats en plan d’action concret (outils recommandés, automatisations, accompagnement à la mise en place).</p>";
+
+        auditReport.innerHTML = html;
+      }
+
+      nextButton.addEventListener("click", function () {
+        const currentQuestion = questions[currentIndex];
+        const value = (answerField.value || "").trim();
+
+        if (!value) {
+          answerField.focus();
+          return;
+        }
+
+        // On enregistre la réponse
+        answers[currentQuestion.id] = value;
+
+        // On ajoute la question + réponse dans l'historique du chat
+        appendMessage(currentQuestion.label, "bot");
+        appendMessage(value, "user");
+
+        // On met à jour le rapport
+        generateReport();
+
+        // Question suivante ou fin
+        if (currentIndex < questions.length - 1) {
+          currentIndex += 1;
+          updateQuestion();
+        } else {
+          // Audit terminé
+          appendMessage("Merci, j’ai maintenant une vue complète de votre activité. Vous pouvez télécharger ou copier ce rapport et nous l’envoyer via le formulaire de contact pour aller plus loin.", "bot");
+          progressText.textContent = "Audit terminé ✅";
+          answerField.disabled = true;
+          nextButton.disabled = true;
+          nextButton.textContent = "Audit complété";
+        }
+      });
+
+      // Initialisation
+      updateQuestion();
+    })();
+  </script>
 </body>
 
 </html>
