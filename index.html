@@ -8,11 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -21,10 +17,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
       max-width: 1100px;
@@ -47,9 +40,7 @@
       letter-spacing: 0.05em;
     }
 
-    .logo span {
-      color: #0ea5e9;
-    }
+    .logo span { color: #0ea5e9; }
 
     nav a {
       margin-left: 20px;
@@ -57,14 +48,10 @@
       opacity: 0.8;
     }
 
-    nav a:hover {
-      opacity: 1;
-    }
+    nav a:hover { opacity: 1; }
 
     /* HERO */
-    .hero {
-      margin-bottom: 40px;
-    }
+    .hero { margin-bottom: 40px; }
 
     .hero-tag {
       display: inline-flex;
@@ -79,22 +66,6 @@
       margin-bottom: 10px;
     }
 
-    .hero-audit-btn {
-      margin-top: 20px;
-      display: inline-block;
-      background: #0ea5e9;
-      color: #fff;
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .hero-audit-btn:hover {
-      background: #0284c7;
-    }
-
     h1 {
       font-size: clamp(2.2rem, 3.5vw, 2.8rem);
       margin-bottom: 10px;
@@ -102,21 +73,13 @@
       font-weight: 700;
     }
 
-    h1 span {
-      color: #0284c7;
-    }
+    h1 span { color: #0284c7; }
 
     .hero-sub {
       font-size: 1rem;
       margin-bottom: 16px;
       max-width: 650px;
       color: #334155;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 28px;
     }
 
     .badge-row {
@@ -132,44 +95,13 @@
       border-radius: 999px;
       border: 1px solid #cbd5e1;
       padding: 4px 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       background: #ffffff;
       color: #334155;
       font-weight: 500;
     }
 
-    /* ASIDE */
-    .hero-aside {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 18px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-    }
-
-    .hero-aside h2 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .hero-aside p,
-    .hero-aside li {
-      color: #475569;
-    }
-
-    .hero-aside li::before {
-      content: "✓ ";
-      color: #059669;
-    }
-
     /* SECTIONS */
-    section {
-      margin-bottom: 40px;
-    }
+    section { margin-bottom: 40px; }
 
     .section-title {
       font-size: 1.25rem;
@@ -210,9 +142,7 @@
       margin-bottom: 8px;
     }
 
-    .card-header span.icon {
-      font-size: 1.2rem;
-    }
+    .card-header span.icon { font-size: 1.2rem; }
 
     .card h3 {
       font-size: 1rem;
@@ -220,49 +150,9 @@
       color: #0f172a;
     }
 
-    .card p {
-      color: #475569;
-      margin-bottom: 6px;
-    }
+    .card p { color: #475569; margin-bottom: 6px; }
 
-    .card ul li {
-      color: #475569;
-    }
-
-    /* CTA */
-    .cta {
-      text-align: center;
-      padding: 24px;
-      border-radius: 18px;
-      background: #e0f2fe;
-      border: 1px solid #bae6fd;
-      color: #0c4a6e;
-    }
-
-    .cta strong {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #0369a1;
-      font-weight: 700;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      background: #0284c7;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-    }
-
-    .cta a:hover {
-      background: #0369a1;
-    }
-
-    /* CONTACT */
+    /* CONTACT SIMPLE */
     .contact-box {
       background: #ffffff;
       border-radius: 18px;
@@ -271,31 +161,15 @@
       max-width: 680px;
       margin: 0 auto;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .contact-intro {
-      font-size: 0.95rem;
-      color: #64748b;
-      margin-bottom: 16px;
-    }
-
-    .contact-submit {
-      margin-top: 12px;
-      background: #0ea5e9;
-      border: none;
-      padding: 14px 20px;
-      border-radius: 12px;
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: block;
-      width: 100%;
       text-align: center;
     }
 
-    .contact-submit:hover {
-      background: #0284c7;
+    .contact-info {
+      font-size: 1.1rem;
+      margin-top: 12px;
+      color: #0f172a;
+      font-weight: 600;
+      line-height: 1.8;
     }
 
     footer {
@@ -310,6 +184,7 @@
 <body>
   <div class="page">
 
+    <!-- HEADER -->
     <header>
       <div class="logo">Nov<span>IA</span> Solutions</div>
       <nav>
@@ -330,11 +205,6 @@
           Des solutions simples, concrètes et efficaces pour aider votre entreprise à gagner du temps,
           améliorer son organisation et offrir une meilleure expérience à vos clients.
         </p>
-
-        <a class="hero-audit-btn"
-           href="mailto:contact@novia-solutions.com?subject=Demande%20d'audit%20gratuit&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20%C3%AAtre%20recontact%C3%A9%20pour%20b%C3%A9n%C3%A9ficier%20d%E2%80%99un%20audit%20gratuit%20afin%20d%E2%80%99identifier%20les%20pistes%20d%E2%80%99optimisation%20et%20d%E2%80%99automatisation%20dans%20mon%20activit%C3%A9.%0D%0A%0D%0AMerci%20et%20%C3%A0%20bient%C3%B4t.">
-          📩 Demander mon audit gratuit
-        </a>
 
         <div class="badge-row">
           <div class="badge">🌐 Présence en ligne</div>
@@ -405,31 +275,16 @@
         </div>
       </section>
 
-      <!-- CTA AUDIT -->
-      <section id="audit">
-        <div class="cta">
-          <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
-          <p>
-            Identifiez vos pistes d’amélioration et repartez avec un plan d’action clair.
-          </p>
-
-          <a href="mailto:contact@novia-solutions.com?subject=Demande%20d'audit%20gratuit&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20%C3%AAtre%20recontact%C3%A9%20pour%20b%C3%A9n%C3%A9ficier%20d%E2%80%99un%20audit%20gratuit%20afin%20d%E2%80%99identifier%20les%20pistes%20d%E2%80%99optimisation%20et%20d%E2%80%99automatisation%20dans%20mon%20activit%C3%A9.%0D%0A%0D%0AMerci%20et%20%C3%A0%20bient%C3%B4t.">
-            📩 Demander mon audit gratuit
-          </a>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
+      <!-- CONTACT SIMPLE -->
       <section id="contact">
         <div class="contact-box">
-          <h2>Contact direct</h2>
-          <p class="contact-intro">Vous pouvez aussi nous écrire directement par email :</p>
+          <h2>Contact & Audit gratuit</h2>
+          <p>Pour être recontacté pour un audit gratuit ou pour toute question :</p>
 
-          <a 
-            href="mailto:contact@novia-solutions.com?subject=Contact%20NovIA%20Solutions&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20des%20informations%20concernant%20vos%20services.%0D%0AMerci."
-            class="contact-submit">
-            ✉️ Contacter NovIA Solutions
-          </a>
+          <div class="contact-info">
+            📞 06.25.78.64.99<br>
+            ✉️ contact@novia-solutions.com
+          </div>
         </div>
       </section>
 
