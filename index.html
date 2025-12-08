@@ -8,7 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -17,7 +21,10 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .page {
       max-width: 1100px;
@@ -40,7 +47,9 @@
       letter-spacing: 0.05em;
     }
 
-    .logo span { color: #0ea5e9; }
+    .logo span {
+      color: #0ea5e9;
+    }
 
     nav a {
       margin-left: 20px;
@@ -48,10 +57,14 @@
       opacity: 0.8;
     }
 
-    nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
     /* HERO */
-    .hero { margin-bottom: 40px; }
+    .hero {
+      margin-bottom: 40px;
+    }
 
     .hero-tag {
       display: inline-flex;
@@ -66,6 +79,18 @@
       margin-bottom: 10px;
     }
 
+    .hero-tag-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.78rem;
+      margin-left: 6px;
+      border: 1px solid #bae6fd;
+    }
+
     h1 {
       font-size: clamp(2.2rem, 3.5vw, 2.8rem);
       margin-bottom: 10px;
@@ -73,13 +98,21 @@
       font-weight: 700;
     }
 
-    h1 span { color: #0284c7; }
+    h1 span {
+      color: #0284c7;
+    }
 
     .hero-sub {
       font-size: 1rem;
       margin-bottom: 16px;
       max-width: 650px;
       color: #334155;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 28px;
     }
 
     .badge-row {
@@ -95,13 +128,44 @@
       border-radius: 999px;
       border: 1px solid #cbd5e1;
       padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: #ffffff;
       color: #334155;
       font-weight: 500;
     }
 
+    /* ASIDE */
+    .hero-aside {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .hero-aside h2 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .hero-aside p,
+    .hero-aside li {
+      color: #475569;
+    }
+
+    .hero-aside li::before {
+      content: "✓ ";
+      color: #059669;
+    }
+
     /* SECTIONS */
-    section { margin-bottom: 40px; }
+    section {
+      margin-bottom: 40px;
+    }
 
     .section-title {
       font-size: 1.25rem;
@@ -142,7 +206,9 @@
       margin-bottom: 8px;
     }
 
-    .card-header span.icon { font-size: 1.2rem; }
+    .card-header span.icon {
+      font-size: 1.2rem;
+    }
 
     .card h3 {
       font-size: 1rem;
@@ -150,9 +216,34 @@
       color: #0f172a;
     }
 
-    .card p { color: #475569; margin-bottom: 6px; }
+    .card p {
+      color: #475569;
+      margin-bottom: 6px;
+    }
 
-    /* CONTACT SIMPLE */
+    .card ul li {
+      color: #475569;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 24px;
+      border-radius: 18px;
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      color: #0c4a6e;
+    }
+
+    .cta strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #0369a1;
+      font-weight: 700;
+    }
+
+    /* CONTACT */
     .contact-box {
       background: #ffffff;
       border-radius: 18px;
@@ -161,15 +252,6 @@
       max-width: 680px;
       margin: 0 auto;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-      text-align: center;
-    }
-
-    .contact-info {
-      font-size: 1.1rem;
-      margin-top: 12px;
-      color: #0f172a;
-      font-weight: 600;
-      line-height: 1.8;
     }
 
     footer {
@@ -184,7 +266,6 @@
 <body>
   <div class="page">
 
-    <!-- HEADER -->
     <header>
       <div class="logo">Nov<span>IA</span> Solutions</div>
       <nav>
@@ -198,96 +279,153 @@
 
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-tag">🤖 IA • Automatisation • Digitalisation</div>
+        <div class="hero-tag">🤖 Chatbots, agents IA & automatisation</div>
+        <span class="hero-tag-secondary">Audit gratuit & sans engagement</span>
 
-        <h1>Digitaliser, <span>automatiser</span>, optimiser votre activité</h1>
-        <p class="hero-sub">
-          Des solutions simples, concrètes et efficaces pour aider votre entreprise à gagner du temps,
-          améliorer son organisation et offrir une meilleure expérience à vos clients.
-        </p>
+        <div class="hero-grid">
 
-        <div class="badge-row">
-          <div class="badge">🌐 Présence en ligne</div>
-          <div class="badge">⚙️ Automatisation</div>
-          <div class="badge">🤖 Agents IA</div>
-          <div class="badge">📈 Optimisation</div>
+          <div>
+            <h1>Digitaliser, <span>automatiser</span>, optimiser votre quotidien</h1>
+            <p class="hero-sub">
+              Des solutions numériques simples, efficaces et adaptées aux petites entreprises.
+              Vous gagnez du temps, vous vous organisez mieux, vos clients sont mieux servis.
+            </p>
+
+            <div class="badge-row">
+              <div class="badge">🌐 Présence en ligne</div>
+              <div class="badge">⚙️ Automatisation simple</div>
+              <div class="badge">🤖 Chatbots utiles</div>
+              <div class="badge">🎧 Agents IA internes</div>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <h2>Pour qui ?</h2>
+            <p>Pour toutes les structures qui veulent se simplifier la vie :</p>
+            <ul>
+              <li>Artisans, commerçants, restaurateurs</li>
+              <li>Professions libérales, indépendants</li>
+              <li>Coachs, formateurs, consultants</li>
+              <li>Toutes petites entreprises</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
       <!-- BENEFICES -->
       <section id="benefices">
         <h2 class="section-title">📊 Les bénéfices concrets</h2>
-        <p class="section-sub">Des gains rapides, mesurables et visibles dès les premières semaines.</p>
+        <p class="section-sub">
+          Des gains rapides, mesurables, visibles dans votre organisation dès les premières semaines.
+        </p>
 
         <div class="grid">
           <div class="card">
             <div class="card-header"><span class="icon">⏱️</span><h3>2–5h gagnées / semaine</h3></div>
-            <p>Automatisation des tâches répétitives et chronophages.</p>
+            <p>Grâce à l'automatisation des tâches répétitives.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📥</span><h3>Moins d’e-mails</h3></div>
-            <p>Tri automatique, réponses types, meilleure organisation.</p>
+            <div class="card-header"><span class="icon">📥</span><h3>Moins d’E-mails</h3></div>
+            <p>Tri, réponses types et organisation automatisée.</p>
           </div>
 
           <div class="card">
             <div class="card-header"><span class="icon">📈</span><h3>+30% d’efficacité</h3></div>
-            <p>Process simplifiés, meilleure coordination, moins d’oublis.</p>
+            <p>Meilleur suivi des dossiers, moins d’oubli, meilleure coordination.</p>
           </div>
         </div>
       </section>
 
       <!-- SOLUTIONS -->
       <section id="solutions">
-        <h2 class="section-title">🛠️ Nos solutions</h2>
-        <p class="section-sub">Des outils simples à prendre en main, pensés pour les petites entreprises.</p>
+        <h2 class="section-title">🛠️ Nos solutions digitales & IA</h2>
+        <p class="section-sub">
+          Des outils simples à utiliser, pensés pour vous faire gagner du temps sans complexité.
+        </p>
 
         <div class="grid">
+
           <div class="card">
             <div class="card-header"><span class="icon">🌐</span><h3>Site web & présence en ligne</h3></div>
-            <p>Un site clair, moderne et professionnel adapté à votre activité.</p>
+            <p>Un site clair et professionnel adapté aux petites entreprises.</p>
             <ul>
-              <li>Site vitrine responsive</li>
-              <li>Formulaire de contact intelligent</li>
-              <li>Email pro & nom de domaine</li>
+              <li>Site vitrine moderne & mobile</li>
+              <li>Formulaires intelligents</li>
+              <li>Nom de domaine + email pro</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="card-header"><span class="icon">🤖</span><h3>Chatbots intelligents</h3></div>
-            <p>Un assistant disponible 24h/24 pour répondre aux questions courantes.</p>
+            <p>Un assistant qui répond aux questions fréquentes 24h/24.</p>
             <ul>
-              <li>FAQ dynamique</li>
+              <li>FAQ dynamique et mise à jour facile</li>
               <li>Qualification des demandes</li>
-              <li>Intégration Google Business</li>
+              <li>Intégration site ou Google Business</li>
             </ul>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations internes</h3></div>
-            <p>Des workflows simples qui suppriment les tâches répétitives.</p>
+            <div class="card-header"><span class="icon">🎧</span><h3>Agents IA internes</h3></div>
+            <p>Des assistants virtuels pour vos tâches internes.</p>
+            <ul>
+              <li>Tri d’emails & réponses automatiques</li>
+              <li>Préparation de documents</li>
+              <li>Résumés & analyses automatisées</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations</h3></div>
+            <p>Des workflows simples qui vous enlèvent les tâches récurrentes.</p>
             <ul>
               <li>Relances automatiques</li>
-              <li>Suivi client simplifié</li>
+              <li>Centralisation des demandes</li>
               <li>Rappels & notifications</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT SIMPLE -->
-      <section id="contact">
-        <div class="contact-box">
-          <h2>Contact & Audit gratuit</h2>
-          <p>Pour être recontacté pour un audit gratuit ou pour toute question :</p>
-
-          <div class="contact-info">
-            📞 06.25.78.64.99<br>
-            ✉️ contact@novia-solutions.com
-          </div>
+      <!-- CTA -->
+      <section>
+        <div class="cta">
+          <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
+          <p>
+            Dites-nous comment vous travaillez aujourd’hui : nous identifions vos
+            pistes concrètes de digitalisation et d’automatisation.
+          </p>
+          <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
         </div>
       </section>
 
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="contact-box">
+          <h2>Contact entreprise</h2>
+          <p class="contact-intro">Expliquez-nous vos besoins, nous vous recontactons rapidement.</p>
+
+          <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="form-grid">
+              <div class="form-group"><label>Nom</label><input required /></div>
+              <div class="form-group"><label>Prénom</label><input required /></div>
+              <div class="form-group"><label>Entreprise</label><input required /></div>
+              <div class="form-group"><label>Ville</label><input required /></div>
+              <div class="form-group"><label>Email</label><input type="email" required /></div>
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" required></textarea>
+            </div>
+
+            <button class="contact-submit">Envoyer ma demande</button>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer>
