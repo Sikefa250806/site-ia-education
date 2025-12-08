@@ -79,16 +79,20 @@
       margin-bottom: 10px;
     }
 
-    .hero-tag-secondary {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #e0f2fe;
-      color: #0369a1;
-      font-size: 0.78rem;
-      margin-left: 6px;
-      border: 1px solid #bae6fd;
+    .hero-audit-btn {
+      margin-top: 20px;
+      display: inline-block;
+      background: #0ea5e9;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .hero-audit-btn:hover {
+      background: #0284c7;
     }
 
     h1 {
@@ -243,6 +247,21 @@
       font-weight: 700;
     }
 
+    .cta a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #0284c7;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .cta a:hover {
+      background: #0369a1;
+    }
+
     /* CONTACT */
     .contact-box {
       background: #ffffff;
@@ -252,6 +271,31 @@
       max-width: 680px;
       margin: 0 auto;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-intro {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .contact-submit {
+      margin-top: 12px;
+      background: #0ea5e9;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .contact-submit:hover {
+      background: #0284c7;
     }
 
     footer {
@@ -279,153 +323,116 @@
 
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-tag">🤖 Chatbots, agents IA & automatisation</div>
-        <span class="hero-tag-secondary">Audit gratuit & sans engagement</span>
+        <div class="hero-tag">🤖 IA • Automatisation • Digitalisation</div>
 
-        <div class="hero-grid">
+        <h1>Digitaliser, <span>automatiser</span>, optimiser votre activité</h1>
+        <p class="hero-sub">
+          Des solutions simples, concrètes et efficaces pour aider votre entreprise à gagner du temps,
+          améliorer son organisation et offrir une meilleure expérience à vos clients.
+        </p>
 
-          <div>
-            <h1>Digitaliser, <span>automatiser</span>, optimiser votre quotidien</h1>
-            <p class="hero-sub">
-              Des solutions numériques simples, efficaces et adaptées aux petites entreprises.
-              Vous gagnez du temps, vous vous organisez mieux, vos clients sont mieux servis.
-            </p>
+        <a class="hero-audit-btn"
+           href="mailto:contact@novia-solutions.com?subject=Demande%20d'audit%20gratuit&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20%C3%AAtre%20recontact%C3%A9%20pour%20b%C3%A9n%C3%A9ficier%20d%E2%80%99un%20audit%20gratuit%20afin%20d%E2%80%99identifier%20les%20pistes%20d%E2%80%99optimisation%20et%20d%E2%80%99automatisation%20dans%20mon%20activit%C3%A9.%0D%0A%0D%0AMerci%20et%20%C3%A0%20bient%C3%B4t.">
+          📩 Demander mon audit gratuit
+        </a>
 
-            <div class="badge-row">
-              <div class="badge">🌐 Présence en ligne</div>
-              <div class="badge">⚙️ Automatisation simple</div>
-              <div class="badge">🤖 Chatbots utiles</div>
-              <div class="badge">🎧 Agents IA internes</div>
-            </div>
-          </div>
-
-          <aside class="hero-aside">
-            <h2>Pour qui ?</h2>
-            <p>Pour toutes les structures qui veulent se simplifier la vie :</p>
-            <ul>
-              <li>Artisans, commerçants, restaurateurs</li>
-              <li>Professions libérales, indépendants</li>
-              <li>Coachs, formateurs, consultants</li>
-              <li>Toutes petites entreprises</li>
-            </ul>
-          </aside>
+        <div class="badge-row">
+          <div class="badge">🌐 Présence en ligne</div>
+          <div class="badge">⚙️ Automatisation</div>
+          <div class="badge">🤖 Agents IA</div>
+          <div class="badge">📈 Optimisation</div>
         </div>
       </section>
 
       <!-- BENEFICES -->
       <section id="benefices">
         <h2 class="section-title">📊 Les bénéfices concrets</h2>
-        <p class="section-sub">
-          Des gains rapides, mesurables, visibles dans votre organisation dès les premières semaines.
-        </p>
+        <p class="section-sub">Des gains rapides, mesurables et visibles dès les premières semaines.</p>
 
         <div class="grid">
           <div class="card">
             <div class="card-header"><span class="icon">⏱️</span><h3>2–5h gagnées / semaine</h3></div>
-            <p>Grâce à l'automatisation des tâches répétitives.</p>
+            <p>Automatisation des tâches répétitives et chronophages.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📥</span><h3>Moins d’E-mails</h3></div>
-            <p>Tri, réponses types et organisation automatisée.</p>
+            <div class="card-header"><span class="icon">📥</span><h3>Moins d’e-mails</h3></div>
+            <p>Tri automatique, réponses types, meilleure organisation.</p>
           </div>
 
           <div class="card">
             <div class="card-header"><span class="icon">📈</span><h3>+30% d’efficacité</h3></div>
-            <p>Meilleur suivi des dossiers, moins d’oubli, meilleure coordination.</p>
+            <p>Process simplifiés, meilleure coordination, moins d’oublis.</p>
           </div>
         </div>
       </section>
 
       <!-- SOLUTIONS -->
       <section id="solutions">
-        <h2 class="section-title">🛠️ Nos solutions digitales & IA</h2>
-        <p class="section-sub">
-          Des outils simples à utiliser, pensés pour vous faire gagner du temps sans complexité.
-        </p>
+        <h2 class="section-title">🛠️ Nos solutions</h2>
+        <p class="section-sub">Des outils simples à prendre en main, pensés pour les petites entreprises.</p>
 
         <div class="grid">
-
           <div class="card">
             <div class="card-header"><span class="icon">🌐</span><h3>Site web & présence en ligne</h3></div>
-            <p>Un site clair et professionnel adapté aux petites entreprises.</p>
+            <p>Un site clair, moderne et professionnel adapté à votre activité.</p>
             <ul>
-              <li>Site vitrine moderne & mobile</li>
-              <li>Formulaires intelligents</li>
-              <li>Nom de domaine + email pro</li>
+              <li>Site vitrine responsive</li>
+              <li>Formulaire de contact intelligent</li>
+              <li>Email pro & nom de domaine</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="card-header"><span class="icon">🤖</span><h3>Chatbots intelligents</h3></div>
-            <p>Un assistant qui répond aux questions fréquentes 24h/24.</p>
+            <p>Un assistant disponible 24h/24 pour répondre aux questions courantes.</p>
             <ul>
-              <li>FAQ dynamique et mise à jour facile</li>
+              <li>FAQ dynamique</li>
               <li>Qualification des demandes</li>
-              <li>Intégration site ou Google Business</li>
+              <li>Intégration Google Business</li>
             </ul>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">🎧</span><h3>Agents IA internes</h3></div>
-            <p>Des assistants virtuels pour vos tâches internes.</p>
-            <ul>
-              <li>Tri d’emails & réponses automatiques</li>
-              <li>Préparation de documents</li>
-              <li>Résumés & analyses automatisées</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations</h3></div>
-            <p>Des workflows simples qui vous enlèvent les tâches récurrentes.</p>
+            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations internes</h3></div>
+            <p>Des workflows simples qui suppriment les tâches répétitives.</p>
             <ul>
               <li>Relances automatiques</li>
-              <li>Centralisation des demandes</li>
+              <li>Suivi client simplifié</li>
               <li>Rappels & notifications</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
-      <section>
+      <!-- CTA AUDIT -->
+      <section id="audit">
         <div class="cta">
           <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
           <p>
-            Dites-nous comment vous travaillez aujourd’hui : nous identifions vos
-            pistes concrètes de digitalisation et d’automatisation.
+            Identifiez vos pistes d’amélioration et repartez avec un plan d’action clair.
           </p>
-          <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
+
+          <a href="mailto:contact@novia-solutions.com?subject=Demande%20d'audit%20gratuit&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20%C3%AAtre%20recontact%C3%A9%20pour%20b%C3%A9n%C3%A9ficier%20d%E2%80%99un%20audit%20gratuit%20afin%20d%E2%80%99identifier%20les%20pistes%20d%E2%80%99optimisation%20et%20d%E2%80%99automatisation%20dans%20mon%20activit%C3%A9.%0D%0A%0D%0AMerci%20et%20%C3%A0%20bient%C3%B4t.">
+            📩 Demander mon audit gratuit
+          </a>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section id="contact">
         <div class="contact-box">
-          <h2>Contact entreprise</h2>
-          <p class="contact-intro">Expliquez-nous vos besoins, nous vous recontactons rapidement.</p>
+          <h2>Contact direct</h2>
+          <p class="contact-intro">Vous pouvez aussi nous écrire directement par email :</p>
 
-          <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
-            <input type="hidden" name="_captcha" value="false" />
-
-            <div class="form-grid">
-              <div class="form-group"><label>Nom</label><input required /></div>
-              <div class="form-group"><label>Prénom</label><input required /></div>
-              <div class="form-group"><label>Entreprise</label><input required /></div>
-              <div class="form-group"><label>Ville</label><input required /></div>
-              <div class="form-group"><label>Email</label><input type="email" required /></div>
-            </div>
-
-            <div class="form-group">
-              <label>Message</label>
-              <textarea rows="5" required></textarea>
-            </div>
-
-            <button class="contact-submit">Envoyer ma demande</button>
-          </form>
+          <a 
+            href="mailto:contact@novia-solutions.com?subject=Contact%20NovIA%20Solutions&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20obtenir%20des%20informations%20concernant%20vos%20services.%0D%0AMerci."
+            class="contact-submit">
+            ✉️ Contacter NovIA Solutions
+          </a>
         </div>
       </section>
+
     </main>
 
     <footer>
