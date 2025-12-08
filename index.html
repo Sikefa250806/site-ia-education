@@ -17,8 +17,6 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-
     .page {
       max-width: 1100px;
       margin: 0 auto;
@@ -39,15 +37,15 @@
       color: #0f172a;
       letter-spacing: 0.05em;
     }
-
     .logo span { color: #0ea5e9; }
 
     nav a {
       margin-left: 20px;
       font-size: 0.95rem;
       opacity: 0.8;
+      text-decoration: none;
+      color: #1e293b;
     }
-
     nav a:hover { opacity: 1; }
 
     /* HERO */
@@ -87,7 +85,6 @@
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 10px;
-      margin-bottom: 4px;
       font-size: 0.8rem;
     }
 
@@ -117,7 +114,7 @@
       font-size: 0.95rem;
       color: #475569;
       margin-bottom: 14px;
-      max-width: 650px;
+      max-width: 700px;
     }
 
     /* GRID */
@@ -132,7 +129,7 @@
       border-radius: 16px;
       padding: 18px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
     }
 
     .card-header {
@@ -141,16 +138,18 @@
       gap: 8px;
       margin-bottom: 8px;
     }
-
-    .card-header span.icon { font-size: 1.2rem; }
+    .icon { font-size: 1.3rem; }
 
     .card h3 {
-      font-size: 1rem;
-      margin-bottom: 4px;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
       color: #0f172a;
     }
 
-    .card p { color: #475569; margin-bottom: 6px; }
+    .card p, .card ul li {
+      color: #475569;
+      line-height: 1.45;
+    }
 
     /* CONTACT SIMPLE */
     .contact-box {
@@ -160,8 +159,8 @@
       border: 1px solid #e2e8f0;
       max-width: 680px;
       margin: 0 auto;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
       text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
     }
 
     .contact-info {
@@ -174,9 +173,9 @@
 
     footer {
       margin-top: 32px;
+      text-align: center;
       font-size: 0.8rem;
       color: #64748b;
-      text-align: center;
     }
   </style>
 </head>
@@ -202,27 +201,29 @@
 
         <h1>Digitaliser, <span>automatiser</span>, optimiser votre activité</h1>
         <p class="hero-sub">
-          Des solutions simples, concrètes et efficaces pour aider votre entreprise à gagner du temps,
-          améliorer son organisation et offrir une meilleure expérience à vos clients.
+          NovIA Solutions accompagne les petites entreprises dans l'amélioration de leur organisation,
+          la réduction des tâches répétitives et l'intégration d'outils intelligents pour gagner du temps au quotidien.
         </p>
 
         <div class="badge-row">
-          <div class="badge">🌐 Présence en ligne</div>
+          <div class="badge">🌐 Sites & présence en ligne</div>
           <div class="badge">⚙️ Automatisation</div>
-          <div class="badge">🤖 Agents IA</div>
-          <div class="badge">📈 Optimisation</div>
+          <div class="badge">🤖 Agents IA dédiés</div>
+          <div class="badge">📈 Optimisation interne</div>
         </div>
       </section>
 
       <!-- BENEFICES -->
       <section id="benefices">
         <h2 class="section-title">📊 Les bénéfices concrets</h2>
-        <p class="section-sub">Des gains rapides, mesurables et visibles dès les premières semaines.</p>
+        <p class="section-sub">
+          Chaque solution est pensée pour offrir un gain réel et rapide dans votre organisation.
+        </p>
 
         <div class="grid">
           <div class="card">
             <div class="card-header"><span class="icon">⏱️</span><h3>2–5h gagnées / semaine</h3></div>
-            <p>Automatisation des tâches répétitives et chronophages.</p>
+            <p>Grâce à l'automatisation des tâches répétitives et chronophages.</p>
           </div>
 
           <div class="card">
@@ -232,69 +233,26 @@
 
           <div class="card">
             <div class="card-header"><span class="icon">📈</span><h3>+30% d’efficacité</h3></div>
-            <p>Process simplifiés, meilleure coordination, moins d’oublis.</p>
+            <p>Des process simplifiés, une meilleure coordination, moins d’erreurs.</p>
           </div>
         </div>
       </section>
 
       <!-- SOLUTIONS -->
       <section id="solutions">
-        <h2 class="section-title">🛠️ Nos solutions</h2>
-        <p class="section-sub">Des outils simples à prendre en main, pensés pour les petites entreprises.</p>
+        <h2 class="section-title">🛠️ Nos solutions & accompagnements</h2>
+        <p class="section-sub">
+          Que vous souhaitiez mieux communiquer, mieux vous organiser ou déléguer certaines tâches à l'IA,
+          nos solutions s'adaptent à votre activité.
+        </p>
 
         <div class="grid">
+
+          <!-- SITE WEB -->
           <div class="card">
             <div class="card-header"><span class="icon">🌐</span><h3>Site web & présence en ligne</h3></div>
-            <p>Un site clair, moderne et professionnel adapté à votre activité.</p>
+            <p>Un site clair, professionnel et moderne pour mettre en valeur votre activité.</p>
             <ul>
               <li>Site vitrine responsive</li>
-              <li>Formulaire de contact intelligent</li>
-              <li>Email pro & nom de domaine</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><span class="icon">🤖</span><h3>Chatbots intelligents</h3></div>
-            <p>Un assistant disponible 24h/24 pour répondre aux questions courantes.</p>
-            <ul>
-              <li>FAQ dynamique</li>
-              <li>Qualification des demandes</li>
-              <li>Intégration Google Business</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations internes</h3></div>
-            <p>Des workflows simples qui suppriment les tâches répétitives.</p>
-            <ul>
-              <li>Relances automatiques</li>
-              <li>Suivi client simplifié</li>
-              <li>Rappels & notifications</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT SIMPLE -->
-      <section id="contact">
-        <div class="contact-box">
-          <h2>Contact & Audit gratuit</h2>
-          <p>Pour être recontacté pour un audit gratuit ou pour toute question :</p>
-
-          <div class="contact-info">
-            📞 06.25.78.64.99<br>
-            ✉️ contact@novia-solutions.com
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      NovIA Solutions – Digitaliser • Automatiser • Optimiser
-    </footer>
-
-  </div>
-</body>
-
-</html>
+              <li>Outils de contact intelligents</li>
+              <li>Email pro + nom de domaine</li>
