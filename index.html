@@ -243,7 +243,7 @@
       font-weight: 700;
     }
 
-    /* CONTACT */
+    /* CONTACT / FORMULAIRES GLOBAUX */
     .contact-box {
       background: #ffffff;
       border-radius: 18px;
@@ -254,11 +254,274 @@
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
     }
 
+    .contact-intro {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: #0f172a;
+    }
+
+    input,
+    textarea,
+    select {
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.2);
+    }
+
+    .contact-submit {
+      margin-top: 12px;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      background: #0ea5e9;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .contact-submit:hover {
+      background: #0284c7;
+      transform: translateY(-1px);
+    }
+
     footer {
       margin-top: 32px;
       font-size: 0.8rem;
       color: #64748b;
       text-align: center;
+    }
+
+    /* AUDIT IA – CHATBOT */
+    .audit-section {
+      margin-bottom: 40px;
+    }
+
+    .audit-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .audit-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .audit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(249, 115, 22, 0.06);
+      color: #9a3412;
+      border: 1px solid #fed7aa;
+      margin-bottom: 8px;
+    }
+
+    .audit-list {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .audit-list li {
+      margin-left: 18px;
+      margin-bottom: 4px;
+    }
+
+    .chat-box {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .chat-header-left span {
+      font-size: 1.2rem;
+    }
+
+    .chat-status {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .chat-window {
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .chat-message.bot {
+      justify-content: flex-start;
+    }
+
+    .chat-message.user {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      padding: 8px 10px;
+      border-radius: 14px;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+
+    .chat-message.bot .bubble {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+    }
+
+    .chat-message.user .bubble {
+      background: #0ea5e9;
+      color: #0f172a;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .chat-option-btn {
+      border-radius: 999px;
+      border: 1px solid #334155;
+      background: #020617;
+      color: #e5e7eb;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .chat-option-btn:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+
+    .chat-footer-note {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 6px;
+    }
+
+    .audit-form {
+      margin-top: 10px;
+      border-top: 1px solid #1f2937;
+      padding-top: 10px;
+    }
+
+    .audit-form-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .audit-form-row input[type="email"] {
+      flex: 1;
+      background: #020617;
+      border-color: #334155;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    .audit-form-row input[type="email"]::placeholder {
+      color: #9ca3af;
+    }
+
+    .audit-form-row button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #0ea5e9;
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .audit-form-row button:hover {
+      background: #38bdf8;
+      transform: translateY(-1px);
+    }
+
+    .audit-small {
+      font-size: 0.7rem;
+      opacity: 0.75;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -271,6 +534,7 @@
       <nav>
         <a href="#benefices">Bénéfices</a>
         <a href="#solutions">Solutions</a>
+        <a href="#audit-ia">Audit IA gratuit</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -321,17 +585,23 @@
 
         <div class="grid">
           <div class="card">
-            <div class="card-header"><span class="icon">⏱️</span><h3>2–5h gagnées / semaine</h3></div>
+            <div class="card-header"><span class="icon">⏱️</span>
+              <h3>2–5h gagnées / semaine</h3>
+            </div>
             <p>Grâce à l'automatisation des tâches répétitives.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📥</span><h3>Moins d’E-mails</h3></div>
+            <div class="card-header"><span class="icon">📥</span>
+              <h3>Moins d’E-mails</h3>
+            </div>
             <p>Tri, réponses types et organisation automatisée.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📈</span><h3>+30% d’efficacité</h3></div>
+            <div class="card-header"><span class="icon">📈</span>
+              <h3>+30% d’efficacité</h3>
+            </div>
             <p>Meilleur suivi des dossiers, moins d’oubli, meilleure coordination.</p>
           </div>
         </div>
@@ -347,7 +617,9 @@
         <div class="grid">
 
           <div class="card">
-            <div class="card-header"><span class="icon">🌐</span><h3>Site web & présence en ligne</h3></div>
+            <div class="card-header"><span class="icon">🌐</span>
+              <h3>Site web & présence en ligne</h3>
+            </div>
             <p>Un site clair et professionnel adapté aux petites entreprises.</p>
             <ul>
               <li>Site vitrine moderne & mobile</li>
@@ -357,7 +629,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">🤖</span><h3>Chatbots intelligents</h3></div>
+            <div class="card-header"><span class="icon">🤖</span>
+              <h3>Chatbots intelligents</h3>
+            </div>
             <p>Un assistant qui répond aux questions fréquentes 24h/24.</p>
             <ul>
               <li>FAQ dynamique et mise à jour facile</li>
@@ -367,7 +641,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">🎧</span><h3>Agents IA internes</h3></div>
+            <div class="card-header"><span class="icon">🎧</span>
+              <h3>Agents IA internes</h3>
+            </div>
             <p>Des assistants virtuels pour vos tâches internes.</p>
             <ul>
               <li>Tri d’emails & réponses automatiques</li>
@@ -377,7 +653,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations</h3></div>
+            <div class="card-header"><span class="icon">⚙️</span>
+              <h3>Automatisations</h3>
+            </div>
             <p>Des workflows simples qui vous enlèvent les tâches récurrentes.</p>
             <ul>
               <li>Relances automatiques</li>
@@ -388,15 +666,68 @@
         </div>
       </section>
 
+      <!-- AUDIT IA GRATUIT – CHATBOT -->
+      <section id="audit-ia" class="audit-section">
+        <h2 class="section-title">🧠 Audit IA gratuit – Chatbot dédié</h2>
+        <div class="audit-layout">
+          <div>
+            <div class="audit-pill">🎯 Objectif : identifier vos gains rapides en moins de 2 minutes</div>
+            <p class="section-sub">
+              Répondez à quelques questions, notre chatbot spécialisé vous propose immédiatement les
+              ajustements possibles : automatisations prioritaires, gains de temps estimés et pistes concrètes.
+            </p>
+            <ul class="audit-list">
+              <li>Mini-diagnostic personnalisé de votre activité</li>
+              <li>Estimation des heures que vous pouvez gagner par semaine</li>
+              <li>Idées d’automatisation adaptées à votre taille et à votre secteur</li>
+              <li>Possibilité de recevoir un plan détaillé par e-mail, gratuitement</li>
+            </ul>
+          </div>
+
+          <div class="chat-box">
+            <div class="chat-header">
+              <div class="chat-header-left">
+                <span>🤖</span> <span>Bot Audit NovIA</span>
+              </div>
+              <div class="chat-status">Spécialiste automatisation TPE</div>
+            </div>
+
+            <div id="chat-window" class="chat-window"></div>
+            <div id="chat-options" class="chat-options"></div>
+
+            <div class="chat-footer-note">
+              Répondez en cliquant sur les propositions. À la fin, vous obtenez un mini-audit prêt à être utilisé.
+            </div>
+
+            <form id="audit-form" class="audit-form"
+              action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="type_formulaire" value="Audit IA gratuit" />
+              <input type="hidden" name="audit_resume" id="audit-resume-input" />
+
+              <div class="audit-form-row">
+                <input type="email" name="email"
+                  placeholder="Recevoir mon plan complet par e-mail (optionnel mais recommandé)" />
+                <button type="submit">Envoyer</button>
+              </div>
+              <div class="audit-small">
+                Vous pouvez d’abord tester le mini-audit, puis saisir votre e-mail si vous souhaitez un retour plus
+                détaillé.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA -->
       <section>
         <div class="cta">
-          <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
+          <h2 class="section-title">📞 Audit complet & accompagnement</h2>
           <p>
-            Dites-nous comment vous travaillez aujourd’hui : nous identifions vos
-            pistes concrètes de digitalisation et d’automatisation.
+            À partir de ce premier mini-audit, nous pouvons construire avec vous un plan d’action détaillé :
+            automatisations, outils recommandés et mise en place concrète.
           </p>
-          <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
+          <strong>📝 Vous repartez avec un plan clair & priorisé, adapté à votre réalité.</strong>
         </div>
       </section>
 
@@ -408,18 +739,34 @@
 
           <form action="https://formsubmit.co/contact@novia-solutions.com" method="POST">
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="type_formulaire" value="Contact entreprise" />
 
             <div class="form-grid">
-              <div class="form-group"><label>Nom</label><input required /></div>
-              <div class="form-group"><label>Prénom</label><input required /></div>
-              <div class="form-group"><label>Entreprise</label><input required /></div>
-              <div class="form-group"><label>Ville</label><input required /></div>
-              <div class="form-group"><label>Email</label><input type="email" required /></div>
+              <div class="form-group">
+                <label>Nom</label>
+                <input name="nom" required />
+              </div>
+              <div class="form-group">
+                <label>Prénom</label>
+                <input name="prenom" required />
+              </div>
+              <div class="form-group">
+                <label>Entreprise</label>
+                <input name="entreprise" required />
+              </div>
+              <div class="form-group">
+                <label>Ville</label>
+                <input name="ville" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input name="email" type="email" required />
+              </div>
             </div>
 
             <div class="form-group">
               <label>Message</label>
-              <textarea rows="5" required></textarea>
+              <textarea name="message" rows="5" required></textarea>
             </div>
 
             <button class="contact-submit">Envoyer ma demande</button>
@@ -433,6 +780,213 @@
     </footer>
 
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const chatWindow = document.getElementById("chat-window");
+      const optionsContainer = document.getElementById("chat-options");
+      const auditResumeInput = document.getElementById("audit-resume-input");
+
+      const steps = [
+        {
+          key: "secteur",
+          question: "Pour commencer, dans quel secteur êtes-vous principalement ?",
+          options: [
+            "Commerce / boutique",
+            "Restauration / food",
+            "Services (coaching, conseil, bien-être…)",
+            "BTP / artisanat",
+            "Formation / éducation",
+            "Autre"
+          ]
+        },
+        {
+          key: "taille",
+          question: "Combien de personnes travaillent dans votre structure (vous compris) ?",
+          options: [
+            "1 (solo)",
+            "2-5",
+            "6-10",
+            "11-20",
+            "21 et plus"
+          ]
+        },
+        {
+          key: "temps",
+          question: "Combien de temps passez-vous chaque semaine sur de l’administratif / organisation ?",
+          options: [
+            "Moins de 3h",
+            "3-7h",
+            "8-15h",
+            "16h et plus"
+          ]
+        },
+        {
+          key: "priorite",
+          question: "Votre priorité n°1 aujourd’hui, c’est plutôt…",
+          options: [
+            "Gagner du temps",
+            "Mieux suivre mes clients",
+            "Avoir moins d’e-mails",
+            "Structurer mon activité",
+            "Améliorer mon image en ligne"
+          ]
+        },
+        {
+          key: "outils",
+          question: "Aujourd’hui, vous travaillez surtout avec…",
+          options: [
+            "Excel + email",
+            "Carnet / papier",
+            "Outils en ligne mais peu connectés",
+            "Déjà quelques automatisations",
+            "Je ne sais pas trop"
+          ]
+        }
+      ];
+
+      let currentStep = 0;
+      const answers = {};
+
+      function addMessage(sender, text) {
+        const msg = document.createElement("div");
+        msg.className = "chat-message " + (sender === "bot" ? "bot" : "user");
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.textContent = text;
+
+        msg.appendChild(bubble);
+        chatWindow.appendChild(msg);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      function renderOptions(step) {
+        optionsContainer.innerHTML = "";
+        step.options.forEach(option => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "chat-option-btn";
+          btn.textContent = option;
+          btn.addEventListener("click", () => handleOptionClick(option));
+          optionsContainer.appendChild(btn);
+        });
+      }
+
+      function showStep() {
+        if (currentStep >= steps.length) {
+          finishAudit();
+          return;
+        }
+        const step = steps[currentStep];
+        addMessage("bot", step.question);
+        renderOptions(step);
+      }
+
+      function handleOptionClick(optionValue) {
+        const step = steps[currentStep];
+        answers[step.key] = optionValue;
+
+        // afficher la réponse utilisateur
+        addMessage("user", optionValue);
+
+        // passer à la question suivante
+        currentStep++;
+        optionsContainer.innerHTML = "";
+        setTimeout(showStep, 400);
+      }
+
+      function generateSummary(answers) {
+        let summary = "Voici votre mini-audit personnalisé :\n\n";
+
+        // Secteur
+        if (answers.secteur) {
+          summary += "• Secteur : " + answers.secteur + ".\n";
+        }
+
+        // Taille
+        if (answers.taille) {
+          summary += "• Taille de la structure : " + answers.taille + ".\n";
+        }
+
+        // Temps administratif -> estimations
+        if (answers.temps) {
+          if (answers.temps === "8-15h" || answers.temps === "16h et plus") {
+            summary += "• Temps administratif : important. Potentiel de gain : 2 à 5 heures par semaine via l’automatisation des e-mails, relances et prise de rendez-vous.\n";
+          } else if (answers.temps === "3-7h") {
+            summary += "• Temps administratif : significatif. Potentiel de gain : 1 à 3 heures par semaine avec quelques automatisations ciblées.\n";
+          } else {
+            summary += "• Temps administratif : limité. Potentiel surtout sur la structuration et la fiabilité du suivi.\n";
+          }
+        }
+
+        // Priorité principale
+        if (answers.priorite) {
+          summary += "\nPistes prioritaires recommandées :\n";
+          switch (answers.priorite) {
+            case "Gagner du temps":
+              summary += "• Mettre en place des modèles de réponses et un tri automatique des e-mails.\n";
+              summary += "• Automatiser les relances clients et rappels de rendez-vous.\n";
+              break;
+            case "Mieux suivre mes clients":
+              summary += "• Mettre en place un mini-CRM simple (fiche client, historique, rappels).\n";
+              summary += "• Connecter formulaire / site web avec un tableau de suivi centralisé.\n";
+              break;
+            case "Avoir moins d’e-mails":
+              summary += "• Assistant IA pour pré-classer les e-mails et proposer des réponses types.\n";
+              summary += "• Utiliser un formulaire ou un chatbot pour filtrer les demandes récurrentes.\n";
+              break;
+            case "Structurer mon activité":
+              summary += "• Standardiser quelques processus clés (devis, factures, on-boarding client).\n";
+              summary += "• Mettre en place un tableau de bord simple avec les tâches en cours et à venir.\n";
+              break;
+            case "Améliorer mon image en ligne":
+              summary += "• Clarifier votre présence en ligne (site vitrine + fiche Google Business).\n";
+              summary += "• Utiliser l’IA pour rédiger des contenus clairs et cohérents (pages, posts, FAQ).\n";
+              break;
+          }
+        }
+
+        // Maturité numérique
+        if (answers.outils) {
+          summary += "\nNiveau de maturité numérique :\n";
+          if (answers.outils === "Excel + email" || answers.outils === "Carnet / papier") {
+            summary += "• Niveau actuel : outils basiques. Gros potentiel de simplification en passant sur des outils connectés (formulaires, automatisations simples, assistant IA).\n";
+          } else if (answers.outils === "Outils en ligne mais peu connectés") {
+            summary += "• Niveau actuel : outils présents mais peu reliés entre eux. Priorité : connecter les outils existants et supprimer les doubles saisies.\n";
+          } else if (answers.outils === "Déjà quelques automatisations") {
+            summary += "• Niveau actuel : déjà engagé. Il est possible d’aller plus loin avec des agents IA internes et des automatisations plus fines.\n";
+          } else {
+            summary += "• Niveau actuel : à clarifier. Un échange rapide permettra de cartographier vos outils et de dégager des gains rapides.\n";
+          }
+        }
+
+        summary += "\nÉtape suivante :\n";
+        summary += "• Recevoir un plan d’action détaillé (outils concrets, ordre de priorité, mise en place) adapté à votre situation.\n";
+
+        return summary;
+      }
+
+      function finishAudit() {
+        const summary = generateSummary(answers);
+        addMessage("bot", summary);
+
+        if (auditResumeInput) {
+          auditResumeInput.value = summary;
+        }
+
+        // Proposer une petite phrase pour encourager l’e-mail
+        setTimeout(() => {
+          addMessage("bot", "Si vous le souhaitez, saisissez votre e-mail ci-dessous : je vous enverrai un plan d’action plus détaillé, adapté à votre cas, toujours gratuitement et sans engagement.");
+        }, 600);
+      }
+
+      // Démarrage du chatbot
+      addMessage("bot", "Bonjour 👋 Je suis le bot d’audit NovIA. En moins de 2 minutes, on va regarder où l’IA et l’automatisation peuvent vraiment vous aider.");
+      setTimeout(showStep, 700);
+    });
+  </script>
+
 </body>
 
 </html>
