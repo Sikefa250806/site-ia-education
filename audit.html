@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audit numérique & IA – NovIA Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Police plus premium -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 35%, #f3f4f6 100%);
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 2rem 2.2rem;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(148, 163, 184, 0.16);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 0.4rem;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 1.3rem;
+      font-size: 0.98rem;
+    }
+
+    .intro-box {
+      background: linear-gradient(135deg, #eff6ff, #eef2ff);
+      border-radius: 14px;
+      padding: 1rem 1.3rem;
+      font-size: 0.9rem;
+      color: #1f2937;
+      margin-bottom: 1.8rem;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-box::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.20), transparent 65%);
+      pointer-events: none;
+    }
+
+    .intro-box strong {
+      font-weight: 600;
+    }
+
+    .intro-box ul {
+      margin: 0.4rem 0 0.6rem 1.1rem;
+      padding: 0;
+    }
+
+    .intro-box li {
+      margin-bottom: 0.16rem;
+    }
+
+    .progress {
+      margin-bottom: 1.4rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #2563eb, #4f46e5);
+      transition: width 0.35s ease;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.6);
+    }
+
+    .progress-text {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 0.35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .progress-step-label {
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    .step {
+      display: none;
+      padding: 1.3rem 1.4rem;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      margin-bottom: 0.8rem;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+      color: #111827;
+    }
+
+    .step-description {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem 1.3rem;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+      color: #111827;
+    }
+
+    .field small {
+      display: block;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 0.94rem;
+      outline: none;
+      transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease,
+        transform 0.05s ease;
+      background: #ffffff;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.18);
+      background: #f9fafb;
+      transform: translateY(-0.5px);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .option-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.85rem;
+      cursor: pointer;
+      background: #ffffff;
+      transition:
+        background 0.12s ease,
+        border-color 0.12s ease,
+        box-shadow 0.12s ease,
+        transform 0.05s ease;
+    }
+
+    .option-pill:hover {
+      border-color: #9ca3af;
+      background: #f3f4f6;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+      transform: translateY(-0.5px);
+    }
+
+    .option-pill input {
+      margin: 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.6rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 0.65rem 1.6rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition:
+        transform 0.08s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease,
+        opacity 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* --- Récapitulatif / analyse rapide --- */
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #ecfeff;
+      color: #0e7490;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.9rem;
+      border: 1px solid #a5f3fc;
+      font-weight: 500;
+    }
+
+    .badge::before {
+      content: "●";
+      font-size: 0.7rem;
+    }
+
+    .summary {
+      margin-top: 0.4rem;
+      border-top: 1px dashed #e5e7eb;
+      padding-top: 1.2rem;
+    }
+
+    .summary-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      font-size: 0.92rem;
+      color: #111827;
+    }
+
+    .summary-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.02rem;
+    }
+
+    .summary-card p {
+      margin: 0.25rem 0;
+    }
+
+    .summary-list {
+      margin: 0.6rem 0 0.8rem 1.1rem;
+      padding: 0;
+    }
+
+    .summary-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .next-steps-box {
+      margin-top: 0.9rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .summary-highlight {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .summary-placeholder {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        margin: 1.2rem;
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Audit numérique & IA – NovIA Solutions</h1>
+    <p class="subtitle">
+      Un questionnaire structuré pour faire un diagnostic clair de votre organisation, de vos outils et des opportunités d’automatisation & d’IA.
+    </p>
+
+    <div class="intro-box">
+      <p>
+        <strong>Pourquoi ce formulaire&nbsp;?</strong><br />
+        Ce questionnaire a pour objectif de dresser un état des lieux simple et concret de votre entreprise&nbsp;:
+        comment vous travaillez aujourd’hui, comment vous gagnez vos clients, quels outils vous utilisez et où l’IA
+        et l’automatisation peuvent vous faire gagner du temps et de la sérénité.
+      </p>
+      <p>
+        Au fil des questions, il est possible que vous identifiiez vous-même certains écarts entre votre fonctionnement actuel
+        et la manière dont vous aimeriez que les choses se passent au quotidien.
+      </p>
+      <p>
+        <strong>Ce que nous allons en faire&nbsp;:</strong>
+      </p>
+      <ul>
+        <li>Identifier vos principaux irritants et pertes de temps.</li>
+        <li>Repérer les leviers rapides d’optimisation (organisation, outils, automatisations, IA).</li>
+        <li>Préparer un échange de restitution avec des recommandations concrètes et priorisées.</li>
+      </ul>
+      <p>
+        <strong>Les étapes après ce formulaire&nbsp;:</strong>
+      </p>
+      <ul>
+        <li>Analyse de vos réponses par NovIA Solutions.</li>
+        <li>Prise de contact pour un échange de 30–45 minutes (téléphone ou visio).</li>
+        <li>Présentation de vos résultats et, si vous le souhaitez, d’un plan d’action sur-mesure.</li>
+      </ul>
+      <p>
+        <strong>Comment le remplir&nbsp;?</strong>
+      </p>
+      <ul>
+        <li>Prévoyez 10 à 15 minutes pour le compléter tranquillement.</li>
+        <li>Répondez de manière globale, avec vos ordres de grandeur habituels.</li>
+        <li>N’hésitez pas à utiliser les champs libres pour préciser vos cas particuliers.</li>
+      </ul>
+      <p>
+        Vos réponses serviront de base à un diagnostic personnalisé, que nous pourrons ensuite transformer en
+        rapport et en plan d’action adapté à votre contexte.
+      </p>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text">
+        <span id="progressText">Étape 1 / 8</span>
+        <span class="progress-step-label" id="progressStepLabel"></span>
+      </div>
+    </div>
+
+    <form id="auditForm">
+      <!-- ÉTAPE 1 : Infos du répondant -->
+      <div class="step active" data-step="1" data-label="Vos informations">
+        <h2>1. Vos informations</h2>
+        <p class="step-description">Ces informations permettront de vous recontacter pour échanger sur votre audit.</p>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="user_firstname">Prénom</label>
+            <input type="text" id="user_firstname" name="user.firstname" required />
+          </div>
+
+          <div class="field">
+            <label for="user_lastname">Nom</label>
+            <input type="text" id="user_lastname" name="user.lastname" required />
+          </div>
+
+          <div class="field">
+            <label for="user_role">Fonction dans l’entreprise</label>
+            <input type="text" id="user_role" name="user.role" placeholder="Dirigeant, responsable commercial, etc." />
+          </div>
+
+          <div class="field">
+            <label for="user_email">Adresse e-mail</label>
+            <input type="email" id="user_email" name="user.email" required />
+          </div>
+
+          <div class="field">
+            <label for="user_phone">Numéro de téléphone</label>
+            <input type="text" id="user_phone" name="user.phone" placeholder="06..." />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Vos créneaux de disponibilité</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="checkbox" name="user.availability[]" value="matin" /> Matin
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="user.availability[]" value="apres_midi" /> Après-midi
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="user.availability[]" value="soir" /> Soir
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="user.availability[]" value="weekend" /> Week-end
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Précisions complémentaires sur votre disponibilité</label>
+          <textarea name="user.availability_details" placeholder="Ex : plutôt mardi / jeudi après 15h..."></textarea>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 2 : Informations entreprise -->
+      <div class="step" data-step="2" data-label="L’entreprise">
+        <h2>2. Informations sur l’entreprise</h2>
+        <p class="step-description">Ces éléments nous permettent de contextualiser le diagnostic.</p>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="company_name">Nom de l’entreprise</label>
+            <input type="text" id="company_name" name="company.name" required />
+          </div>
+
+          <div class="field">
+            <label for="company_sector">Secteur d’activité principal</label>
+            <select id="company_sector" name="company.sector">
+              <option value="">Sélectionner...</option>
+              <option value="agriculture_agroalimentaire">Agriculture / Agroalimentaire</option>
+              <option value="industrie_production">Industrie / Production</option>
+              <option value="btp_construction">BTP / Construction</option>
+              <option value="commerce_detail">Commerce de détail</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="services_aux_entreprises">Services aux entreprises (conseil, comptabilité, etc.)</option>
+              <option value="services_aux_particuliers">Services aux particuliers</option>
+              <option value="sante_social">Santé / Social</option>
+              <option value="education_formation">Éducation / Formation</option>
+              <option value="hotellerie_restauration_tourisme">Hôtellerie / Restauration / Tourisme</option>
+              <option value="transport_logistique">Transport / Logistique</option>
+              <option value="immobilier">Immobilier</option>
+              <option value="tech_numerique_logiciels">Tech / Numérique / Logiciels</option>
+              <option value="association_ess">Association / Économie sociale et solidaire</option>
+              <option value="autre">Autre / activité mixte</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="company_sector_details">Préciser</label>
+            <input
+              type="text"
+              id="company_sector_details"
+              name="company.sector_details"
+              placeholder="Ex : cabinet de conseil RH pour TPE, restaurant italien, etc."
+            />
+          </div>
+
+          <div class="field">
+            <label for="company_client_type">Type de clientèle</label>
+            <select id="company_client_type" name="company.client_type">
+              <option value="">Sélectionner...</option>
+              <option value="particuliers">Particuliers</option>
+              <option value="professionnels">Professionnels</option>
+              <option value="les_deux">Les deux</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="company_size">Nombre de collaborateurs</label>
+            <select id="company_size" name="company.size">
+              <option value="">Sélectionner...</option>
+              <option value="1-5">1 à 5</option>
+              <option value="6-20">6 à 20</option>
+              <option value="21-50">21 à 50</option>
+              <option value="51-100">51 à 100</option>
+              <option value="100+">100 et plus</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="company_city">Ville</label>
+            <input type="text" id="company_city" name="company.location" />
+          </div>
+
+          <div class="field">
+            <label for="company_postal">Code postal</label>
+            <input type="text" id="company_postal" name="company.postal_code" />
+          </div>
+
+          <div class="field">
+            <label>Objectif principal de l’audit</label>
+            <div class="options">
+              <label class="option-pill">
+                <input type="radio" name="company.main_goal" value="gagner_du_temps" /> Gagner du temps
+              </label>
+              <label class="option-pill">
+                <input type="radio" name="company.main_goal" value="reduire_les_couts" /> Réduire les coûts
+              </label>
+              <label class="option-pill">
+                <input type="radio" name="company.main_goal" value="ameliorer_le_suivi_client" /> Mieux suivre les clients
+              </label>
+              <label class="option-pill">
+                <input type="radio" name="company.main_goal" value="automatiser" /> Automatiser
+              </label>
+              <label class="option-pill">
+                <input type="radio" name="company.main_goal" value="moderniser_image" /> Moderniser l’image
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 3 : Organisation & processus -->
+      <div class="step" data-step="3" data-label="Organisation & process">
+        <h2>3. Organisation & processus internes</h2>
+        <p class="step-description">
+          Comment fonctionne votre entreprise au quotidien ? Les questions ci-dessous vous permettront aussi de voir
+          où votre organisation pourrait être plus fluide.
+        </p>
+
+        <div class="field">
+          <label>Niveau de structuration de l’organisation</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="radio" name="org.structure_level" value="tres_structurée" /> Très structurée
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="org.structure_level" value="assez_structurée" /> Assez structurée
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="org.structure_level" value="informelle" /> Plutôt informelle
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="org.structure_level" value="au_feeling" /> Au feeling
+            </label>
+          </div>
+          <small>
+            Très structurée&nbsp;: organigramme clair, procédures écrites, process formalisés.<br />
+            Assez structurée&nbsp;: quelques procédures / habitudes stabilisées, mais pas partout.<br />
+            Plutôt informelle&nbsp;: règles implicites, peu ou pas de documentation écrite.<br />
+            Au feeling&nbsp;: chacun fait “comme il peut” selon les urgences du moment.
+          </small>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Rythme de fonctionnement au quotidien</label>
+            <select name="org.operating_rhythm">
+              <option value="">Sélectionner...</option>
+              <option value="toujours_urgence">Souvent dans l’urgence / au dernier moment</option>
+              <option value="parfois_tendu">Parfois tendu, parfois fluide</option>
+              <option value="maitrise">Globalement maîtrisé, peu d’urgences</option>
+              <option value="tres_anticipe">Très anticipé et planifié</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Clarté des rôles et responsabilités</label>
+            <select name="org.roles_clarity">
+              <option value="">Sélectionner...</option>
+              <option value="flou">Plutôt flou : chacun fait un peu de tout</option>
+              <option value="moyen">Moyennement clair : dépend des sujets</option>
+              <option value="clair">Plutôt clair pour la plupart des sujets</option>
+              <option value="tres_clair">Très clair : qui fait quoi est explicite</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Comment sont prises les décisions opérationnelles ?</label>
+          <textarea
+            name="org.decision_making"
+            placeholder="Ex : le dirigeant valide tout, délégation par service, validation informelle, etc."
+          ></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Les processus clés sont-ils documentés ?</label>
+            <select name="org.process_documentation">
+              <option value="">Sélectionner...</option>
+              <option value="oui">Oui</option>
+              <option value="partiellement">Partiellement</option>
+              <option value="non">Non</option>
+            </select>
+            <small>Ex : modes opératoires, procédures, fiches de process...</small>
+          </div>
+
+          <div class="field">
+            <label>Que se passe-t-il si une personne clé est absente plusieurs jours&nbsp;?</label>
+            <textarea
+              name="org.key_people_absence"
+              placeholder="Ex : certaines tâches s’arrêtent, d’autres sont reprises facilement, etc."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Suivez-vous quelques indicateurs simples (KPI) sur vos opérations ?</label>
+            <select name="org.kpi_usage">
+              <option value="">Sélectionner...</option>
+              <option value="aucun">Non, quasiment aucun indicateur</option>
+              <option value="occasionnel">Oui, mais de manière ponctuelle / non formalisée</option>
+              <option value="regulier">Oui, quelques indicateurs suivis régulièrement</option>
+              <option value="structure">Oui, un tableau de bord structuré</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Quels sont, selon vous, les 2–3 processus les plus “painful” aujourd’hui ?</label>
+            <textarea
+              name="org.key_pains"
+              placeholder="Ex : relances clients, facturation, suivi de projet, planning..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 4 : Acquisition & visibilité -->
+      <div class="step" data-step="4" data-label="Acquisition & visibilité">
+        <h2>4. Acquisition clients & visibilité</h2>
+        <p class="step-description">
+          Comment vous faites connaître votre activité et comment vous transformez vos prospects en clients ?
+          Les réponses vous permettront de voir si votre acquisition repose plutôt sur la chance ou sur un système.
+        </p>
+
+        <div class="field">
+          <label>Comment obtenez-vous principalement de nouveaux clients ?</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="bouche_a_oreille" /> Bouche-à-oreille / réseau
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="site_web" /> Site web
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="reseaux_sociaux" /> Réseaux sociaux
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="publicite_en_ligne" /> Publicité en ligne (Google, Meta...)
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="evenements" /> Salons / événements
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="prospection" /> Prospection (téléphone / email)
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.acquisition_channels[]" value="autre" /> Autre
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Précisions sur votre acquisition de clients</label>
+          <textarea
+            name="growth.acquisition_details"
+            placeholder="Ex : 80 % par recommandation, quelques leads via le site, campagnes ponctuelles..."
+          ></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Disposez-vous d’objectifs chiffrés de nouveaux clients / de CA par période ?</label>
+            <select name="growth.sales_targets">
+              <option value="">Sélectionner...</option>
+              <option value="aucun">Non, aucun objectif chiffré défini</option>
+              <option value="approximatif">Oui, mais plutôt “dans la tête”</option>
+              <option value="defini_non_suivi">Oui, définis mais peu suivis</option>
+              <option value="defini_suivi">Oui, définis et suivis régulièrement</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Estimation de votre taux de conversion (prospects → clients)</label>
+            <select name="growth.conversion_rate">
+              <option value="">Sélectionner...</option>
+              <option value="moins_de_10">Moins de 10 %</option>
+              <option value="10_30">10 à 30 %</option>
+              <option value="30_50">30 à 50 %</option>
+              <option value="50_plus">Plus de 50 %</option>
+              <option value="ne_sais_pas">Je ne sais pas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Comment se déroule concrètement la conversion d’un prospect en client ?</label>
+          <textarea
+            name="growth.conversion_process"
+            placeholder="Ex : prise de contact → rendez-vous → devis → relance → signature..."
+          ></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Avez-vous un système structuré de suivi des prospects ?</label>
+            <select name="growth.followup_system">
+              <option value="">Sélectionner...</option>
+              <option value="aucun">Non, pas vraiment</option>
+              <option value="tableur">Oui, via un tableau (Excel, Google Sheets...)</option>
+              <option value="crm">Oui, via un CRM</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Comment faites-vous le suivi et les relances ?</label>
+            <textarea
+              name="growth.followup_details"
+              placeholder="Relances manuelles, rappels dans l’agenda, séquences mails automatiques..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Présence en ligne – site web</label>
+          <div class="grid-2">
+            <div class="field">
+              <label>Disposez-vous d’un site web ?</label>
+              <select name="growth.website_has">
+                <option value="">Sélectionner...</option>
+                <option value="oui">Oui</option>
+                <option value="en_cours">En cours de création</option>
+                <option value="non">Non</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Adresse de votre site (si applicable)</label>
+              <input type="text" name="growth.website_url" placeholder="https://..." />
+            </div>
+          </div>
+          <small>Nous n’évaluerons pas le site en direct, cette information sert au diagnostic.</small>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>À quand remonte la dernière mise à jour significative de votre site ou de vos pages principales ?</label>
+            <select name="growth.website_last_update">
+              <option value="">Sélectionner...</option>
+              <option value="moins_6_mois">Moins de 6 mois</option>
+              <option value="6_12_mois">Entre 6 et 12 mois</option>
+              <option value="plus_12_mois">Plus de 12 mois</option>
+              <option value="pas_de_site">Pas de site / ne sait pas</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Visibilité sur Google (fiche Google Business Profile)</label>
+            <select name="growth.google_business">
+              <option value="">Sélectionner...</option>
+              <option value="oui">Oui, bien configurée</option>
+              <option value="oui_incomplete">Oui, mais incomplète / peu utilisée</option>
+              <option value="non">Non</option>
+              <option value="ne_sais_pas">Je ne sais pas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Êtes-vous satisfait de votre visibilité actuelle sur Internet ?</label>
+            <select name="growth.web_visibility_satisfaction">
+              <option value="">Sélectionner...</option>
+              <option value="non_visibles">Pas du tout visibles</option>
+              <option value="insuffisant">Insuffisante</option>
+              <option value="correct">Correcte</option>
+              <option value="tres_bonne">Très bonne</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Si vous deviez être “vraiment satisfait” de votre visibilité, qu’est-ce qui aurait changé ?</label>
+            <textarea
+              name="growth.web_ideal_state"
+              placeholder="Ex : plus de demandes entrantes, meilleure visibilité locale, trafic plus qualifié..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Présence sur les réseaux sociaux</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="linkedin" /> LinkedIn
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="facebook" /> Facebook
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="instagram" /> Instagram
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="tiktok" /> TikTok
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="youtube" /> YouTube
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="growth.social_channels[]" value="aucun" /> Peu ou pas présents
+            </label>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Fréquence de publication sur vos réseaux principaux</label>
+            <select name="growth.social_frequency">
+              <option value="">Sélectionner...</option>
+              <option value="rarement">Très rarement</option>
+              <option value="mensuel">Environ 1 fois par mois</option>
+              <option value="hebdo">Environ 1 fois par semaine</option>
+              <option value="frequent">Plusieurs fois par semaine</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Quel type de contenu publiez-vous principalement ?</label>
+            <textarea
+              name="growth.social_content"
+              placeholder="Ex : actualités, réalisations clients, conseils, promotions..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 5 : Outils & numérique -->
+      <div class="step" data-step="5" data-label="Outils numériques">
+        <h2>5. Outils numériques & environnement actuel</h2>
+        <p class="step-description">
+          Quels outils utilisez-vous au quotidien ? L’objectif est aussi de voir si votre “boîte à outils” est cohérente ou subie.
+        </p>
+
+        <div class="field">
+          <label>Outils utilisés régulièrement (cochez tout ce qui s’applique)</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="excel" /> Excel / tableurs
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="google_workspace" /> Google Workspace
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="microsoft365" /> Microsoft 365 / Outlook
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="crm" /> CRM dédié
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="notion" /> Notion
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="trello_asana" /> Trello / Asana
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="logiciel_metier" /> Logiciel métier
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="tools.stack[]" value="peu_outille" /> Peu d’outils / très peu
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Précisez les principaux outils (nom du CRM, logiciel métier, etc.)</label>
+          <textarea name="tools.details" placeholder="Ex : HubSpot, Sellsy, logiciel devis BTP, etc."></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Vos outils sont-ils connectés entre eux ?</label>
+            <select name="tools.integrations">
+              <option value="">Sélectionner...</option>
+              <option value="oui">Oui</option>
+              <option value="partiellement">Partiellement</option>
+              <option value="non">Non</option>
+              <option value="ne_sais_pas">Je ne sais pas</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Perdez-vous du temps à rechercher des informations ?</label>
+            <select name="tools.info_search_time">
+              <option value="">Sélectionner...</option>
+              <option value="non_ou_peu">Non ou très peu</option>
+              <option value="parfois">Parfois</option>
+              <option value="souvent">Souvent</option>
+              <option value="tout_le_temps">Tout le temps</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Quand un nouveau collaborateur arrive, existe-t-il un guide ou un parcours de prise en main des outils ?</label>
+            <select name="tools.onboarding">
+              <option value="">Sélectionner...</option>
+              <option value="aucun">Non, chacun se débrouille</option>
+              <option value="informel">Un accompagnement plutôt informel</option>
+              <option value="partiel">Oui, partiellement structuré</option>
+              <option value="structure">Oui, un vrai parcours de prise en main</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Globalement, comment jugez-vous l’adéquation de vos outils à vos besoins actuels ?</label>
+            <select name="tools.fit_perception">
+              <option value="">Sélectionner...</option>
+              <option value="pas_adaptes">Peu adaptés / vieillissants</option>
+              <option value="mitige">Mitigé : certains adaptés, d’autres non</option>
+              <option value="plutot_bon">Plutôt bons mais perfectibles</option>
+              <option value="tres_bon">Très bons et bien exploités</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 6 : Automatisation & IA -->
+      <div class="step" data-step="6" data-label="Automatisation & IA">
+        <h2>6. Automatisation & usage de l’IA</h2>
+        <p class="step-description">
+          Nous évaluons ici votre niveau de maturité sur l’automatisation et l’intelligence artificielle.
+          L’idée est de voir où vous en êtes aujourd’hui… et jusqu’où vous pourriez aller.
+        </p>
+
+        <div class="field">
+          <label>Niveau actuel d’automatisation dans l’entreprise</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="radio" name="automation.level" value="1_aucune" /> 1 – Aucune automatisation
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="automation.level" value="2_basique" /> 2 – Quelques automatisations simples
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="automation.level" value="3_moyen" /> 3 – Automatisation sur certains process
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="automation.level" value="4_avance" /> 4 – Automatisation avancée
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="automation.level" value="5_strategique" /> 5 – L’automatisation est stratégique
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Sur une échelle de 1 à 5, à quel point l’IA fait-elle partie de vos habitudes de travail aujourd’hui ?</label>
+          <select name="ai.habits_level">
+            <option value="">Sélectionner...</option>
+            <option value="1">1 – Pas du tout</option>
+            <option value="2">2 – Très ponctuellement</option>
+            <option value="3">3 – Régulièrement sur certains sujets</option>
+            <option value="4">4 – Fréquemment, intégrée à plusieurs process</option>
+            <option value="5">5 – L’IA est devenue un réflexe dans l’entreprise</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Quelles tâches répétitives souhaiteriez-vous automatiser en priorité ?</label>
+          <textarea
+            name="automation.priorities"
+            placeholder="Relances clientes, saisie de données, génération de devis, reporting..."
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Utilisez-vous déjà l’IA dans l’entreprise ?</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="checkbox" name="ai.current_usage[]" value="chatgpt" /> ChatGPT / assistants IA
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="ai.current_usage[]" value="logiciel_ia_integree" /> IA intégrée dans vos logiciels
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="ai.current_usage[]" value="projets_pilotes" /> Projets pilotes IA
+            </label>
+            <label class="option-pill">
+              <input type="checkbox" name="ai.current_usage[]" value="aucun" /> Pas encore
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Sur quels usages IA souhaiteriez-vous avancer ?</label>
+          <textarea
+            name="ai.desired_usage"
+            placeholder="Ex : agent IA interne, chatbot client, génération de documents, analyse d’emails..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 7 : Priorités & quick wins -->
+      <div class="step" data-step="7" data-label="Priorités & enjeux">
+        <h2>7. Priorités & enjeux</h2>
+        <p class="step-description">Ce qui nous permet de proposer un plan d’action concret et priorisé.</p>
+
+        <div class="field">
+          <label>Si vous deviez citer UN problème majeur aujourd’hui, ce serait ?</label>
+          <textarea name="priority.top_issue" placeholder="Le principal blocage / irritant actuel..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Quels résultats concrets attendez-vous d’un projet d’optimisation / IA ?</label>
+          <textarea
+            name="priority.expected_results"
+            placeholder="Ex : gagner X heures par semaine, réduire les erreurs, mieux suivre les leads..."
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Si rien ne changeait d’ici 12 mois sur ces sujets, qu’est-ce qui vous inquiéterait le plus ?</label>
+          <textarea
+            name="priority.no_change_risk"
+            placeholder="Ex : surcharge, perte de clients, difficulté à recruter, perte de compétitivité..."
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label>Autre élément important à porter à notre connaissance ?</label>
+          <textarea name="priority.other_notes"></textarea>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 8 : Récap & analyse rapide -->
+      <div class="step" data-step="8" data-label="Récapitulatif">
+        <h2>8. Récapitulatif & envoi</h2>
+        <p class="step-description">
+          Validez vos réponses pour obtenir une analyse rapide et les prochaines étapes d’accompagnement.
+        </p>
+
+        <div class="badge">Aperçu local – vos réponses ne sont pas encore envoyées</div>
+
+        <div class="summary">
+          <div id="quickSummary" class="summary-card">
+            <p class="summary-placeholder">
+              Cliquez sur <strong>«&nbsp;Générer le récapitulatif&nbsp;»</strong> pour afficher une première analyse
+              synthétique de votre situation et découvrir comment nous pourrons vous accompagner.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutons navigation -->
+      <div class="buttons">
+        <button type="button" class="btn btn-secondary" id="prevBtn">← Précédent</button>
+        <div style="flex:1"></div>
+        <button type="button" class="btn btn-primary" id="nextBtn">Suivant →</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn" style="display:none;">
+          Générer le récapitulatif
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".step");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const progressStepLabel = document.getElementById("progressStepLabel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const form = document.getElementById("auditForm");
+    const quickSummary = document.getElementById("quickSummary");
+
+    let currentStep = 1;
+    const totalSteps = steps.length;
+
+    function showStep(step) {
+      steps.forEach((el) => {
+        el.classList.toggle("active", Number(el.dataset.step) === step);
+      });
+
+      const percent = (step - 1) / (totalSteps - 1) * 100;
+      progressFill.style.width = percent + "%";
+      progressText.textContent = `Étape ${step} / ${totalSteps}`;
+      const label = steps[step - 1].dataset.label || "";
+      progressStepLabel.textContent = label;
+
+      prevBtn.disabled = step === 1;
+      nextBtn.style.display = step === totalSteps ? "none" : "inline-flex";
+      submitBtn.style.display = step === totalSteps ? "inline-flex" : "none";
+    }
+
+    function collectAnswers() {
+      const data = {};
+      const formData = new FormData(form);
+
+      for (const [rawKey, value] of formData.entries()) {
+        const isArray = rawKey.endsWith("[]");
+        const key = isArray ? rawKey.slice(0, -2) : rawKey;
+
+        if (isArray) {
+          if (!data[key]) data[key] = [];
+          data[key].push(value);
+        } else {
+          if (data[key] !== undefined) {
+            if (!Array.isArray(data[key])) {
+              data[key] = [data[key]];
+            }
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+        }
+      }
+
+      return data;
+    }
+
+    function buildQuickSummaryHTML(data) {
+      const firstName = data["user.firstname"] || "";
+      const lastName = data["user.lastname"] || "";
+      const fullName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : "Vous";
+      const role = data["user.role"] || "non précisé";
+      const email = data["user.email"] || "non précisé";
+
+      const companyName = data["company.name"] || "votre entreprise";
+      const sector = data["company.sector"] || "non précisé";
+      const clientType = data["company.client_type"] || "non précisé";
+      const mainGoal = data["company.main_goal"] || "non précisé";
+
+      const topIssue = data["priority.top_issue"] || "non précisé";
+      const expectedResults = data["priority.expected_results"] || "non précisés";
+
+      const automationLevel = data["automation.level"] || "non précisé";
+      const tools = data["tools.stack"]
+        ? (Array.isArray(data["tools.stack"]) ? data["tools.stack"] : [data["tools.stack"]]).join(", ")
+        : "non précisés";
+
+      const acqChannels = data["growth.acquisition_channels"]
+        ? (Array.isArray(data["growth.acquisition_channels"])
+            ? data["growth.acquisition_channels"]
+            : [data["growth.acquisition_channels"]]).join(", ")
+        : "non précisés";
+
+      return `
+        <h3>Merci, votre audit a été enregistré ✔</h3>
+        <p>
+          ${fullName}, nous avons bien reçu vos réponses pour <span class="summary-highlight">${companyName}</span>.
+          Voici une première lecture de votre situation.
+        </p>
+        <ul class="summary-list">
+          <li><strong>Profil répondant :</strong> ${role} – contact : ${email}</li>
+          <li><strong>Type d’activité :</strong> ${sector} – clientèle : ${clientType}</li>
+          <li><strong>Objectif principal de l’audit :</strong> ${mainGoal}</li>
+          <li><strong>Problème majeur identifié :</strong> ${topIssue}</li>
+          <li><strong>Résultats attendus :</strong> ${expectedResults}</li>
+          <li><strong>Niveau d’automatisation actuel :</strong> ${automationLevel}</li>
+          <li><strong>Environnement outils :</strong> ${tools}</li>
+          <li><strong>Acquisition clients :</strong> principaux canaux déclarés : ${acqChannels}</li>
+        </ul>
+        <div class="next-steps-box">
+          <p>
+            À partir de ces éléments, nous allons préparer une analyse plus détaillée : 
+            cartographie de vos processus clés, identification des “quick wins” et pistes d’outils / automatisations
+            adaptés à votre contexte.
+          </p>
+          <p>
+            <strong>Prochaine étape :</strong> nous vous contacterons prochainement pour organiser un échange
+            de 30–45 minutes (visio ou téléphone) afin de vous présenter ces résultats et, si vous le souhaitez,
+            esquisser ensemble un plan d’action priorisé.
+          </p>
+          <p>
+            Si vous avez d’autres précisions à ajouter d’ici là, vous pourrez simplement nous les transmettre
+            en réponse au mail de confirmation.
+          </p>
+        </div>
+      `;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const answers = collectAnswers();
+      quickSummary.innerHTML = buildQuickSummaryHTML(answers);
+
+      // Ici plus tard : envoi des données vers Make / API / mail, si tu le souhaites.
+    });
+
+    // init
+    showStep(currentStep);
+  </script>
+</body>
+</html>
