@@ -136,6 +136,27 @@
       font-weight: 500;
     }
 
+    /* BOUTON AUDIT */
+    .btn-audit {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(234, 88, 12, 0.35);
+      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+    }
+
+    .btn-audit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(234, 88, 12, 0.45);
+      opacity: 0.95;
+    }
+
     /* ASIDE */
     .hero-aside {
       background: #ffffff;
@@ -342,6 +363,9 @@
               <div class="badge">🤖 Chatbots</div>
               <div class="badge">🎧 Agents IA internes</div>
             </div>
+
+            <!-- BOUTON AUDIT HERO -->
+            <a href="audit.html" class="btn-audit">🔥 Faire votre audit gratuit</a>
           </div>
 
           <aside class="hero-aside">
@@ -461,6 +485,10 @@
             pistes concrètes de digitalisation et d’automatisation.
           </p>
           <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
+          <!-- BOUTON AUDIT CTA -->
+          <div>
+            <a href="audit.html" class="btn-audit">🔥 Faire votre audit gratuit</a>
+          </div>
         </div>
       </section>
 
