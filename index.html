@@ -157,6 +157,27 @@
       opacity: 0.95;
     }
 
+    /* BOUTON AGENTS (NOUVEAU) */
+    .btn-agents {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(2, 132, 199, 0.28);
+      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+    }
+
+    .btn-agents:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(2, 132, 199, 0.35);
+      opacity: 0.97;
+    }
+
     /* ASIDE */
     .hero-aside {
       background: #ffffff;
@@ -336,6 +357,7 @@
       <nav>
         <a href="#benefices">Bénéfices</a>
         <a href="#solutions">Solutions</a>
+        <a href="/agents-virtuels/">Agents virtuels</a>
         <a href="#contact">Contact</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -366,6 +388,9 @@
 
             <!-- BOUTON AUDIT HERO -->
             <a href="audit.html" class="btn-audit">🔥 Faire votre audit gratuit</a>
+
+            <!-- BOUTON AGENTS HERO (NOUVEAU) -->
+            <a href="/agents-virtuels/" class="btn-agents">👥 Découvrir nos agents virtuels</a>
           </div>
 
           <aside class="hero-aside">
@@ -409,17 +434,23 @@
 
         <div class="grid">
           <div class="card">
-            <div class="card-header"><span class="icon">⏱️</span><h3>2–5h gagnées / semaine</h3></div>
+            <div class="card-header"><span class="icon">⏱️</span>
+              <h3>2–5h gagnées / semaine</h3>
+            </div>
             <p>Grâce à l'automatisation des tâches répétitives.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📥</span><h3>Moins d’E-mails</h3></div>
+            <div class="card-header"><span class="icon">📥</span>
+              <h3>Moins d’E-mails</h3>
+            </div>
             <p>Tri, réponses types et organisation automatisée.</p>
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">📈</span><h3>+30% d’efficacité</h3></div>
+            <div class="card-header"><span class="icon">📈</span>
+              <h3>+30% d’efficacité</h3>
+            </div>
             <p>Meilleur suivi des dossiers, moins d’oubli, meilleure coordination.</p>
           </div>
         </div>
@@ -435,7 +466,9 @@
         <div class="grid">
 
           <div class="card">
-            <div class="card-header"><span class="icon">🌐</span><h3>Site web & présence en ligne</h3></div>
+            <div class="card-header"><span class="icon">🌐</span>
+              <h3>Site web & présence en ligne</h3>
+            </div>
             <p>Un site clair et professionnel adapté aux petites entreprises.</p>
             <ul>
               <li>Site vitrine moderne & mobile</li>
@@ -445,7 +478,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">🤖</span><h3>Chatbots intelligents</h3></div>
+            <div class="card-header"><span class="icon">🤖</span>
+              <h3>Chatbots intelligents</h3>
+            </div>
             <p>Un assistant qui répond aux questions fréquentes 24h/24.</p>
             <ul>
               <li>FAQ dynamique et mise à jour facile</li>
@@ -455,7 +490,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">🎧</span><h3>Agents IA internes</h3></div>
+            <div class="card-header"><span class="icon">🎧</span>
+              <h3>Agents IA internes</h3>
+            </div>
             <p>Des assistants virtuels pour vos tâches internes.</p>
             <ul>
               <li>Tri d’emails & réponses automatiques</li>
@@ -465,7 +502,9 @@
           </div>
 
           <div class="card">
-            <div class="card-header"><span class="icon">⚙️</span><h3>Automatisations</h3></div>
+            <div class="card-header"><span class="icon">⚙️</span>
+              <h3>Automatisations</h3>
+            </div>
             <p>Des workflows simples qui vous enlèvent les tâches récurrentes.</p>
             <ul>
               <li>Relances automatiques</li>
@@ -621,4 +660,5 @@
   </script>
 
 </body>
+
 </html>
