@@ -1,1359 +1,569 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Audit numérique & IA – NovIA Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Police plus premium -->
-  <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovIA Solutions • Agents IA sur-mesure • Disponibles 24/7</title>
+  <meta name="description" content="Des agents IA sur-mesure disponibles 24/7 : réponses immédiates, cadrées, adaptées à votre activité et à vos règles internes." />
 
   <style>
-    * { box-sizing: border-box; }
+    :root{
+      /* LIGHT THEME */
+      --bg:#F6F8FC;
+      --panel:#FFFFFF;
+      --card:#FFFFFF;
 
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 35%, #f3f4f6 100%);
-      color: #0f172a;
+      --text:#0B1220;
+      --muted:#475569;
+      --muted2:#64748B;
+
+      --border:rgba(15, 23, 42, .10);
+      --border2:rgba(15, 23, 42, .14);
+
+      --shadow:0 18px 55px rgba(2, 6, 23, .08);
+      --shadow2:0 10px 24px rgba(2, 6, 23, .08);
+
+      --accent:#14B8A6;   /* teal */
+      --accent2:#3B82F6;  /* blue */
+      --ok:#10B981;
+      --warn:#F59E0B;
+
+      --radius:18px;
+      --radius2:26px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --max:1120px;
     }
 
-    .container {
-      max-width: 960px;
-      margin: 2.5rem auto;
-      padding: 2rem 2.2rem;
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      box-shadow:
-        0 22px 45px rgba(15, 23, 42, 0.08),
-        0 0 0 1px rgba(148, 163, 184, 0.16);
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,.10), transparent 60%),
+        radial-gradient(1200px 700px at 80% 20%, rgba(20,184,166,.10), transparent 62%),
+        radial-gradient(900px 600px at 50% 90%, rgba(245,158,11,.08), transparent 60%),
+        linear-gradient(180deg, #FFFFFF, var(--bg));
     }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 70px;}
 
     /* NAV ONGLET (multi-pages) */
-    .topnav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1.2rem;
-      flex-wrap: wrap;
+    .topnav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:1.2rem;
+      flex-wrap:wrap;
+    }
+    .topnav-brand{
+      font-weight:700;
+      letter-spacing:-0.02em;
+      color:#0f172a;
+      font-size:1rem;
+      opacity:.9;
+    }
+    .tabs{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .tab{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(15, 23, 42, .10);
+      background:rgba(255,255,255,.75);
+      font-size:.92rem;
+      color:#0f172a;
+      opacity:.9;
+      transition:transform .08s ease, box-shadow .12s ease, opacity .1s ease;
+      white-space:nowrap;
+      box-shadow:0 10px 22px rgba(2,6,23,.08);
+      backdrop-filter: blur(10px);
+    }
+    .tab:hover{
+      opacity:1;
+      transform:translateY(-1px);
+      box-shadow:0 14px 28px rgba(2,6,23,.10);
+    }
+    .tab[aria-current="page"]{
+      background:rgba(239,246,255,.9);
+      border-color:rgba(37, 99, 235, 0.25);
+      color:#1d4ed8;
+      opacity:1;
+      font-weight:700;
     }
 
-    .topnav-brand {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #0f172a;
-      font-size: 1rem;
-      opacity: 0.9;
+    /* NAV */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:var(--radius2);
+      background:rgba(255,255,255,.75);
+      box-shadow:var(--shadow);
+      position:sticky; top:12px; z-index:10;
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0}
+    .logo{
+      width:40px;height:40px;border-radius:14px; display:grid; place-items:center;
+      border:1px solid var(--border2);
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(20,184,166,.55), rgba(20,184,166,0)),
+        radial-gradient(18px 18px at 70% 70%, rgba(59,130,246,.55), rgba(59,130,246,0)),
+        linear-gradient(135deg, rgba(2,6,23,.04), rgba(2,6,23,.02));
+      font-weight:900; letter-spacing:.4px;
+      color:#0B1220;
+    }
+    .brand .t{min-width:0}
+    .brand .t b{display:block; font-size:13px; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .brand .t span{display:block; font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+    .navlinks{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.70);
+      padding:8px 10px; border-radius:999px; user-select:none;
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--ok);
+      box-shadow:0 0 0 4px rgba(16,185,129,.14);
     }
 
-    .tabs {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
+    .btn{
+      border:1px solid rgba(20,184,166,.35);
+      background:linear-gradient(135deg, rgba(20,184,166,.14), rgba(59,130,246,.12));
+      color:#0B1220;
+      padding:10px 12px; border-radius:14px; font-weight:800; font-size:12px;
+      cursor:pointer; text-decoration:none; display:inline-flex; gap:8px; align-items:center;
+      transition:.15s transform,.15s filter,.15s border,.15s box-shadow;
+      box-shadow:0 10px 22px rgba(2,6,23,.08);
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.02);
+      border-color:rgba(20,184,166,.55);
+      box-shadow:0 14px 28px rgba(2,6,23,.10);
+    }
+    .btn.ghost{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.70);
+      color:var(--text);
+      font-weight:700;
+      box-shadow:none;
     }
 
-    .tab {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      font-size: 0.92rem;
-      color: #0f172a;
-      opacity: 0.9;
-      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
-      white-space: nowrap;
+    /* HERO */
+    .hero{
+      margin-top:16px;
+      padding:28px 18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(59,130,246,.10), rgba(255,255,255,.85));
+      box-shadow:var(--shadow);
+      position:relative; overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:-55%;
+      background:conic-gradient(from 200deg, rgba(20,184,166,0), rgba(59,130,246,.18), rgba(20,184,166,0));
+      filter: blur(18px);
+      transform: rotate(8deg);
+      pointer-events:none;
+      opacity:.55;
+    }
+    .hero > *{position:relative}
+    h1{margin:0; font-size:26px; letter-spacing:.2px; line-height:1.15}
+    .lead{
+      margin:10px 0 0;
+      color:rgba(2,6,23,.82);
+      font-size:14px;
+      line-height:1.65;
+      max-width:960px
+    }
+    .heroRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+    .kpis{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .kpi{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px; border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.75);
+      min-width:240px;
+      box-shadow:var(--shadow2);
+    }
+    .kpi b{display:block; font-size:12px}
+    .kpi span{display:block; font-size:12px; color:var(--muted)}
+    .ico{
+      width:32px;height:32px;border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      flex:0 0 auto;
     }
 
-    .tab:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+    /* SECTIONS */
+    .section{margin-top:20px}
+    .section h2{margin:0 0 10px; font-size:16px; letter-spacing:.2px}
+    .section p{margin:0; color:var(--muted); font-size:13px; line-height:1.65}
+
+    .grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:12px;
     }
 
-    .tab[aria-current="page"] {
-      background: #eff6ff;
-      border-color: rgba(37, 99, 235, 0.25);
-      color: #1d4ed8;
-      opacity: 1;
-      font-weight: 700;
+    .card{
+      grid-column:span 6;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin: 0 0 0.4rem;
-      letter-spacing: -0.03em;
-      color: #0f172a;
+    .cardMedia{
+      height:150px;
+      width:100%;
+      background:#EEF2FF;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--border);
+    }
+    .cardMedia img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.03);
+      opacity:.98;
+    }
+    .cardMedia:after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.00), rgba(255,255,255,.78));
+      pointer-events:none;
+    }
+    .badgeTop{
+      position:absolute;
+      left:12px;
+      bottom:10px;
+      z-index:2;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.85);
+      color:rgba(2,6,23,.92);
+      font-size:12px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 10px 22px rgba(2,6,23,.08);
     }
 
-    .subtitle {
-      color: #6b7280;
-      margin-bottom: 1.3rem;
-      font-size: 0.98rem;
+    .cardBody{padding:14px 16px 16px}
+
+    .roleLine{
+      display:flex;
+      gap:8px;
+      align-items:baseline;
+      flex-wrap:wrap;
+      margin:0 0 6px 0;
+    }
+    .roleLine b{
+      font-size:15px;
+      letter-spacing:.2px;
+      color:rgba(2,6,23,.96);
+    }
+    .roleLine span{
+      font-size:12px;
+      color:var(--muted2);
     }
 
-    .intro-box {
-      background: linear-gradient(135deg, #eff6ff, #eef2ff);
-      border-radius: 14px;
-      padding: 1rem 1.3rem;
-      font-size: 0.9rem;
-      color: #1f2937;
-      margin-bottom: 1.8rem;
-      border: 1px solid rgba(129, 140, 248, 0.35);
-      position: relative;
-      overflow: hidden;
+    .note{
+      margin-top:8px;
+      font-size:13px;
+      color:rgba(2,6,23,.84);
+      line-height:1.6;
     }
 
-    .intro-box::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.20), transparent 65%);
-      pointer-events: none;
+    /* Approach */
+    .steps .card{grid-column:span 4}
+    .stepNo{
+      width:26px;height:26px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(20,184,166,.35);
+      background:rgba(20,184,166,.10);
+      color:rgba(2,6,23,.92);
+      font-weight:900; font-size:12px;
     }
 
-    .intro-box strong {
-      font-weight: 600;
+    /* CTA */
+    .cta{
+      margin-top:18px;
+      padding:18px;
+      border-radius:var(--radius2);
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(20,184,166,.12), rgba(59,130,246,.10));
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .cta b{font-size:14px}
+    .cta span{display:block; color:var(--muted); font-size:12px; margin-top:4px; line-height:1.55}
+
+    footer{
+      margin-top:18px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .mini{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.75);
+      color:var(--muted);
+      box-shadow:var(--shadow2);
     }
 
-    .intro-box ul {
-      margin: 0.4rem 0 0.6rem 1.1rem;
-      padding: 0;
-    }
-
-    .intro-box li {
-      margin-bottom: 0.16rem;
-    }
-
-    .progress {
-      margin-bottom: 1.4rem;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 9px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, #2563eb, #4f46e5);
-      transition: width 0.35s ease;
-      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.6);
-    }
-
-    .progress-text {
-      font-size: 0.82rem;
-      color: #6b7280;
-      margin-top: 0.35rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .progress-step-label {
-      font-weight: 500;
-      color: #4b5563;
-    }
-
-    .step {
-      display: none;
-      padding: 1.3rem 1.4rem;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      margin-bottom: 0.8rem;
-    }
-
-    .step.active {
-      display: block;
-    }
-
-    .step h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.02em;
-      color: #111827;
-    }
-
-    .step-description {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 1.1rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem 1.3rem;
-    }
-
-    .field {
-      margin-bottom: 1rem;
-    }
-
-    .field label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-      font-size: 0.92rem;
-      color: #111827;
-    }
-
-    .field small {
-      display: block;
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 0.2rem;
-      line-height: 1.4;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.55rem 0.7rem;
-      border-radius: 10px;
-      border: 1px solid #d1d5db;
-      font-size: 0.94rem;
-      outline: none;
-      transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease,
-        background-color 0.15s ease,
-        transform 0.05s ease;
-      background: #ffffff;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.18);
-      background: #f9fafb;
-      transform: translateY(-0.5px);
-    }
-
-    textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .option-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      font-size: 0.85rem;
-      cursor: pointer;
-      background: #ffffff;
-      transition:
-        background 0.12s ease,
-        border-color 0.12s ease,
-        box-shadow 0.12s ease,
-        transform 0.05s ease;
-    }
-
-    .option-pill:hover {
-      border-color: #9ca3af;
-      background: #f3f4f6;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
-      transform: translateY(-0.5px);
-    }
-
-    .option-pill input {
-      margin: 0;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1.6rem;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn {
-      border: none;
-      cursor: pointer;
-      border-radius: 999px;
-      padding: 0.65rem 1.6rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      transition:
-        transform 0.08s ease,
-        box-shadow 0.12s ease,
-        background 0.12s ease,
-        opacity 0.1s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
-      color: #ffffff;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(37, 99, 235, 0.32);
-    }
-
-    .btn-secondary {
-      background: #f3f4f6;
-      color: #374151;
-      border: 1px solid #e5e7eb;
-    }
-
-    .btn-secondary:hover {
-      background: #e5e7eb;
-    }
-
-    .btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* --- Récapitulatif / analyse rapide --- */
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: #ecfeff;
-      color: #0e7490;
-      border-radius: 999px;
-      padding: 0.25rem 0.7rem;
-      font-size: 0.78rem;
-      margin-bottom: 0.9rem;
-      border: 1px solid #a5f3fc;
-      font-weight: 500;
-    }
-
-    .badge::before {
-      content: "●";
-      font-size: 0.7rem;
-    }
-
-    .summary {
-      margin-top: 0.4rem;
-      border-top: 1px dashed #e5e7eb;
-      padding-top: 1.2rem;
-    }
-
-    .summary-card {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      padding: 1rem 1.1rem;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
-      font-size: 0.92rem;
-      color: #111827;
-    }
-
-    .summary-card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.02rem;
-    }
-
-    .summary-card p {
-      margin: 0.25rem 0;
-    }
-
-    .summary-list {
-      margin: 0.6rem 0 0.8rem 1.1rem;
-      padding: 0;
-    }
-
-    .summary-list li {
-      margin-bottom: 0.25rem;
-    }
-
-    .next-steps-box {
-      margin-top: 0.9rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid #e5e7eb;
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
-
-    .summary-highlight {
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    .summary-placeholder {
-      font-size: 0.9rem;
-      color: #6b7280;
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        margin: 1.2rem;
-        padding: 1.5rem 1.2rem;
-      }
+    @media (max-width: 900px){
+      .card{grid-column:span 12}
+      .steps .card{grid-column:span 12}
+      h1{font-size:22px}
+      .cardMedia{height:170px}
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
+  <div class="wrap">
 
     <!-- NAV ONGLET (multi-pages) -->
     <div class="topnav">
       <div class="topnav-brand">NovIA Solutions</div>
       <div class="tabs">
         <a class="tab" href="index.html">Accueil</a>
-        <a class="tab" href="audit.html" aria-current="page">Audit gratuit</a>
-        <a class="tab" href="/agents-virtuels/">Agents IA</a>
+        <a class="tab" href="audit.html">Audit gratuit</a>
+        <a class="tab" href="/agents-virtuels/" aria-current="page">Agents IA</a>
         <a class="tab" href="index.html#contact">Contact</a>
       </div>
     </div>
 
-    <h1>Audit numérique & IA – NovIA Solutions</h1>
-    <p class="subtitle">
-      Un questionnaire structuré pour faire un diagnostic clair de votre organisation, de vos outils et des opportunités d’automatisation & d’IA.
-    </p>
-
-    <div class="intro-box">
-      <p>
-        <strong>Pourquoi ce formulaire&nbsp;?</strong><br />
-        Ce questionnaire a pour objectif de dresser un état des lieux simple et concret de votre entreprise&nbsp;:
-        comment vous travaillez aujourd’hui, comment vous gagnez vos clients, quels outils vous utilisez et où l’IA
-        et l’automatisation peuvent vous faire gagner du temps et de la sérénité.
-      </p>
-      <p>
-        <strong>Ce que nous allons en faire&nbsp;:</strong>
-      </p>
-      <ul>
-        <li>Identifier vos principaux irritants et pertes de temps.</li>
-        <li>Repérer les leviers rapides d’optimisation (organisation, outils, automatisations, IA).</li>
-        <li>Préparer un échange de restitution avec des recommandations concrètes et priorisées.</li>
-      </ul>
-      <p>
-        <strong>Les étapes après ce formulaire&nbsp;:</strong>
-      </p>
-      <ul>
-        <li>Analyse de vos réponses par NovIA Solutions.</li>
-        <li>Prise de contact pour un échange de 30–45 minutes (téléphone ou visio).</li>
-        <li>Présentation de vos résultats et, si vous le souhaitez, d’un plan d’action sur-mesure.</li>
-      </ul>
-      <p>
-        <strong>Comment le remplir&nbsp;?</strong>
-      </p>
-      <ul>
-        <li>Prévoyez 10 à 15 minutes pour le compléter tranquillement.</li>
-        <li>Répondez de manière globale, avec vos ordres de grandeur habituels.</li>
-        <li>N’hésitez pas à utiliser les champs libres pour préciser vos cas particuliers.</li>
-      </ul>
-      <p>
-        Vos réponses serviront de base à un diagnostic personnalisé, que nous pourrons ensuite transformer en
-        rapport et en plan d’action adapté à votre contexte.
-      </p>
-    </div>
-
-    <div class="progress">
-      <div class="progress-bar">
-        <div class="progress-bar-fill" id="progressFill"></div>
+    <!-- NAV -->
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">NV</div>
+        <div class="t">
+          <b>NovIA Solutions</b>
+          <span>Thomas • Emma • Lucas • Inès — aides numériques 24/7</span>
+        </div>
       </div>
-      <div class="progress-text">
-        <span id="progressText">Étape 1 / 9</span>
-        <span class="progress-step-label" id="progressStepLabel"></span>
+
+      <div class="navlinks">
+        <div class="pill"><span class="dot"></span> Disponibilité immédiate • 24/7</div>
+        <a class="btn ghost" href="#agents">Voir les agents</a>
+        <a class="btn" href="#contact">Demander un échange</a>
       </div>
     </div>
 
-    <form id="auditForm">
-      <!-- ÉTAPE 1 : Infos du répondant -->
-      <div class="step active" data-step="1" data-label="Vos informations">
-        <h2>1. Vos informations</h2>
-        <p class="step-description">Ces informations permettront de vous recontacter pour échanger sur votre audit.</p>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <h1>Des aides numériques <span style="color:var(--accent)">disponibles 24/7</span>, pensées pour votre quotidien</h1>
+      <p class="lead">
+        Vos équipes ont besoin de réponses <b>tout de suite</b>
+        Les agents NovIA apportent une assistance <b>immédiate</b> et <b>constante</b>, dans un cadre défini, avec un contenu et un ton
+        <b>alignés sur vos règles</b>.
+        <br><br>
+        <b>Simple.</b> <b>Rapide.</b> <b>Sans jargon.</b> <b>Sans dépendre d’horaires d’ouverture</b> ou de disponibilités aléatoires.
+      </p>
 
-        <div class="grid-2">
-          <div class="field">
-            <label for="user_firstname">Prénom</label>
-            <input type="text" id="user_firstname" name="user.firstname" required />
-          </div>
-
-          <div class="field">
-            <label for="user_lastname">Nom</label>
-            <input type="text" id="user_lastname" name="user.lastname" required />
-          </div>
-
-          <div class="field">
-            <label for="user_role">Fonction dans l’entreprise</label>
-            <input type="text" id="user_role" name="user.role" placeholder="Dirigeant, responsable commercial, etc." />
-          </div>
-
-          <div class="field">
-            <label for="user_email">Adresse e-mail</label>
-            <input type="email" id="user_email" name="user.email" required />
-          </div>
-
-          <div class="field">
-            <label for="user_phone">Numéro de téléphone</label>
-            <input type="text" id="user_phone" name="user.phone" placeholder="06..." />
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Vos créneaux de disponibilité</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="checkbox" name="user.availability[]" value="matin" /> Matin
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="user.availability[]" value="apres_midi" /> Après-midi
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="user.availability[]" value="soir" /> Soir
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="user.availability[]" value="weekend" /> Week-end
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Précisions complémentaires sur votre disponibilité</label>
-          <textarea name="user.availability_details" placeholder="Ex : plutôt mardi / jeudi après 15h..."></textarea>
-        </div>
+      <div class="heroRow">
+        <a class="btn" href="#contact">Parler de votre besoin</a>
+        <a class="btn ghost" href="#approche">Notre méthode</a>
       </div>
 
-      <!-- ÉTAPE 2 : Informations entreprise -->
-      <div class="step" data-step="2" data-label="L’entreprise">
-        <h2>2. Informations sur l’entreprise</h2>
-        <p class="step-description">Ces éléments nous permettent de contextualiser le diagnostic.</p>
-
-        <div class="grid-2">
-          <div class="field">
-            <label for="company_name">Nom de l’entreprise</label>
-            <input type="text" id="company_name" name="company.name" required />
+      <div class="kpis">
+        <div class="kpi">
+          <div class="ico">🕒</div>
+          <div>
+            <b>Réponse immédiate, 24/7</b>
+            <span>Assistance disponible à toute heure.</span>
           </div>
-
-          <div class="field">
-            <label for="company_sector">Secteur d’activité principal</label>
-            <select id="company_sector" name="company.sector">
-              <option value="">Sélectionner...</option>
-              <option value="agriculture_agroalimentaire">Agriculture / Agroalimentaire</option>
-              <option value="industrie_production">Industrie / Production</option>
-              <option value="btp_construction">BTP / Construction</option>
-              <option value="commerce_detail">Commerce de détail</option>
-              <option value="ecommerce">E-commerce</option>
-              <option value="services_aux_entreprises">Services aux entreprises (conseil, comptabilité, etc.)</option>
-              <option value="services_aux_particuliers">Services aux particuliers</option>
-              <option value="sante_social">Santé / Social</option>
-              <option value="education_formation">Éducation / Formation</option>
-              <option value="hotellerie_restauration_tourisme">Hôtellerie / Restauration / Tourisme</option>
-              <option value="transport_logistique">Transport / Logistique</option>
-              <option value="immobilier">Immobilier</option>
-              <option value="tech_numerique_logiciels">Tech / Numérique / Logiciels</option>
-              <option value="association_ess">Association / Économie sociale et solidaire</option>
-              <option value="autre">Autre / activité mixte</option>
-            </select>
+        </div>
+        <div class="kpi">
+          <div class="ico">🧩</div>
+          <div>
+            <b>Personnalisé</b>
+            <span>Vocabulaire, procédures et règles de votre entreprise.</span>
           </div>
-
-          <div class="field">
-            <label for="company_sector_details">Préciser</label>
-            <input
-              type="text"
-              id="company_sector_details"
-              name="company.sector_details"
-              placeholder="Ex : cabinet de conseil RH pour TPE, restaurant italien, etc."
-            />
+        </div>
+        <div class="kpi">
+          <div class="ico">🛡️</div>
+          <div>
+            <b>Cadré</b>
+            <span>Limites claires, escalade quand nécessaire.</span>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="field">
-            <label for="company_client_type">Type de clientèle</label>
-            <select id="company_client_type" name="company.client_type">
-              <option value="">Sélectionner...</option>
-              <option value="particuliers">Particuliers</option>
-              <option value="professionnels">Professionnels</option>
-              <option value="les_deux">Les deux</option>
-            </select>
+    <!-- AGENTS -->
+    <section class="section" id="agents">
+      <h2>Rencontrez vos agents NovIA</h2>
+      <p>
+        Quatre aides numériques, chacune avec un rôle clair. Le contenu est adapté à votre entreprise (règles, ton, périmètre)
+        pour une utilisation <b>immédiate</b>.
+      </p>
+
+      <div class="grid">
+
+        <!-- THOMAS -->
+        <div class="card">
+          <div class="cardMedia">
+            <img alt="Thomas - aide informatique" src="assets/images/agents/agent-it.png" />
+            <div class="badgeTop">🧠 Thomas • Informatique</div>
           </div>
-
-          <div class="field">
-            <label for="company_size">Nombre de collaborateurs</label>
-            <select id="company_size" name="company.size">
-              <option value="">Sélectionner...</option>
-              <option value="1-5">1 à 5</option>
-              <option value="6-20">6 à 20</option>
-              <option value="21-50">21 à 50</option>
-              <option value="51-100">51 à 100</option>
-              <option value="100+">100 et plus</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="company_city">Ville</label>
-            <input type="text" id="company_city" name="company.location" />
-          </div>
-
-          <div class="field">
-            <label for="company_postal">Code postal</label>
-            <input type="text" id="company_postal" name="company.postal_code" />
-          </div>
-
-          <div class="field">
-            <label>Objectif principal de l’audit</label>
-            <div class="options">
-              <label class="option-pill">
-                <input type="radio" name="company.main_goal" value="gagner_du_temps" /> Gagner du temps
-              </label>
-              <label class="option-pill">
-                <input type="radio" name="company.main_goal" value="reduire_les_couts" /> Réduire les coûts
-              </label>
-              <label class="option-pill">
-                <input type="radio" name="company.main_goal" value="ameliorer_le_suivi_client" /> Mieux suivre les clients
-              </label>
-              <label class="option-pill">
-                <input type="radio" name="company.main_goal" value="automatiser" /> Automatiser
-              </label>
-              <label class="option-pill">
-                <input type="radio" name="company.main_goal" value="moderniser_image" /> Moderniser l’image
-              </label>
+          <div class="cardBody">
+            <div class="roleLine">
+              <b>Thomas</b><span>— votre informaticien</span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 3 : Organisation & processus -->
-      <div class="step" data-step="3" data-label="Organisation & process">
-        <h2>3. Organisation & processus internes</h2>
-        <p class="step-description">Comment fonctionne votre entreprise au quotidien ?</p>
-
-        <div class="field">
-          <label>Niveau de structuration de l’organisation</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="radio" name="org.structure_level" value="tres_structurée" /> Très structurée
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="org.structure_level" value="assez_structurée" /> Assez structurée
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="org.structure_level" value="informelle" /> Plutôt informelle
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="org.structure_level" value="au_feeling" /> Au feeling
-            </label>
-          </div>
-          <small>
-            Très structurée&nbsp;: organigramme clair, procédures écrites, process formalisés.<br />
-            Assez structurée&nbsp;: quelques procédures / habitudes stabilisées, mais pas partout.<br />
-            Plutôt informelle&nbsp;: règles implicites, peu ou pas de documentation écrite.<br />
-            Au feeling&nbsp;: chacun fait “comme il peut” selon les urgences du moment.
-          </small>
-        </div>
-
-        <div class="field">
-          <label>Comment sont prises les décisions opérationnelles ?</label>
-          <textarea
-            name="org.decision_making"
-            placeholder="Ex : le dirigeant valide tout, délégation par service, validation informelle, etc."
-          ></textarea>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Les processus clés sont-ils documentés ?</label>
-            <select name="org.process_documentation">
-              <option value="">Sélectionner...</option>
-              <option value="oui">Oui</option>
-              <option value="partiellement">Partiellement</option>
-              <option value="non">Non</option>
-            </select>
-            <small>Ex : modes opératoires, procédures, fiches de process...</small>
-          </div>
-
-          <div class="field">
-            <label>Quels sont, selon vous, les 2–3 processus les plus “douloureux” aujourd’hui ?</label>
-            <textarea
-              name="org.key_pains"
-              placeholder="Ex : relances clients, facturation, suivi de projet, planning..."
-            ></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 4 : Acquisition & visibilité -->
-      <div class="step" data-step="4" data-label="Acquisition & visibilité">
-        <h2>4. Acquisition clients & visibilité</h2>
-        <p class="step-description">Comment vous faites connaître votre activité et comment vous transformez vos prospects en clients ?</p>
-
-        <div class="field">
-          <label>Comment obtenez-vous principalement de nouveaux clients ?</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="bouche_a_oreille" /> Bouche-à-oreille / réseau
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="site_web" /> Site web
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="reseaux_sociaux" /> Réseaux sociaux
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="publicite_en_ligne" /> Publicité en ligne (Google, Meta...)
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="evenements" /> Salons / événements
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="prospection" /> Prospection (téléphone / email)
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.acquisition_channels[]" value="autre" /> Autre
-            </label>
+            <h3>Assistance immédiate</h3>
+            <div class="note">Votre aide informatique, toujours disponible pour débloquer les situations courantes, sans jargon.</div>
           </div>
         </div>
 
-        <div class="field">
-          <label>Précisions sur votre acquisition de clients</label>
-          <textarea
-            name="growth.acquisition_details"
-            placeholder="Ex : 80 % par recommandation, quelques leads via le site, campagnes ponctuelles..."
-          ></textarea>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Estimation de votre taux de conversion (prospects → clients)</label>
-            <select name="growth.conversion_rate">
-              <option value="">Sélectionner...</option>
-              <option value="moins_de_10">Moins de 10 %</option>
-              <option value="10_30">10 à 30 %</option>
-              <option value="30_50">30 à 50 %</option>
-              <option value="50_plus">Plus de 50 %</option>
-              <option value="ne_sais_pas">Je ne sais pas</option>
-            </select>
+        <!-- EMMA -->
+        <div class="card">
+          <div class="cardMedia">
+            <img alt="Emma - aide RH" src="assets/images/agents/agent-rh.png" />
+            <div class="badgeTop">👥 Emma • RH</div>
           </div>
-
-          <div class="field">
-            <label>Comment se déroule concrètement la conversion d’un prospect en client ?</label>
-            <textarea
-              name="growth.conversion_process"
-              placeholder="Ex : prise de contact → rendez-vous → devis → relance → signature..."
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Avez-vous un système structuré de suivi des prospects ?</label>
-            <select name="growth.followup_system">
-              <option value="">Sélectionner...</option>
-              <option value="aucun">Non, pas vraiment</option>
-              <option value="tableur">Oui, via un tableau (Excel, Google Sheets...)</option>
-              <option value="crm">Oui, via un CRM</option>
-              <option value="autre">Autre</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Comment faites-vous le suivi et les relances ?</label>
-            <textarea
-              name="growth.followup_details"
-              placeholder="Relances manuelles, rappels dans l’agenda, séquences mails automatiques..."
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Présence en ligne – site web</label>
-          <div class="grid-2">
-            <div class="field">
-              <label>Disposez-vous d’un site web ?</label>
-              <select name="growth.website_has">
-                <option value="">Sélectionner...</option>
-                <option value="oui">Oui</option>
-                <option value="en_cours">En cours de création</option>
-                <option value="non">Non</option>
-              </select>
+          <div class="cardBody">
+            <div class="roleLine">
+              <b>Emma</b><span>— votre assistante RH</span>
             </div>
+            <h3>📌 Cadre RH & obligations sociales</h3>
+            <div class="note">Une aide claire pour répondre aux questions RH du quotidien, selon vos règles internes.</div>
+          </div>
+        </div>
 
-            <div class="field">
-              <label>Adresse de votre site (si applicable)</label>
-              <input type="text" name="growth.website_url" placeholder="https://..." />
+        <!-- LUCAS -->
+        <div class="card">
+          <div class="cardMedia">
+            <img alt="Lucas - assistant comptable" src="assets/images/agents/agent-compta.png" />
+            <div class="badgeTop">💼 Lucas • Comptabilité</div>
+          </div>
+          <div class="cardBody">
+            <div class="roleLine">
+              <b>Lucas</b><span>— votre assistant comptable</span>
             </div>
-          </div>
-          <small>Nous n’évaluerons pas le site en direct, cette information sert au diagnostic.</small>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Visibilité sur Google (fiche Google Business Profile)</label>
-            <select name="growth.google_business">
-              <option value="">Sélectionner...</option>
-              <option value="oui">Oui, bien configurée</option>
-              <option value="oui_incomplete">Oui, mais incomplète / peu utilisée</option>
-              <option value="non">Non</option>
-              <option value="ne_sais_pas">Je ne sais pas</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Êtes-vous satisfait de votre visibilité actuelle sur Internet ?</label>
-            <select name="growth.web_visibility_satisfaction">
-              <option value="">Sélectionner...</option>
-              <option value="non_visibles">Pas du tout visibles</option>
-              <option value="insuffisant">Insuffisante</option>
-              <option value="correct">Correcte</option>
-              <option value="tres_bonne">Très bonne</option>
-            </select>
+            <h3>⚙️ Organisation comptable & fiscale</h3>
+            <div class="note">Un soutien pour structurer et fiabiliser les éléments comptables, en lien avec votre expert.</div>
           </div>
         </div>
 
-        <div class="field">
-          <label>Présence sur les réseaux sociaux</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="linkedin" /> LinkedIn
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="facebook" /> Facebook
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="instagram" /> Instagram
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="tiktok" /> TikTok
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="youtube" /> YouTube
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="growth.social_channels[]" value="aucun" /> Peu ou pas présents
-            </label>
+        <!-- INÈS -->
+        <div class="card">
+          <div class="cardMedia">
+            <img alt="Inès - support relation client" src="assets/images/agents/agent-support-client.png" />
+            <div class="badgeTop">📩 Inès • Relation client</div>
+          </div>
+          <div class="cardBody">
+            <div class="roleLine">
+              <b>Inès</b><span>— votre support client</span>
+            </div>
+            <h3>📩 Échanges clients & suivi</h3>
+            <div class="note">Une aide permanente pour gérer les échanges clients avec fluidité et cohérence.</div>
           </div>
         </div>
 
-        <div class="grid-2">
-          <div class="field">
-            <label>Fréquence de publication sur vos réseaux principaux</label>
-            <select name="growth.social_frequency">
-              <option value="">Sélectionner...</option>
-              <option value="rarement">Très rarement</option>
-              <option value="mensuel">Environ 1 fois par mois</option>
-              <option value="hebdo">Environ 1 fois par semaine</option>
-              <option value="frequent">Plusieurs fois par semaine</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Quel type de contenu publiez-vous principalement ?</label>
-            <textarea
-              name="growth.social_content"
-              placeholder="Ex : actualités, réalisations clients, conseils, promotions..."
-            ></textarea>
-          </div>
-        </div>
       </div>
+    </section>
 
-      <!-- ÉTAPE 5 : Outils & numérique -->
-      <div class="step" data-step="5" data-label="Outils numériques">
-        <h2>5. Outils numériques & environnement actuel</h2>
-        <p class="step-description">Quels outils utilisez-vous au quotidien ?</p>
+    <!-- APPROACH -->
+    <section class="section" id="approche">
+      <h2>Notre méthode (simple, cadrée, efficace)</h2>
+      <p>On avance vite, on sécurise le cadre, et on ajuste sur la base de cas réels.</p>
 
-        <div class="field">
-          <label>Outils utilisés régulièrement (cochez tout ce qui s’applique)</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="excel" /> Excel / tableurs
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="google_workspace" /> Google Workspace
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="microsoft365" /> Microsoft 365 / Outlook
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="crm" /> CRM dédié
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="notion" /> Notion
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="trello_asana" /> Trello / Asana
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="logiciel_metier" /> Logiciel métier
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="tools.stack[]" value="peu_outille" /> Peu d’outils / très peu
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Précisez les principaux outils (nom du CRM, logiciel métier, etc.)</label>
-          <textarea name="tools.details" placeholder="Ex : HubSpot, Sellsy, logiciel devis BTP, etc."></textarea>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Vos outils sont-ils connectés entre eux ?</label>
-            <select name="tools.integrations">
-              <option value="">Sélectionner...</option>
-              <option value="oui">Oui</option>
-              <option value="partiellement">Partiellement</option>
-              <option value="non">Non</option>
-              <option value="ne_sais_pas">Je ne sais pas</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Perdez-vous du temps à rechercher des informations ?</label>
-            <select name="tools.info_search_time">
-              <option value="">Sélectionner...</option>
-              <option value="non_ou_peu">Non ou très peu</option>
-              <option value="parfois">Parfois</option>
-              <option value="souvent">Souvent</option>
-              <option value="tout_le_temps">Tout le temps</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 6 : Équipement informatique & support -->
-      <div class="step" data-step="6" data-label="Équipement & support">
-        <h2>6. Équipement informatique & support</h2>
-        <p class="step-description">Nous évaluons ici votre confort avec l’outil, la qualité de l’équipement et l’efficacité du support.</p>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Niveau de confort global avec l’outil informatique</label>
-            <select name="it.comfort_level">
-              <option value="">Sélectionner...</option>
-              <option value="debutant">Débutant</option>
-              <option value="intermediaire">Intermédiaire</option>
-              <option value="a_l_aise">À l’aise</option>
-              <option value="expert">Très à l’aise / expert</option>
-            </select>
-            <small>À évaluer globalement pour les personnes qui utilisent l’informatique au quotidien.</small>
-          </div>
-
-          <div class="field">
-            <label>État et performance des ordinateurs / équipements</label>
-            <select name="it.equipment_state">
-              <option value="">Sélectionner...</option>
-              <option value="tres_bon">Très bon (rapide, fiable)</option>
-              <option value="correct">Correct (quelques lenteurs)</option>
-              <option value="limite">Limite (ralentissements fréquents)</option>
-              <option value="problematique">Problématique (pannes / blocages réguliers)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Disposez-vous d’un support informatique ?</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="radio" name="it.support_type" value="interne" /> Interne
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="it.support_type" value="externe" /> Externe (prestataire)
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="it.support_type" value="mixte" /> Mixte
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="it.support_type" value="aucun" /> Aucun / débrouille interne
-            </label>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="field">
-            <label>Réactivité du support en cas de problème</label>
-            <select name="it.support_reactivity">
-              <option value="">Sélectionner...</option>
-              <option value="tres_rapide">Très rapide</option>
-              <option value="correcte">Correcte</option>
-              <option value="lente">Lente</option>
-              <option value="tres_lente">Très lente</option>
-              <option value="non_applicable">Non applicable</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Satisfaction globale vis-à-vis du support</label>
-            <select name="it.support_satisfaction">
-              <option value="">Sélectionner...</option>
-              <option value="tres_satisfait">Très satisfait</option>
-              <option value="satisfait">Satisfait</option>
-              <option value="mitige">Mitigé</option>
-              <option value="insatisfait">Insatisfait</option>
-              <option value="non_applicable">Non applicable</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Principales difficultés rencontrées (si applicable)</label>
-          <textarea
-            name="it.pain_points"
-            placeholder="Ex : mots de passe, imprimantes, lenteurs, réseau, accès aux fichiers, pannes récurrentes..."
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 7 : Automatisation & IA -->
-      <div class="step" data-step="7" data-label="Automatisation & IA">
-        <h2>7. Automatisation & usage de l’IA</h2>
-        <p class="step-description">Nous évaluons ici votre niveau de maturité sur l’automatisation et l’intelligence artificielle.</p>
-
-        <div class="field">
-          <label>Niveau actuel d’automatisation dans l’entreprise</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="radio" name="automation.level" value="1_aucune" /> 1 – Aucune automatisation
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="automation.level" value="2_basique" /> 2 – Quelques automatisations simples
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="automation.level" value="3_moyen" /> 3 – Automatisation sur certains process
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="automation.level" value="4_avance" /> 4 – Automatisation avancée
-            </label>
-            <label class="option-pill">
-              <input type="radio" name="automation.level" value="5_strategique" /> 5 – L’automatisation est stratégique
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Quelles tâches répétitives souhaiteriez-vous automatiser en priorité ?</label>
-          <textarea
-            name="automation.priorities"
-            placeholder="Relances clientes, saisie de données, génération de devis, reporting..."
-          ></textarea>
-        </div>
-
-        <div class="field">
-          <label>Utilisez-vous déjà l’IA dans l’entreprise ?</label>
-          <div class="options">
-            <label class="option-pill">
-              <input type="checkbox" name="ai.current_usage[]" value="chatgpt" /> ChatGPT / assistants IA
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="ai.current_usage[]" value="logiciel_ia_integree" /> IA intégrée dans vos logiciels
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="ai.current_usage[]" value="projets_pilotes" /> Projets pilotes IA
-            </label>
-            <label class="option-pill">
-              <input type="checkbox" name="ai.current_usage[]" value="aucun" /> Pas encore
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Sur quels usages IA souhaiteriez-vous avancer ?</label>
-          <textarea
-            name="ai.desired_usage"
-            placeholder="Ex : agent IA interne, chatbot client, génération de documents, analyse d’emails..."
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 8 : Priorités & quick wins -->
-      <div class="step" data-step="8" data-label="Priorités & enjeux">
-        <h2>8. Priorités & enjeux</h2>
-        <p class="step-description">Ce qui nous permet de proposer un plan d’action concret et priorisé.</p>
-
-        <div class="field">
-          <label>Si vous deviez citer UN problème majeur aujourd’hui, ce serait ?</label>
-          <textarea name="priority.top_issue" placeholder="Le principal blocage / irritant actuel..."></textarea>
-        </div>
-
-        <div class="field">
-          <label>Quels résultats concrets attendez-vous d’un projet d’optimisation / IA ?</label>
-          <textarea
-            name="priority.expected_results"
-            placeholder="Ex : gagner X heures par semaine, réduire les erreurs, mieux suivre les leads..."
-          ></textarea>
-        </div>
-
-        <div class="field">
-          <label>Autre élément important à porter à notre connaissance ?</label>
-          <textarea name="priority.other_notes"></textarea>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 9 : Récap & analyse rapide -->
-      <div class="step" data-step="9" data-label="Récapitulatif">
-        <h2>9. Récapitulatif & envoi</h2>
-        <p class="step-description">
-          Validez vos réponses pour obtenir une analyse rapide et les prochaines étapes d’accompagnement.
-        </p>
-
-        <div class="badge">Aperçu local – vos réponses ne sont pas encore envoyées</div>
-
-        <div class="summary">
-          <div id="quickSummary" class="summary-card">
-            <p class="summary-placeholder">
-              Cliquez sur <strong>«&nbsp;Générer le récapitulatif&nbsp;»</strong> pour afficher une première analyse
-              synthétique de votre situation et découvrir comment nous pourrons vous accompagner.
+      <div class="grid steps">
+        <div class="card">
+          <div class="cardBody">
+            <div class="roleLine" style="margin-bottom:10px">
+              <b>1</b><span>— Audit</span>
+            </div>
+            <h3>Identifier les usages utiles</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+              Irritants, tâches répétitives, points de friction, contraintes. On vise les gains rapides.
             </p>
           </div>
-          <p id="submitStatus" style="margin-top:0.75rem;font-size:0.85rem;color:#6b7280;"></p>
+        </div>
+
+        <div class="card">
+          <div class="cardBody">
+            <div class="roleLine" style="margin-bottom:10px">
+              <b>2</b><span>— Cadrage</span>
+            </div>
+            <h3>Personnaliser & sécuriser</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+              Périmètre, règles, ton, escalade, données autorisées. L’agent devient réellement “le vôtre”.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardBody">
+            <div class="roleLine" style="margin-bottom:10px">
+              <b>3</b><span>— Mise en service</span>
+            </div>
+            <h3>Déployer et améliorer</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.6">
+              Démarrage simple, retours terrain, itérations. Objectif : adoption + ROI.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Boutons navigation -->
-      <div class="buttons">
-        <button type="button" class="btn btn-secondary" id="prevBtn">← Précédent</button>
-        <div style="flex:1"></div>
-        <button type="button" class="btn btn-primary" id="nextBtn">Suivant →</button>
-
-        <!-- ✅ IMPORTANT : bouton en type="button" -->
-        <button type="button" class="btn btn-primary" id="submitBtn" style="display:none;">
-          Générer le récapitulatif
-        </button>
+      <div class="note" style="margin-top:12px">
+        ✅ Disponibilité 24/7 + cadre personnalisé : une aide fiable et constante, sans dépendre d’horaires ou d’une disponibilité humaine.
       </div>
-    </form>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div>
+        <b>Envie d’identifier les bons usages IA pour votre activité ?</b>
+        <span>Échange rapide et cadré. Nous vous proposons une feuille de route “agents IA” adaptée à votre contexte.</span>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn" href="mailto:contact@novia-solutions.com?subject=Demande%20Agents%20IA%20NovIA&body=Bonjour%20NovIA%2C%0A%0AJe%20souhaite%20%C3%A9changer%20sur%20Thomas%2C%20Emma%2C%20Lucas%20ou%20In%C3%A8s%20(agents%20IA%20sur-mesure).%0A%0AEntreprise%20%3A%0ASecteur%20%3A%0AContexte%20%3A%0AObjectif%20%3A%0AMerci%20!">
+          Demander un échange
+        </a>
+        <a class="btn ghost" href="#top">Revenir en haut</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="mini">🧠 NovIA Solutions • Digitaliser • Automatiser • Optimiser</div>
+      <div class="mini">🛡️ Aides numériques • Sur-mesure • Disponibles 24/7</div>
+    </footer>
+
   </div>
-
-  <script>
-    // TODO : remplace cette URL par l’URL de ton webhook Make (ou autre)
-    const WEBHOOK_URL = "https://hook.eu1.make.com/mwdl5k6suikma2fwbsp5577dng2euex4";
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const steps = document.querySelectorAll(".step");
-      const progressFill = document.getElementById("progressFill");
-      const progressText = document.getElementById("progressText");
-      const progressStepLabel = document.getElementById("progressStepLabel");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const submitBtn = document.getElementById("submitBtn");
-      const form = document.getElementById("auditForm");
-      const quickSummary = document.getElementById("quickSummary");
-      const submitStatus = document.getElementById("submitStatus");
-
-      // Garde-fou : si un élément manque, on le saura immédiatement
-      if (!steps.length || !progressFill || !progressText || !prevBtn || !nextBtn || !submitBtn || !form || !quickSummary || !submitStatus) {
-        alert("Erreur: éléments introuvables. Vérifie que tu es bien sur l'URL GitHub Pages (xxx.github.io) et fais un refresh forcé (Ctrl+F5).");
-        return;
-      }
-
-      let currentStep = 1;
-      const totalSteps = steps.length;
-
-      function showStep(step) {
-        steps.forEach((el) => {
-          el.classList.toggle("active", Number(el.dataset.step) === step);
-        });
-
-        const percent = ((step - 1) / (totalSteps - 1)) * 100;
-        progressFill.style.width = percent + "%";
-        progressText.textContent = `Étape ${step} / ${totalSteps}`;
-        const label = steps[step - 1].dataset.label || "";
-        progressStepLabel.textContent = label;
-
-        prevBtn.disabled = step === 1;
-        nextBtn.style.display = step === totalSteps ? "none" : "inline-flex";
-        submitBtn.style.display = step === totalSteps ? "inline-flex" : "none";
-      }
-
-      function collectAnswers() {
-        const data = {};
-        const formData = new FormData(form);
-
-        for (const [rawKey, value] of formData.entries()) {
-          const isArray = rawKey.endsWith("[]");
-          const key = isArray ? rawKey.slice(0, -2) : rawKey;
-
-          if (isArray) {
-            if (!data[key]) data[key] = [];
-            data[key].push(value);
-          } else {
-            if (data[key] !== undefined) {
-              if (!Array.isArray(data[key])) data[key] = [data[key]];
-              data[key].push(value);
-            } else {
-              data[key] = value;
-            }
-          }
-        }
-        return data;
-      }
-
-      function buildQuickSummaryHTML(data) {
-        const firstName = data["user.firstname"] || "";
-        const lastName = data["user.lastname"] || "";
-        const fullName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : "Vous";
-        const role = data["user.role"] || "non précisé";
-        const email = data["user.email"] || "non précisé";
-
-        const companyName = data["company.name"] || "votre entreprise";
-        const sector = data["company.sector"] || "non précisé";
-        const clientType = data["company.client_type"] || "non précisé";
-        const mainGoal = data["company.main_goal"] || "non précisé";
-
-        const topIssue = data["priority.top_issue"] || "non précisé";
-        const expectedResults = data["priority.expected_results"] || "non précisés";
-
-        const automationLevel = data["automation.level"] || "non précisé";
-        const tools = data["tools.stack"]
-          ? (Array.isArray(data["tools.stack"]) ? data["tools.stack"] : [data["tools.stack"]]).join(", ")
-          : "non précisés";
-
-        const acqChannels = data["growth.acquisition_channels"]
-          ? (Array.isArray(data["growth.acquisition_channels"])
-              ? data["growth.acquisition_channels"]
-              : [data["growth.acquisition_channels"]]).join(", ")
-          : "non précisés";
-
-        const mapLabel = (val, dict, fallback = "non précisé") => {
-          if (!val) return fallback;
-          return dict[val] || val;
-        };
-
-        const itComfort = mapLabel(data["it.comfort_level"], {
-          debutant: "Débutant",
-          intermediaire: "Intermédiaire",
-          a_l_aise: "À l’aise",
-          expert: "Très à l’aise / expert"
-        });
-
-        const itEquipment = mapLabel(data["it.equipment_state"], {
-          tres_bon: "Très bon (rapide, fiable)",
-          correct: "Correct (quelques lenteurs)",
-          limite: "Limite (ralentissements fréquents)",
-          problematique: "Problématique (pannes / blocages réguliers)"
-        });
-
-        const itSupportType = mapLabel(data["it.support_type"], {
-          interne: "Interne",
-          externe: "Externe (prestataire)",
-          mixte: "Mixte",
-          aucun: "Aucun / débrouille interne"
-        });
-
-        const itReactivity = mapLabel(data["it.support_reactivity"], {
-          tres_rapide: "Très rapide",
-          correcte: "Correcte",
-          lente: "Lente",
-          tres_lente: "Très lente",
-          non_applicable: "Non applicable"
-        });
-
-        const itSatisfaction = mapLabel(data["it.support_satisfaction"], {
-          tres_satisfait: "Très satisfait",
-          satisfait: "Satisfait",
-          mitige: "Mitigé",
-          insatisfait: "Insatisfait",
-          non_applicable: "Non applicable"
-        });
-
-        return `
-          <h3>Merci, votre audit a été enregistré ✔</h3>
-          <p>
-            ${fullName}, nous avons bien reçu vos réponses pour <span class="summary-highlight">${companyName}</span>.
-            Voici une première lecture de votre situation.
-          </p>
-          <ul class="summary-list">
-            <li><strong>Profil répondant :</strong> ${role} – contact : ${email}</li>
-            <li><strong>Type d’activité :</strong> ${sector} – clientèle : ${clientType}</li>
-            <li><strong>Objectif principal de l’audit :</strong> ${mainGoal}</li>
-            <li><strong>Problème majeur identifié :</strong> ${topIssue}</li>
-            <li><strong>Résultats attendus :</strong> ${expectedResults}</li>
-            <li><strong>Niveau d’automatisation actuel :</strong> ${automationLevel}</li>
-            <li><strong>Environnement outils :</strong> ${tools}</li>
-            <li><strong>Acquisition clients :</strong> principaux canaux déclarés : ${acqChannels}</li>
-            <li><strong>Confort informatique :</strong> ${itComfort}</li>
-            <li><strong>État des équipements :</strong> ${itEquipment}</li>
-            <li><strong>Support informatique :</strong> ${itSupportType} – réactivité : ${itReactivity} – satisfaction : ${itSatisfaction}</li>
-          </ul>
-          <div class="next-steps-box">
-            <p>
-              <strong>Prochaine étape :</strong> nous vous contacterons prochainement pour organiser un échange
-              de 30–45 minutes (visio ou téléphone) afin de vous présenter ces résultats et, si vous le souhaitez,
-              esquisser ensemble un plan d’action priorisé.
-            </p>
-          </div>
-        `;
-      }
-
-      prevBtn.addEventListener("click", () => {
-        if (currentStep > 1) {
-          currentStep--;
-          showStep(currentStep);
-        }
-      });
-
-      nextBtn.addEventListener("click", () => {
-        if (currentStep < totalSteps) {
-          currentStep++;
-          showStep(currentStep);
-        }
-      });
-
-      // ✅ Bouton Générer = traitement + envoi Make
-      submitBtn.addEventListener("click", async () => {
-        // Preuve immédiate du clic (même si Make échoue)
-        submitStatus.textContent = "🟦 Clic détecté… génération du récapitulatif…";
-
-        try {
-          const answers = collectAnswers();
-          quickSummary.innerHTML = buildQuickSummaryHTML(answers);
-          submitStatus.textContent = "⏳ Envoi de vos réponses en cours...";
-
-          const res = await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              source: "novia-audit",
-              submittedAt: new Date().toISOString(),
-              url: window.location.href,
-              answers
-            })
-          });
-
-          if (!res.ok) throw new Error("HTTP " + res.status);
-          submitStatus.textContent = "✅ Vos réponses ont bien été envoyées. Nous reviendrons vers vous rapidement.";
-        } catch (err) {
-          console.error("Erreur d’envoi audit :", err);
-          submitStatus.textContent =
-            "⚠️ Le récapitulatif doit s’afficher ci-dessus. " +
-            "Erreur technique détectée : " + (err?.message || "inconnue") +
-            ". Ouvre la console (F12) pour le détail.";
-        }
-      });
-
-      // init
-      showStep(currentStep);
-    });
-  </script>
 </body>
 </html>
