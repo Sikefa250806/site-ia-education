@@ -31,6 +31,59 @@
         0 0 0 1px rgba(148, 163, 184, 0.16);
     }
 
+    /* NAV ONGLET (multi-pages) */
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .topnav-brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      font-size: 0.92rem;
+      color: #0f172a;
+      opacity: 0.9;
+      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .tab:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+    }
+
+    .tab[aria-current="page"] {
+      background: #eff6ff;
+      border-color: rgba(37, 99, 235, 0.25);
+      color: #1d4ed8;
+      opacity: 1;
+      font-weight: 700;
+    }
+
     h1 {
       font-size: 2rem;
       margin: 0 0 0.4rem;
@@ -372,6 +425,18 @@
 </head>
 <body>
   <div class="container">
+
+    <!-- NAV ONGLET (multi-pages) -->
+    <div class="topnav">
+      <div class="topnav-brand">NovIA Solutions</div>
+      <div class="tabs">
+        <a class="tab" href="index.html">Accueil</a>
+        <a class="tab" href="audit.html" aria-current="page">Audit gratuit</a>
+        <a class="tab" href="/agents-virtuels/">Agents IA</a>
+        <a class="tab" href="index.html#contact">Contact</a>
+      </div>
+    </div>
+
     <h1>Audit numérique & IA – NovIA Solutions</h1>
     <p class="subtitle">
       Un questionnaire structuré pour faire un diagnostic clair de votre organisation, de vos outils et des opportunités d’automatisation & d’IA.
