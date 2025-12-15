@@ -629,7 +629,7 @@
           </div>
 
           <div class="field">
-            <label>Quels sont, selon vous, les 2–3 processus les plus “painful” aujourd’hui ?</label>
+            <label>Quels sont, selon vous, les 2–3 processus les plus “douloureux” aujourd’hui ?</label>
             <textarea
               name="org.key_pains"
               placeholder="Ex : relances clients, facturation, suivi de projet, planning..."
@@ -877,9 +877,92 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 6 : Automatisation & IA -->
-      <div class="step" data-step="6" data-label="Automatisation & IA">
-        <h2>6. Automatisation & usage de l’IA</h2>
+      <!-- ÉTAPE 6 : Équipement informatique & support -->
+      <div class="step" data-step="6" data-label="Équipement & support">
+        <h2>6. Équipement informatique & support</h2>
+        <p class="step-description">Nous évaluons ici votre confort avec l’outil, la qualité de l’équipement et l’efficacité du support.</p>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Niveau de confort global avec l’outil informatique</label>
+            <select name="it.comfort_level">
+              <option value="">Sélectionner...</option>
+              <option value="debutant">Débutant</option>
+              <option value="intermediaire">Intermédiaire</option>
+              <option value="a_l_aise">À l’aise</option>
+              <option value="expert">Très à l’aise / expert</option>
+            </select>
+            <small>À évaluer globalement pour les personnes qui utilisent l’informatique au quotidien.</small>
+          </div>
+
+          <div class="field">
+            <label>État et performance des ordinateurs / équipements</label>
+            <select name="it.equipment_state">
+              <option value="">Sélectionner...</option>
+              <option value="tres_bon">Très bon (rapide, fiable)</option>
+              <option value="correct">Correct (quelques lenteurs)</option>
+              <option value="limite">Limite (ralentissements fréquents)</option>
+              <option value="problematique">Problématique (pannes / blocages réguliers)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Disposez-vous d’un support informatique ?</label>
+          <div class="options">
+            <label class="option-pill">
+              <input type="radio" name="it.support_type" value="interne" /> Interne
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="it.support_type" value="externe" /> Externe (prestataire)
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="it.support_type" value="mixte" /> Mixte
+            </label>
+            <label class="option-pill">
+              <input type="radio" name="it.support_type" value="aucun" /> Aucun / débrouille interne
+            </label>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label>Réactivité du support en cas de problème</label>
+            <select name="it.support_reactivity">
+              <option value="">Sélectionner...</option>
+              <option value="tres_rapide">Très rapide</option>
+              <option value="correcte">Correcte</option>
+              <option value="lente">Lente</option>
+              <option value="tres_lente">Très lente</option>
+              <option value="non_applicable">Non applicable</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Satisfaction globale vis-à-vis du support</label>
+            <select name="it.support_satisfaction">
+              <option value="">Sélectionner...</option>
+              <option value="tres_satisfait">Très satisfait</option>
+              <option value="satisfait">Satisfait</option>
+              <option value="mitige">Mitigé</option>
+              <option value="insatisfait">Insatisfait</option>
+              <option value="non_applicable">Non applicable</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Principales difficultés rencontrées (si applicable)</label>
+          <textarea
+            name="it.pain_points"
+            placeholder="Ex : mots de passe, imprimantes, lenteurs, réseau, accès aux fichiers, pannes récurrentes..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 7 : Automatisation & IA -->
+      <div class="step" data-step="7" data-label="Automatisation & IA">
+        <h2>7. Automatisation & usage de l’IA</h2>
         <p class="step-description">Nous évaluons ici votre niveau de maturité sur l’automatisation et l’intelligence artificielle.</p>
 
         <div class="field">
@@ -938,9 +1021,9 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 7 : Priorités & quick wins -->
-      <div class="step" data-step="7" data-label="Priorités & enjeux">
-        <h2>7. Priorités & enjeux</h2>
+      <!-- ÉTAPE 8 : Priorités & quick wins -->
+      <div class="step" data-step="8" data-label="Priorités & enjeux">
+        <h2>8. Priorités & enjeux</h2>
         <p class="step-description">Ce qui nous permet de proposer un plan d’action concret et priorisé.</p>
 
         <div class="field">
@@ -962,9 +1045,9 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 8 : Récap & analyse rapide -->
-      <div class="step" data-step="8" data-label="Récapitulatif">
-        <h2>8. Récapitulatif & envoi</h2>
+      <!-- ÉTAPE 9 : Récap & analyse rapide -->
+      <div class="step" data-step="9" data-label="Récapitulatif">
+        <h2>9. Récapitulatif & envoi</h2>
         <p class="step-description">
           Validez vos réponses pour obtenir une analyse rapide et les prochaines étapes d’accompagnement.
         </p>
