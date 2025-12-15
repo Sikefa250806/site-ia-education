@@ -61,6 +61,42 @@
       opacity: 1;
     }
 
+    /* ONGLET NAV (multi-pages) */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 0.92rem;
+      color: #0f172a;
+      opacity: 0.9;
+      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+      margin-left: 0;
+    }
+
+    .tab:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .tab[aria-current="page"] {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+      opacity: 1;
+      font-weight: 700;
+    }
+
     /* HERO */
     .hero {
       margin-bottom: 40px;
@@ -354,12 +390,11 @@
 
     <header>
       <div class="logo">Nov<span>IA</span> Solutions</div>
-      <nav>
-        <a href="#benefices">Bénéfices</a>
-        <a href="#solutions">Solutions</a>
-        <a href="/agents-virtuels/">Agents virtuels</a>
-        <a href="#contact">Contact</a>
-        <a href="#faq">FAQ</a>
+      <nav class="tabs">
+        <a class="tab" href="index.html" aria-current="page">Accueil</a>
+        <a class="tab" href="audit.html">Audit gratuit</a>
+        <a class="tab" href="/agents-virtuels/">Agents IA</a>
+        <a class="tab" href="#contact">Contact</a>
       </nav>
     </header>
 
