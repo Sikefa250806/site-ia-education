@@ -419,7 +419,7 @@
         <div class="progress-bar-fill" id="progressFill"></div>
       </div>
       <div class="progress-text">
-        <span id="progressText">Étape 1 / 8</span>
+        <span id="progressText">Étape 1 / 9</span>
         <span class="progress-step-label" id="progressStepLabel"></span>
       </div>
     </div>
@@ -1070,6 +1070,8 @@
         <button type="button" class="btn btn-secondary" id="prevBtn">← Précédent</button>
         <div style="flex:1"></div>
         <button type="button" class="btn btn-primary" id="nextBtn">Suivant →</button>
+
+        <!-- ✅ IMPORTANT : bouton en type="button" -->
         <button type="button" class="btn btn-primary" id="submitBtn" style="display:none;">
           Générer le récapitulatif
         </button>
@@ -1081,171 +1083,167 @@
     // TODO : remplace cette URL par l’URL de ton webhook Make (ou autre)
     const WEBHOOK_URL = "https://hook.eu1.make.com/mwdl5k6suikma2fwbsp5577dng2euex4";
 
-    const steps = document.querySelectorAll(".step");
-    const progressFill = document.getElementById("progressFill");
-    const progressText = document.getElementById("progressText");
-    const progressStepLabel = document.getElementById("progressStepLabel");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const form = document.getElementById("auditForm");
-    const quickSummary = document.getElementById("quickSummary");
-    const submitStatus = document.getElementById("submitStatus");
+    document.addEventListener("DOMContentLoaded", () => {
+      const steps = document.querySelectorAll(".step");
+      const progressFill = document.getElementById("progressFill");
+      const progressText = document.getElementById("progressText");
+      const progressStepLabel = document.getElementById("progressStepLabel");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const form = document.getElementById("auditForm");
+      const quickSummary = document.getElementById("quickSummary");
+      const submitStatus = document.getElementById("submitStatus");
 
-    let currentStep = 1;
-    const totalSteps = steps.length;
+      // Garde-fou : si un élément manque, on le saura immédiatement
+      if (!steps.length || !progressFill || !progressText || !prevBtn || !nextBtn || !submitBtn || !form || !quickSummary || !submitStatus) {
+        alert("Erreur: éléments introuvables. Vérifie que tu es bien sur l'URL GitHub Pages (xxx.github.io) et fais un refresh forcé (Ctrl+F5).");
+        return;
+      }
 
-    function showStep(step) {
-      steps.forEach((el) => {
-        el.classList.toggle("active", Number(el.dataset.step) === step);
-      });
+      let currentStep = 1;
+      const totalSteps = steps.length;
 
-      const percent = (step - 1) / (totalSteps - 1) * 100;
-      progressFill.style.width = percent + "%";
-      progressText.textContent = `Étape ${step} / ${totalSteps}`;
-      const label = steps[step - 1].dataset.label || "";
-      progressStepLabel.textContent = label;
+      function showStep(step) {
+        steps.forEach((el) => {
+          el.classList.toggle("active", Number(el.dataset.step) === step);
+        });
 
-      prevBtn.disabled = step === 1;
-      nextBtn.style.display = step === totalSteps ? "none" : "inline-flex";
-      submitBtn.style.display = step === totalSteps ? "inline-flex" : "none";
-    }
+        const percent = ((step - 1) / (totalSteps - 1)) * 100;
+        progressFill.style.width = percent + "%";
+        progressText.textContent = `Étape ${step} / ${totalSteps}`;
+        const label = steps[step - 1].dataset.label || "";
+        progressStepLabel.textContent = label;
 
-    function collectAnswers() {
-      const data = {};
-      const formData = new FormData(form);
+        prevBtn.disabled = step === 1;
+        nextBtn.style.display = step === totalSteps ? "none" : "inline-flex";
+        submitBtn.style.display = step === totalSteps ? "inline-flex" : "none";
+      }
 
-      for (const [rawKey, value] of formData.entries()) {
-        const isArray = rawKey.endsWith("[]");
-        const key = isArray ? rawKey.slice(0, -2) : rawKey;
+      function collectAnswers() {
+        const data = {};
+        const formData = new FormData(form);
 
-        if (isArray) {
-          if (!data[key]) data[key] = [];
-          data[key].push(value);
-        } else {
-          if (data[key] !== undefined) {
-            if (!Array.isArray(data[key])) {
-              data[key] = [data[key]];
-            }
+        for (const [rawKey, value] of formData.entries()) {
+          const isArray = rawKey.endsWith("[]");
+          const key = isArray ? rawKey.slice(0, -2) : rawKey;
+
+          if (isArray) {
+            if (!data[key]) data[key] = [];
             data[key].push(value);
           } else {
-            data[key] = value;
+            if (data[key] !== undefined) {
+              if (!Array.isArray(data[key])) data[key] = [data[key]];
+              data[key].push(value);
+            } else {
+              data[key] = value;
+            }
           }
         }
+        return data;
       }
 
-      return data;
-    }
+      function buildQuickSummaryHTML(data) {
+        const firstName = data["user.firstname"] || "";
+        const lastName = data["user.lastname"] || "";
+        const fullName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : "Vous";
+        const role = data["user.role"] || "non précisé";
+        const email = data["user.email"] || "non précisé";
 
-    function buildQuickSummaryHTML(data) {
-      const firstName = data["user.firstname"] || "";
-      const lastName = data["user.lastname"] || "";
-      const fullName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : "Vous";
-      const role = data["user.role"] || "non précisé";
-      const email = data["user.email"] || "non précisé";
+        const companyName = data["company.name"] || "votre entreprise";
+        const sector = data["company.sector"] || "non précisé";
+        const clientType = data["company.client_type"] || "non précisé";
+        const mainGoal = data["company.main_goal"] || "non précisé";
 
-      const companyName = data["company.name"] || "votre entreprise";
-      const sector = data["company.sector"] || "non précisé";
-      const clientType = data["company.client_type"] || "non précisé";
-      const mainGoal = data["company.main_goal"] || "non précisé";
+        const topIssue = data["priority.top_issue"] || "non précisé";
+        const expectedResults = data["priority.expected_results"] || "non précisés";
 
-      const topIssue = data["priority.top_issue"] || "non précisé";
-      const expectedResults = data["priority.expected_results"] || "non précisés";
+        const automationLevel = data["automation.level"] || "non précisé";
+        const tools = data["tools.stack"]
+          ? (Array.isArray(data["tools.stack"]) ? data["tools.stack"] : [data["tools.stack"]]).join(", ")
+          : "non précisés";
 
-      const automationLevel = data["automation.level"] || "non précisé";
-      const tools = data["tools.stack"]
-        ? (Array.isArray(data["tools.stack"]) ? data["tools.stack"] : [data["tools.stack"]]).join(", ")
-        : "non précisés";
+        const acqChannels = data["growth.acquisition_channels"]
+          ? (Array.isArray(data["growth.acquisition_channels"])
+              ? data["growth.acquisition_channels"]
+              : [data["growth.acquisition_channels"]]).join(", ")
+          : "non précisés";
 
-      const acqChannels = data["growth.acquisition_channels"]
-        ? (Array.isArray(data["growth.acquisition_channels"])
-            ? data["growth.acquisition_channels"]
-            : [data["growth.acquisition_channels"]]).join(", ")
-        : "non précisés";
-
-      return `
-        <h3>Merci, votre audit a été enregistré ✔</h3>
-        <p>
-          ${fullName}, nous avons bien reçu vos réponses pour <span class="summary-highlight">${companyName}</span>.
-          Voici une première lecture de votre situation.
-        </p>
-        <ul class="summary-list">
-          <li><strong>Profil répondant :</strong> ${role} – contact : ${email}</li>
-          <li><strong>Type d’activité :</strong> ${sector} – clientèle : ${clientType}</li>
-          <li><strong>Objectif principal de l’audit :</strong> ${mainGoal}</li>
-          <li><strong>Problème majeur identifié :</strong> ${topIssue}</li>
-          <li><strong>Résultats attendus :</strong> ${expectedResults}</li>
-          <li><strong>Niveau d’automatisation actuel :</strong> ${automationLevel}</li>
-          <li><strong>Environnement outils :</strong> ${tools}</li>
-          <li><strong>Acquisition clients :</strong> principaux canaux déclarés : ${acqChannels}</li>
-        </ul>
-        <div class="next-steps-box">
+        return `
+          <h3>Merci, votre audit a été enregistré ✔</h3>
           <p>
-            À partir de ces éléments, nous allons préparer une analyse plus détaillée : 
-            cartographie de vos processus clés, identification des “quick wins” et pistes d’outils / automatisations
-            adaptés à votre contexte.
+            ${fullName}, nous avons bien reçu vos réponses pour <span class="summary-highlight">${companyName}</span>.
+            Voici une première lecture de votre situation.
           </p>
-          <p>
-            <strong>Prochaine étape :</strong> nous vous contacterons prochainement pour organiser un échange
-            de 30–45 minutes (visio ou téléphone) afin de vous présenter ces résultats et, si vous le souhaitez,
-            esquisser ensemble un plan d’action priorisé.
-          </p>
-          <p>
-            Si vous avez d’autres précisions à ajouter d’ici là, vous pourrez simplement nous les transmettre
-            en réponse au mail de confirmation.
-          </p>
-        </div>
-      `;
-    }
-
-    prevBtn.addEventListener("click", () => {
-      if (currentStep > 1) {
-        currentStep--;
-        showStep(currentStep);
+          <ul class="summary-list">
+            <li><strong>Profil répondant :</strong> ${role} – contact : ${email}</li>
+            <li><strong>Type d’activité :</strong> ${sector} – clientèle : ${clientType}</li>
+            <li><strong>Objectif principal de l’audit :</strong> ${mainGoal}</li>
+            <li><strong>Problème majeur identifié :</strong> ${topIssue}</li>
+            <li><strong>Résultats attendus :</strong> ${expectedResults}</li>
+            <li><strong>Niveau d’automatisation actuel :</strong> ${automationLevel}</li>
+            <li><strong>Environnement outils :</strong> ${tools}</li>
+            <li><strong>Acquisition clients :</strong> principaux canaux déclarés : ${acqChannels}</li>
+          </ul>
+          <div class="next-steps-box">
+            <p>
+              <strong>Prochaine étape :</strong> nous vous contacterons prochainement pour organiser un échange
+              de 30–45 minutes (visio ou téléphone) afin de vous présenter ces résultats et, si vous le souhaitez,
+              esquisser ensemble un plan d’action priorisé.
+            </p>
+          </div>
+        `;
       }
-    });
 
-    nextBtn.addEventListener("click", () => {
-      if (currentStep < totalSteps) {
-        currentStep++;
-        showStep(currentStep);
-      }
-    });
+      prevBtn.addEventListener("click", () => {
+        if (currentStep > 1) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+      nextBtn.addEventListener("click", () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
 
-      const answers = collectAnswers();
-      quickSummary.innerHTML = buildQuickSummaryHTML(answers);
-      submitStatus.textContent = "⏳ Envoi de vos réponses en cours...";
+      // ✅ Bouton Générer = traitement + envoi Make
+      submitBtn.addEventListener("click", async () => {
+        // Preuve immédiate du clic (même si Make échoue)
+        submitStatus.textContent = "🟦 Clic détecté… génération du récapitulatif…";
 
-      // Envoi vers ton scénario Make (ou autre backend)
-      fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          source: "novia-audit",
-          submittedAt: new Date().toISOString(),
-          url: window.location.href,
-          answers
-        })
-      })
-        .then((res) => {
+        try {
+          const answers = collectAnswers();
+          quickSummary.innerHTML = buildQuickSummaryHTML(answers);
+          submitStatus.textContent = "⏳ Envoi de vos réponses en cours...";
+
+          const res = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              source: "novia-audit",
+              submittedAt: new Date().toISOString(),
+              url: window.location.href,
+              answers
+            })
+          });
+
           if (!res.ok) throw new Error("HTTP " + res.status);
           submitStatus.textContent = "✅ Vos réponses ont bien été envoyées. Nous reviendrons vers vous rapidement.";
-        })
-        .catch((err) => {
+        } catch (err) {
           console.error("Erreur d’envoi audit :", err);
           submitStatus.textContent =
-            "⚠️ Vos réponses sont bien affichées ci-dessus, mais l’envoi automatique a échoué. " +
-            "Vous pouvez faire une capture ou copier-coller ce récapitulatif et nous le transmettre par e-mail.";
-        });
-    });
+            "⚠️ Le récapitulatif doit s’afficher ci-dessus. " +
+            "Erreur technique détectée : " + (err?.message || "inconnue") +
+            ". Ouvre la console (F12) pour le détail.";
+        }
+      });
 
-    // init
-    showStep(currentStep);
+      // init
+      showStep(currentStep);
+    });
   </script>
 </body>
 </html>
