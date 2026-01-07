@@ -65,7 +65,7 @@
     /* ONGLET NAV (multi-pages) */
     .tabs {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -73,29 +73,33 @@
     .tab {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      font-size: 0.92rem;
+      border: 1.5px solid #cbd5e1;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      font-size: 0.95rem;
       color: #0f172a;
-      opacity: 0.9;
-      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.10);
+      transition: transform 0.1s ease, box-shadow 0.15s ease, border-color 0.15s ease;
       margin-left: 0;
+      opacity: 1;
     }
 
     .tab:hover {
-      opacity: 1;
       transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+      border-color: #94a3b8;
+      opacity: 1;
     }
 
     .tab[aria-current="page"] {
-      background: #e0f2fe;
-      border-color: #bae6fd;
-      color: #0369a1;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #ffffff;
+      border-color: #0284c7;
       opacity: 1;
-      font-weight: 700;
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(2, 132, 199, 0.35);
     }
 
     /* HERO */
@@ -304,33 +308,149 @@
       color: #475569;
     }
 
-    .cta {
-      text-align: center;
-      padding: 24px;
-      border-radius: 18px;
-      background: #e0f2fe;
-      border: 1px solid #bae6fd;
-      color: #0c4a6e;
+    /* ✅ SEULE MODIF : mettre plus en avant les encadrés "bénéfices concrets" */
+    #benefices .card{
+      border: 1px solid rgba(2, 132, 199, .28);
+      background: linear-gradient(180deg, rgba(14,165,233,.08), #ffffff 55%);
+      box-shadow: 0 14px 30px rgba(2, 132, 199, 0.12);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.10s ease, box-shadow 0.14s ease, border-color 0.14s ease;
     }
 
-    .cta strong {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #0369a1;
-      font-weight: 700;
+    #benefices .card:before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(14,165,233,.25), transparent 55%),
+                  radial-gradient(circle at 70% 70%, rgba(249,115,22,.18), transparent 55%);
+      filter: blur(18px);
+      pointer-events:none;
+      opacity:.65;
     }
 
-    /* CONTACT */
+    #benefices .card > *{ position:relative; }
+
+    #benefices .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(2, 132, 199, .45);
+      box-shadow: 0 22px 46px rgba(2, 132, 199, 0.16);
+    }
+
+    #benefices .card-header h3 {
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+
+    #benefices .card-header .icon{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(14,165,233,.10);
+      border: 1px solid rgba(2,132,199,.18);
+    }
+
+    #benefices .card p{
+      color:#334155;
+      font-weight: 600;
+    }
+
+    /* CONTACT — FORMULAIRE (même couleur premium) */
     .contact-box {
-      background: #ffffff;
+      background: linear-gradient(145deg, #0f172a, #111827);
       border-radius: 18px;
       padding: 24px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.10);
       max-width: 680px;
       margin: 0 auto;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
       text-align: center;
+      color: #e5e7eb;
+    }
+
+    .contact-box h2 {
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .contact-box .contact-intro {
+      color: rgba(229, 231, 235, 0.85);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .contact-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      color: rgba(229, 231, 235, 0.9);
+      font-weight: 600;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(229, 231, 235, 0.6);
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .contact-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 22px rgba(2, 132, 199, 0.28);
+      transition: transform 0.08s ease, box-shadow 0.12s ease, opacity 0.1s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(2, 132, 199, 0.35);
+      opacity: 0.98;
     }
 
     footer {
@@ -436,29 +556,10 @@
               <li>🧾 Cabinets comptables : récupération des factures, relevés bancaires, variables de paie et pièces manquantes sans relancer manuellement chaque client.</li>
               <li>⚖️ Avocats : suivi des dossiers, rappels clients, préparation de pièces et réduction des allers-retours par email.</li>
               <li>🏛️ Notaires : gestion des pièces obligatoires pour les actes, relances automatiques et sécurisation des dossiers.</li>
-              <li>🏠 Agences immobilières : collecte des documents vendeurs et acquéreurs, suivi des mandats, visites et relances clients.</li>
+              <li>🏢 Collectivités (mairies, services publics) : centralisation des demandes, formulaires en ligne, suivi des dossiers citoyens, relances automatiques, amélioration de l’accueil et simplification des démarches.</li>
             </ul>
           </aside>
         </div>
-      </section>
-
-      <!-- INNOVATION / CONTEXTE -->
-      <section id="innovation">
-        <h2 class="section-title">💡 Des solutions innovantes et simples à intégrer</h2>
-        <p class="section-sub">
-          Les nouvelles technologies ont énormément évolué ces dernières années
-          et continuent de progresser à un rythme toujours plus effréné.
-          Nous vous proposons de mettre à jour vos processus et de moderniser vos outils
-          afin de gagner en productivité et de vous démarquer durablement.
-        </p>
-        <p class="section-sub">
-          Beaucoup d’entreprises sont aujourd’hui débordées : manque de personnel,
-          difficulté à recruter, collaborateurs non qualifiés pour certaines tâches
-          ou pics d’activité difficiles à absorber. Les nouvelles technologies peuvent
-          compenser ces situations en automatisant ce qui peut l’être, en simplifiant
-          le travail quotidien et en apportant un soutien fiable lorsque les ressources
-          internes manquent.
-        </p>
       </section>
 
       <!-- BENEFICES -->
@@ -551,42 +652,48 @@
         </div>
       </section>
 
-      <!-- CTA -->
-      <section>
-        <div class="cta">
-          <h2 class="section-title">📞 Audit gratuit & sans engagement</h2>
-          <p>
-            Dites-nous comment vous travaillez aujourd’hui : nous identifions vos
-            pistes concrètes de digitalisation et d’automatisation.
-          </p>
-          <strong>📝 Vous repartez avec un plan clair & priorisé.</strong>
-          <!-- BOUTON AUDIT CTA -->
-          <div>
-            <a href="audit.html" class="btn-audit">🔥 Faire votre audit gratuit</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- PACKS & TARIFS SUR MESURE -->
-      <section id="tarifs">
-        <h2 class="section-title">📦 Packs & tarifs sur mesure</h2>
-        <p class="section-sub">
-          Chaque entreprise a ses propres besoins, ses contraintes et son niveau de maturité numérique.
-          Nous construisons avec vous des packs et des tarifs sur mesure, adaptés à votre taille,
-          votre secteur et vos priorités, pour que l’investissement reste maîtrisé et rapidement rentable.
-        </p>
-      </section>
-
-      <!-- CONTACT -->
+      <!-- CONTACT (FORMULAIRE) -->
       <section id="contact">
         <div class="contact-box">
           <h2>Contact entreprise</h2>
           <p class="contact-intro">Contactez-nous pour un audit gratuit ou pour échanger sur vos besoins.</p>
 
-          <p style="font-size:1.05rem; margin-top:12px;">
-            📞 <strong>06.25.78.54.99</strong><br>
-            📧 <strong>contact@novia-solutions.com</strong>
-          </p>
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label for="societe">Société</label>
+              <input id="societe" name="societe" type="text" placeholder="Nom de votre structure" required>
+            </div>
+
+            <div class="field">
+              <label for="ville">Ville</label>
+              <input id="ville" name="ville" type="text" placeholder="Votre ville" required>
+            </div>
+
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" placeholder="Votre prénom" required>
+            </div>
+
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" placeholder="Votre nom" required>
+            </div>
+
+            <div class="field full">
+              <label for="telephone">Numéro de téléphone</label>
+              <input id="telephone" name="telephone" type="tel" placeholder="06 xx xx xx xx" required>
+            </div>
+
+            <div class="field full">
+              <label for="demande">Demandes particulières</label>
+              <textarea id="demande" name="demande" rows="4" placeholder="Expliquez brièvement votre besoin..." required></textarea>
+            </div>
+
+            <div class="contact-actions">
+              <button type="submit" class="btn-submit">📩 Envoyer</button>
+            </div>
+          </form>
+
         </div>
       </section>
 
