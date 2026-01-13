@@ -1119,7 +1119,8 @@
           Validez vos réponses pour obtenir une analyse rapide et les prochaines étapes d’accompagnement.
         </p>
 
-        <div class="badge">Aperçu local – vos réponses ne sont pas encore envoyées</div>
+        <!-- ✅ MODIF : badge avec id + texte neutre -->
+        <div class="badge" id="auditBadge">Aperçu local – cliquez sur « Générer le récapitulatif »</div>
 
         <div class="summary">
           <div id="quickSummary" class="summary-card">
@@ -1161,6 +1162,7 @@
       const form = document.getElementById("auditForm");
       const quickSummary = document.getElementById("quickSummary");
       const submitStatus = document.getElementById("submitStatus");
+      const auditBadge = document.getElementById("auditBadge"); // ✅ MODIF : badge
 
       // Garde-fou : si un élément manque, on le saura immédiatement
       if (!steps.length || !progressFill || !progressText || !prevBtn || !nextBtn || !submitBtn || !form || !quickSummary || !submitStatus) {
@@ -1280,6 +1282,7 @@
       submitBtn.addEventListener("click", async () => {
         // Preuve immédiate du clic (même si Make échoue)
         submitStatus.textContent = "🟦 Clic détecté… génération du récapitulatif…";
+        if (auditBadge) auditBadge.textContent = "⏳ Envoi de l’audit en cours…"; // ✅ MODIF
 
         try {
           const answers = collectAnswers();
@@ -1298,13 +1301,18 @@
           });
 
           if (!res.ok) throw new Error("HTTP " + res.status);
+
           submitStatus.textContent = "✅ Vos réponses ont bien été envoyées. Nous reviendrons vers vous rapidement.";
+          if (auditBadge) auditBadge.textContent = "✅ Audit envoyé"; // ✅ MODIF
+
         } catch (err) {
           console.error("Erreur d’envoi audit :", err);
           submitStatus.textContent =
             "⚠️ Le récapitulatif doit s’afficher ci-dessus. " +
             "Erreur technique détectée : " + (err?.message || "inconnue") +
             ". Ouvre la console (F12) pour le détail.";
+
+          if (auditBadge) auditBadge.textContent = "⚠️ Envoi impossible (erreur technique)"; // ✅ MODIF
         }
       });
 
